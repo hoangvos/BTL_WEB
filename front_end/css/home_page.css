@@ -1,0 +1,206 @@
+:root {
+  --shop-color-bg: #ffffff;
+  --shop-color-main: #1b4ea0;
+  --shop-color-text: #252a2b;
+  --shop-color-title: #000;
+  --shop-color-hover: #1b4ea0;
+  --shop-color-button: #1b4ea0;
+  --shop-color-border: #ccc;
+  --home-category-bg-1: #faf1ff;
+  --home-category-bg-2: #faf4eb;
+  --home-category-bg-3: #f4e6e5;
+  --home-category-bg-4: #e6f2f4;
+  --home-category-bg-5: #fff6f6;
+  --home-collection1-bg: #dd0303;
+  --home-collection1-icon: #ffff00;
+  --home-collection1-color-text: #ffffff;
+  --home-collection2-bg: #fff6f6;
+  --home-collection3-bg: #ccf0dd;
+  --home-collection3-title: #dd0303;
+  --footer-bg-color-1: #f5f5f5;
+  --footer-bg-color-2: #ffffff;
+  --footer-bg-color-copyright: #ffffff;
+  --footer-color-title: #333333;
+  --footer-color-text: #656565;
+  --footer-color-hover: #1b4ea0;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: 'futura-REGULAR', sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header{
+  /* background-color: green; */
+  width: 95%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px auto;
+}
+
+.logo{
+  width: 95px;
+}
+
+.right_side_header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 340px;
+}
+
+.search{
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 189px;
+  height: 35px;
+  padding: 3px 8px 3px 0px;
+  border-radius: 4px;
+}
+
+.search input{
+  height: 100%;
+  width: 141px;
+  border: none;
+  background-color: transparent;
+}
+.search input:focus{
+  outline: none;
+}
+.search button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  flex: 1;
+}
+.search button svg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+}
+.infor{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user svg, .favorite svg, .bag svg{
+  height: 25px;
+  width: 25px;
+}
+
+nav{
+  width: 585px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner img{
+  width: 100%;
+}
+
+
+
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+footer h4{
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--footer-color-title);
+  padding: 15px 0px 12px 0px;
+  font-family: 'futura-REGULAR', sans-serif;
+  margin: 0px;
+}
+.content_footer{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.content_footer a{
+  text-decoration: none;
+  color: var(--footer-color-text);
+  font-weight: 500;
+  font-family: 'futura-REGULAR', sans-serif;
+  font-size: 14px;
+  padding-bottom: 8px;
+  width: fit-content; 
+  transition: all 0.5s ease-in-out;
+}
+.content_footer a:hover{
+  color: var(--footer-color-hover);
+}
+
+.copyright {
+  width: 100%;
+  height: 76px;
+  background-color: #dfdfdf;
+  margin: 15px 0px 0px 0px;
+
+}
+.copyright .registered img{
+  width: 120px;
+  height: 45px;
+}
+.copyright a{
+  text-decoration: none;
+  color: var(--shop-color-text);
+  transition: all 0.5s ease-in-out;
+}
+.copyright a:hover{
+  color: var(--footer-color-hover);
+}
