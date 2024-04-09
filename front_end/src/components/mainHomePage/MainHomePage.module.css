@@ -1,0 +1,38 @@
+
+.banner{
+  overflow-x: hidden;
+  position: relative;
+}
+.bannerImages{
+  transition: transform 0.3s ease-in-out;
+}
+.bannerImage{
+  width: 100%;
+}
+.bannerControl{
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dot{
+  width: 10px;
+  height: 10px;
+  background-color: #928c8c;
+  border-radius: 50%;
+  border: none;
+  position: relative;
+}
+.active{
+  background-color: black;
+}
+.active::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 25px;
+  height: 25px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
