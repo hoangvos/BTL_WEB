@@ -42,7 +42,7 @@ export default function Header() {
             </div>
           </div>
           <div class="right_side col-4">
-            <Logo />
+            <Logo childClass={style.logo}/>
             <div class="content_copyright">
               <div><b>CÔNG TY TNHH SẢN XUẤT HÀNG TIÊU DÙNG BÌNH TIÊN</b></div>
               <div><b>Địa chỉ: </b>22 Lý Chiêu Hoàng, Phường 10, Quận 6, TP. Hồ Chí Minh</div>

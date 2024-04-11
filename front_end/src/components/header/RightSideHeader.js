@@ -4,7 +4,7 @@ import style from './Header.module.css'
 export default function RightSideHeader() {
   return (
     <div
-      className={`${style.rightSideHeader} d-flex justify-content-between align-items-center`}>
+      className={`${style.rightSideHeader}`}>
       <form className={style.search}>
         <button className={style.searchButton}>
           <i class="bi bi-search"></i>

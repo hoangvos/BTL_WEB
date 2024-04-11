@@ -2,12 +2,24 @@
   width: 96%;
   height: 70px;
 }
+
+/*Logo*/
+.logo{
+  height: 60px;
+  width: fit-content;
+  order: 1;
+}
+/*----------------------*/
+
+
 .rightSideHeader{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 340px;
+  width: fit-content;
+  order: 3;
+  gap: 16px;
 }
 
 .search{
@@ -20,6 +32,7 @@
   height: 35px;
   padding: 3px 8px 3px 0px;
   border-radius: 4px;
+
 }
 
 .input{
@@ -68,24 +81,40 @@
 }
 
 
-nav{
-  width: 585px;
+.nav{
+  width: fit-content;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  order: 2;
 }
-nav .hasSubmenu i {
+.navContent{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 585px;
+}
+
+.hasSubmenu{
+  padding: 15px 0px;
+}
+.hasSubmenu i {
   margin-left: 5px;
   font-size: 10px;
   /* transition: all 0.5s ease-in-out; */
   transition: transform 0.5s ease-in-out;
 }
-nav .hasSubmenu{
+.hasSubmenu{
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-nav .hasSubmenu::before{
+.hasSubmenu::before{
   content: "";
   position: absolute;
   bottom: 0px;
@@ -95,20 +124,20 @@ nav .hasSubmenu::before{
   background-color: black;
   transition: all 0.5s ease-in-out;
 }
-nav .hasSubmenu:hover::before{
+.hasSubmenu:hover::before{
   width: 100%;  
 }
 
-nav .hasSubmenu:hover .iconDown{
+.hasSubmenu:hover .iconDown{
   transform: rotate(180deg);
 }
-nav .hasSubmenu:hover .menuListSubmain{
+.hasSubmenu:hover .menuListSubmain{
   opacity: 1;
   visibility: visible;
   top: 100%;
 }
 
-nav .menuListSubmain{
+.menuListSubmain{
   z-index: 1;
   position: absolute;
   top: calc(100% + 40px);
@@ -120,13 +149,13 @@ nav .menuListSubmain{
   transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-nav .menuListSubmain div{
+.menuListSubmain div{
   width: 100%;
   padding: 9px 18px;
   position: relative;
 }
 
-nav .menuListSubmain div::before{
+.menuListSubmain div::before{
   content: "";
   position: absolute;
   bottom: 0px;
@@ -135,24 +164,24 @@ nav .menuListSubmain div::before{
   height: 1px;
   background-color: #efefef;
 }
-nav .menuListSubmain a{
+.menuListSubmain a{
   text-decoration: none;
   color: var(--shop-color-text);
   width: 100%;
   display: block;
 }
-nav .hasSubsubmenu{
+.hasSubsubmenu{
   position: relative;
 }
-nav .hasSubsubmenu i{
+.hasSubsubmenu i{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-nav .hasSubsubmenu:hover .iconRight{
+.hasSubsubmenu:hover .iconRight{
   transform: translateX(7px);
 }
-nav .hasSubsubmenu .menuListSubsubmain{
+.hasSubsubmenu .menuListSubsubmain{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +195,117 @@ nav .hasSubsubmenu .menuListSubsubmain{
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
-nav .hasSubsubmenu:hover .menuListSubsubmain{
+.hasSubsubmenu:hover .menuListSubsubmain{
   opacity: 1;
   visibility: visible;
+}
+
+
+/*Mobile nav*/
+.menuIcon{
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+}
+.menuIcon i{
+  font-size: 30px;
+}
+.navMobile{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 70px;
+  z-index: 10;
+  background-color: #fff;
+  padding: 0px;
+  display: none;
+  overflow-x: hidden;
+}
+.navMobileContent{
+  width: fit-content;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.goBack{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.menuItem{
+  width: 90vw;
+  cursor: pointer;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainMenuItem{
+  font-weight: 700;
+}
+.menuItemLink{
+  color: black;
+  text-decoration: none;
+  
+}
+
+
+.motionLeftToRight{
+  animation: leftToRight 0.5s ease-in-out forwards;
+}
+.motionRightToLeft{
+  animation: rightToLeft 0.5s ease-in-out forwards;
+}
+/*----------------------*/
+
+
+@media only screen and (max-width: 1400px){
+  
+}
+@media only screen and (max-width: 1200px){
+  .rightSideHeader{
+    justify-content: flex-end;
+  }
+  .search{
+    display: none;
+  }
+  
+}
+@media only screen and (max-width: 990px){
+  .nav{
+    order: 1;
+  }
+  .navContent{
+    display: none;
+  }
+  .logo{
+    order: 2;
+  }
+  .menuIcon{
+    display: block;
+  }
+  .navMobile{
+    display: flex;
+    
+  }
+}
+@media only screen and (max-width: 760px){
+  
+}
+@media only screen and (max-width: 500px){
+
 }

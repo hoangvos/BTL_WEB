@@ -59,3 +59,11 @@
 .copyright a:hover{
   color: var(--footer-color-hover);
 }
+
+/*Logo*/
+.logo{
+  height: 60px;
+  width: fit-content;
+  order: 1;
+}
+/*----------------------*/
