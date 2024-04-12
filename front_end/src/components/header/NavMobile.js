@@ -197,6 +197,12 @@ export default function NavMobile() {
       <div
         className={`${style.menuIcon}`}
         onClick={() => {
+          const body = document.querySelector('body');
+          if (!show) {
+            body.style.overflow = "hidden";
+          } else {
+            body.style.overflow = "visible";
+          }
           show ? setShow(false) : setShow(true);
         }}
       >

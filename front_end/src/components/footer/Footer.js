@@ -5,8 +5,8 @@ import boCongThuongImg from "../../assets/footer/bocongthuong.webp";
 export default function Header() {
   return (
     <>
-      <footer className={`d-flex justify-content-center ${style.footer}`}>
-        <div class="col-10 row">
+      <footer className={`${style.footer}`}>
+        <div className={`col-10 row ${style.footerContent}`}>
           <div class="col-8 row">
             <div class="col-4">
               <h4>VỀ BITI'S</h4>
@@ -41,9 +41,9 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div class="right_side col-4">
+          <div class= "col-4">
             <Logo childClass={style.logo}/>
-            <div class="content_copyright">
+            <div >
               <div><b>CÔNG TY TNHH SẢN XUẤT HÀNG TIÊU DÙNG BÌNH TIÊN</b></div>
               <div><b>Địa chỉ: </b>22 Lý Chiêu Hoàng, Phường 10, Quận 6, TP. Hồ Chí Minh</div>
               <div><b>Điện thoại: </b>(028) 38 753 443</div>
@@ -55,23 +55,25 @@ export default function Header() {
         </div>
       </footer>
       <div className={`row ${style.copyright}`}>
-          <div class="col-10 m-auto d-flex justify-content-between">
-            <div class="left_side col-5">
-              <div class="d-flex justify-content-between col-10">
+        <div
+          className={`m-auto ${style.copyrightContent}`}
+        >
+            <div className={` ${style.leftSide}`}>
+              <div class="col-12">
                 <a href="http://localhost:3000/">Điều khoản</a>
                 <a href="http://localhost:3000/">Chính sách bảo mật</a>
                 <a href="http://localhost:3000/">Hướng dẫn sử dụng</a>
               </div>
-              <div>
+              <div className='col-12'>
                 Copyright © 2024 
-                <a href="http://localhost:3000/">Biti's</a>. 
+                <a href="http://localhost:3000/">Biti's.</a>
                 <a href="http://localhost:3000/">Powered by Haravan Enterprise</a>
               </div>
             </div>
-            <div className={`${style.registered} col-2`}>
+            <div className={`${style.registered}`}>
               <img src={boCongThuongImg} alt="Đã đăng ký" srcset="" class="d-flex justify-content-center"/>
             </div>
-            <div className={`col-5`}>
+            <div>
               Giấy CNĐKDN: 0301340497 được cấp ngày 20/01/1992, được sửa đổi lần thứ 25 ngày 27/01/2022 bởi Sở Kế hoạch và Đầu tư TPHCM
             </div>
 
