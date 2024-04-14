@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import style from './MainHomePage.module.css';
 import bannerBitis from '../../assets/banner/banner_bitis.webp';
 import bannerDiscount from '../../assets/banner/banner_discount.webp';
@@ -16,32 +16,59 @@ function Button({isActive, onDotClick}) {
 
 function ImageBanner({ path}) {
   return (
-    <img src={path} alt='xxx' className={`${style.bannerImage}`} />
+    <img src={path} alt='xxx' className={`${style.bannerImage}`} draggable="false"/>
   );
 }
 
 export default function BannerImage() {
   const [currentActive, setCurrentActive] = useState(0);
-
+  const bannerRef = useRef(null);
   const handleClick = (index) => {
     setCurrentActive(index);
   }
+  let isDragging = false;
+  let startX = 0;
 
   useEffect(() => {
-    // Thiết lập setInterval để tự động thay đổi currentActive sau mỗi khoảng thời gian
     const interval = setInterval(() => {
-      // Tính toán currentActive mới
-      const nextActive = (currentActive + 1) % 4; // Đặt 4 là số lượng ImageBanner
+      const nextActive = (currentActive + 1) % 4; 
       setCurrentActive(nextActive);
-    }, 5000); // Thay đổi mỗi 5 giây (5000ms)
+    }, 5000); 
 
-    // Lưu ý: Để tránh memory leak, hãy clear interval khi component bị unmount
-    return () => clearInterval(interval);
-  }, [currentActive]); // Thêm currentActive vào dependency array để useEffect được gọi lại khi currentActive thay đổi
+    const bannerImageElement = bannerRef.current.querySelector(`.${style.bannerImages}`);
+    if (bannerImageElement) {
+      bannerImageElement.addEventListener('mousedown', (event) => {
+        isDragging = true;
+        startX = event.clientX;
+      })
+      bannerImageElement.addEventListener('mousemove', (event) => {
+        if (isDragging) {
+          const currentX = event.clientX;
+          const deltaX = currentX - startX;
+
+          if (deltaX > 100) {
+            setCurrentActive(currentActive === 0 ? 3 : currentActive - 1);
+          } else if (deltaX < -100) {
+            setCurrentActive(currentActive === 3 ? 0 : currentActive + 1);
+          }
+        }
+      })
+      bannerImageElement.addEventListener('mouseup', () => {
+        isDragging = false;
+      })
+    }
+
+    
+    return () => {
+      clearInterval(interval);
+    }
+  }, [currentActive]); 
 
   return (
     <div>
-      <div className={`${style.banner} position-relative`}>
+      <div
+        ref={bannerRef}
+        className={`${style.banner} position-relative`}>
         <div
           className={`${style.bannerImages} d-flex`}
           style={{ transform: `translateX(-${currentActive * 100}%)` }}  

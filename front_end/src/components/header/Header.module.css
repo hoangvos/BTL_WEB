@@ -52,9 +52,28 @@
   flex: 1;
 }
 
-.user i:first-of-type{
+.user i{
   font-size: 30px;
+  cursor: pointer;
+  
 } 
+.login{
+  border-radius: 2px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 340px;
+  height: 320px;
+  background-color: white;
+  z-index: 1;
+  padding: 20px;
+}
+.login p{
+  color: #848d93;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #848d93;
+}
+
 .favorite i:first-of-type, 
 .bag i:first-of-type{
   font-size: 25px;
@@ -300,11 +319,15 @@
   }
   .navMobile{
     display: flex;
-    
   }
 }
 @media only screen and (max-width: 760px){
-  
+  .login{
+    width: 100vw;
+    height: 100vh;
+    right: 0px;
+    left: 0px;
+  }
 }
 @media only screen and (max-width: 500px){
 
