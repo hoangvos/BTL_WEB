@@ -10,7 +10,7 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
             onClick={handleBackMenu}
             className={style.goBack}
           >
-            <i class="bi bi-chevron-left"></i>
+            <i className="bi bi-chevron-left"></i>
             <span>
               QUAY VỀ
             </span>
@@ -36,7 +36,7 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
                     <span>
                       {item.data}
                     </span>
-                    <i class="bi bi-chevron-right"></i>
+                    <i className="bi bi-chevron-right"></i>
                   </>
                   :
                   <a href="http://localhost:3000/" className={`${style.menuItemLink}`}>{item.data}</a>
@@ -56,7 +56,7 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
               {item.data}
             </span>
             {item.next && //having next
-              <i class="bi bi-chevron-right"></i>
+              <i className="bi bi-chevron-right"></i>
             }
           </div>
         ))}
@@ -76,7 +76,8 @@ export default function NavMobile() {
   }
   const root = new Node("");
 
-  const [layout, setLayout] = useState(root);
+  // const [layout, setLayout] = useState(root);
+  const layout = root;
   
   
   root.next = [
@@ -206,7 +207,7 @@ export default function NavMobile() {
           show ? setShow(false) : setShow(true);
         }}
       >
-        <i class="bi bi-list"></i>
+        <i className="bi bi-list"></i>
       </div>
       {
         show && 

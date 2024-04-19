@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from './Header.module.css'
 import NavRow from './NavRow'
 import NavMobile from './NavMobile'

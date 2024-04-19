@@ -7,8 +7,8 @@ export default function NavRow() {
       
       <div className={`${style.navContent}`}>
 
-        <div className={style.hasSubmenu}>VỀ BITI'S </div>
-        <div className={style.hasSubmenu}>NAM
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">VỀ BITI'S </a></div>
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">NAM</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -34,7 +34,7 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}>NỮ
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">NỮ</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -84,7 +84,7 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}>BÉ TRAI
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">BÉ TRAI</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -98,7 +98,7 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}>BÉ GÁI
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">BÉ GÁI</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -120,7 +120,7 @@ export default function NavRow() {
             
           </div>
         </div>
-        <div className={style.hasSubmenu}>PHỤ KIỆN
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">PHỤ KIỆN</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>  
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -147,7 +147,7 @@ export default function NavRow() {
             
           </div>
         </div>
-        <div className={style.hasSubmenu}>CHIA SẺ
+        <div className={style.hasSubmenu}><a href="http://localhost:3000/">CHIA SẺ</a>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>

@@ -7,8 +7,8 @@ export default function Header() {
     <>
       <footer className={`${style.footer}`}>
         <div className={`col-10 row ${style.footerContent}`}>
-          <div class="col-8 row">
-            <div class="col-4">
+          <div className="col-8 row">
+            <div className="col-4">
               <h4>VỀ BITI'S</h4>
               <div className={`${style.contentFooter}`}>
                 <a href="http://localhost:3000/">Về Bitis</a>
@@ -18,7 +18,7 @@ export default function Header() {
                 <a href="http://localhost:3000/">Liên hệ</a>
               </div>
             </div>
-            <div class="col-4">
+            <div className="col-4">
               <h4>THÔNG TIN</h4>
               <div className={`${style.contentFooter}`}>
                 <a href="http://localhost:3000/">Trạng thái đơn hàng</a>
@@ -31,7 +31,7 @@ export default function Header() {
                 <a href="http://localhost:3000/">Chính sách khách hàng thân thiết</a>
               </div>
             </div>
-            <div class="col-4">
+            <div className="col-4">
               <h4>TRỢ GIÚP</h4>
               <div className={`${style.contentFooter}`}>
                 <a href="http://localhost:3000/">Tuyển dụng</a>
@@ -41,7 +41,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div class= "col-4">
+          <div className= "col-4">
             <Logo childClass={style.logo}/>
             <div >
               <div><b>CÔNG TY TNHH SẢN XUẤT HÀNG TIÊU DÙNG BÌNH TIÊN</b></div>
@@ -59,7 +59,7 @@ export default function Header() {
           className={`m-auto ${style.copyrightContent}`}
         >
             <div className={` ${style.leftSide}`}>
-              <div class="col-12">
+              <div className="col-12">
                 <a href="http://localhost:3000/">Điều khoản</a>
                 <a href="http://localhost:3000/">Chính sách bảo mật</a>
                 <a href="http://localhost:3000/">Hướng dẫn sử dụng</a>
@@ -71,7 +71,7 @@ export default function Header() {
               </div>
             </div>
             <div className={`${style.registered}`}>
-              <img src={boCongThuongImg} alt="Đã đăng ký" srcset="" class="d-flex justify-content-center"/>
+              <img src={boCongThuongImg} alt="Đã đăng ký" className="d-flex justify-content-center"/>
             </div>
             <div>
               Giấy CNĐKDN: 0301340497 được cấp ngày 20/01/1992, được sửa đổi lần thứ 25 ngày 27/01/2022 bởi Sở Kế hoạch và Đầu tư TPHCM
