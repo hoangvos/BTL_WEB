@@ -6,7 +6,7 @@ class CartRepository
 
     function getBySearch($search)
     {
-        $cond = "username LIKE '%$search%'";
+        $cond = "a_id LIKE '%$search%'";
         $products = $this->fetch($cond);
         return $products;
     }
