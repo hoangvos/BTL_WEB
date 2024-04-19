@@ -109,6 +109,11 @@
   align-items: center;
   order: 2;
 }
+.nav a{
+  font-family: 'futura-REGULAR', sans-serif;
+  text-decoration: none;
+  color: black;
+}
 .navContent{
   display: flex;
   flex-direction: row;
