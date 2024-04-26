@@ -11,9 +11,10 @@
   display: grid; 
   /* grid-template-columns: auto auto auto auto auto; */
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 5px;
+  grid-gap: 40px 5px;
   width: 90%;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .gridItem{
@@ -28,15 +29,17 @@
 
 @media only screen and (max-width: 1400px){
   .gridContainer{
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px 5px;
   }
   
 }
 
 @media only screen and (max-width: 1200px){
   .gridContainer{
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     width: 95%;
+    grid-gap: 25px 5px;
   }
 }
 
@@ -44,11 +47,13 @@
   .gridContainer{
     grid-template-columns: repeat(3, 1fr);
     width: 97%;
+    grid-gap: 40px 5px;
   }
 }
 @media only screen and (max-width: 760px){
   .gridContainer{
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 5px;
   }
   
 }
