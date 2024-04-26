@@ -1,12 +1,13 @@
 import React from 'react'
 import BannerImage from './BannerImage'
 import GridItems from './GridItems'
-import CategoryHome from './categories/CategoryHome'
+
+import CategoryComponent from '../../../components/category/Category'
 export default function MainHomePage() {
   return (
     <>
       <BannerImage />
-      <CategoryHome/>
+      <CategoryComponent name="all"/>
       <GridItems />
     </>
   )

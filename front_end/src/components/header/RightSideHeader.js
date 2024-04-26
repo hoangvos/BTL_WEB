@@ -19,7 +19,7 @@ export default function RightSideHeader() {
       className={`${style.rightSideHeader}`}>
       <form className={style.search}>
         <button className={style.searchButton}>
-          <i class="bi bi-search"></i>
+          <i className="bi bi-search"></i>
         </button>
         <input type="text" placeholder="Bạn cần tìm gì ..." className={style.input} />
       </form>
@@ -29,7 +29,7 @@ export default function RightSideHeader() {
         className={`${style.user} `}
         onClick={() => {setShowLogin(!showLogin)}}
       >
-        <i class="bi bi-person"></i>
+        <i className="bi bi-person"></i>
       </div>
       {
         showLogin && 
@@ -56,13 +56,13 @@ export default function RightSideHeader() {
       
 
       <div className={`${style.favorite}`}>
-        <i class="bi bi-suit-heart"></i>
-        <i class="bi bi-circle-fill"></i>
+        <i className="bi bi-suit-heart"></i>
+        <i className="bi bi-circle-fill"></i>
         <div className={`${style.number_favorite}`}>9</div>
       </div>
       <div className={`${style.bag}`}>
-        <i class="bi bi-bag-dash"></i>
-        <i class="bi bi-circle-fill"></i>
+        <i className="bi bi-bag-dash"></i>
+        <i className="bi bi-circle-fill"></i>
         <div className={`${style.number_bag}`}>0</div>
       </div>
     </div>

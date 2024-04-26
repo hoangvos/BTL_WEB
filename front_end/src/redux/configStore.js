@@ -1,5 +1,5 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import { GioHangReducer } from "./reducers/ManageCartReducer";
 import { QuanLyCommentReducer } from "./reducers/ManageCommentReducer";
 import { QuanLyDonHangReducer } from "./reducers/ManageOrderReducer";

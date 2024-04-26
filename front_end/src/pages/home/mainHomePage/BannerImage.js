@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react'
 import style from './MainHomePage.module.css';
-import bannerBitis from '../../assets/banner/banner_bitis.webp';
-import bannerDiscount from '../../assets/banner/banner_discount.webp';
-import bannerDocQuyen from '../../assets/banner/banner_docquyen.webp';
-import bannerRong from '../../assets/banner/banner_rong.webp';
+import bannerBitis from '../../../assets/banner/banner_bitis.webp';
+import bannerDiscount from '../../../assets/banner/banner_discount.webp';
+import bannerDocQuyen from '../../../assets/banner/banner_docquyen.webp';
+import bannerRong from '../../../assets/banner/banner_rong.webp';
 
 function Button({isActive, onDotClick}) {
   return (
