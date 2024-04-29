@@ -9,7 +9,14 @@ export default function Path({ paths }) {
     <div className={`${style.container}`}>
       <div className={`${style.content}`}>
         {paths.map((path, index) => {
-          return <div>{path}</div>;
+
+          return(
+            <div
+              key={index}
+            >
+              {path}
+            </div>
+          );
         })}
       </div>
       

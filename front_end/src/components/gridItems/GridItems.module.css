@@ -25,6 +25,8 @@
   height: 400px;
   min-width: 150px;
   max-width: 620px;
+  text-decoration: none;
+  color: black;
 }
 
 @media only screen and (max-width: 1400px){

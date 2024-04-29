@@ -74,29 +74,30 @@
   border-bottom: 1px solid #848d93;
 }
 
-.favorite i:first-of-type, 
-.bag i:first-of-type{
+.bag i{
   font-size: 25px;
 }
-.favorite, .bag{
+.bag{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
-.favorite i:last-of-type, 
-.bag i:last-of-type{
-  font-size: 18px;
-  position: absolute;
-  top: -5px;
-  right: -5px;
-}
-.favorite div, .bag div{
+
+.bag .number{
   position: absolute;
   top: -1px;
-  right: 0px;
+  right: -7px;
   color: #fff;
   font-size: 12px;
+  background-color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -119,7 +120,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 585px;
+  width: 350px;
 }
 
 .hasSubmenu{
@@ -295,7 +296,92 @@
   animation: rightToLeft 0.5s ease-in-out forwards;
 }
 /*----------------------*/
+.bag::after{
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: -20px;
+  right: 0px;
+  width: 100%;
+  height: 20px;
+}
+.bag:hover .cartContainer{
+  display: flex;
+}
+.cartContainer{
+  z-index: 20;
+  position: absolute;
+  top: 54px;
+  right: -20px;
+  width: 500px;
+  padding: 20px;
+  /* height: 400px; */
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  /* display: flex; */
+}
+.cartContainer span{
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
 
+.cartProducts{
+  width: 100%;
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.cartProducts > div:first-child{
+  /* background-color: red; */
+  border-top: none !important;
+}
+.cartIcon i:first-of-type{
+  color: #2e77c3;
+  font-size: 50px;
+  position: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.cartIcon span{
+  font-size: 14px;
+}
+.cartCost{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+.cartCost span{
+  font-size: 15px;
+}
+.cartCost span:last-of-type{
+  color: #ff1e1e;
+}
+.cartContainer button{
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
 
 @media only screen and (max-width: 1400px){
   

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import style from './Header.module.css';
 import { motion } from 'framer-motion';
-function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) {
+import { Link } from 'react-router-dom'
+
+function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu, setShow }) {
   return (
     <>
       {layoutLocal.prev ?
@@ -15,15 +17,22 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
               QUAY VỀ
             </span>
           </div>
-          {layoutLocal.next.map((item, index) => (
+          {layoutLocal.next.map((item, index) => 
+            
             <>
               {index === 0 && //first index
                 <div
-                  className={`${style.menuItem} ${style.mainMenuItem} `}
+                  className={`${style.menuItem} ${style.mainMenuItem} `} 
                 >
-                  <a href="http://localhost:3000/" className={`${style.menuItemLink}`}>
+                  <Link
+                    onClick={() => {
+                      setShow(false);
+                    }}
+                    to={`/collections/${layoutLocal.link}`}
+                    className={`${style.menuItemLink}`}
+                  >
                     {`Xem tất cả "${layoutLocal.data}"`}
-                  </a>
+                  </Link>
                 </div>
               }
               <div //add item
@@ -42,8 +51,8 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
                   <a href="http://localhost:3000/" className={`${style.menuItemLink}`}>{item.data}</a>
                 }
               </div>
-            </>
-          ))}
+            </>  
+          )}
         </>
         :
         <>
@@ -68,8 +77,9 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu }) 
 export default function NavMobile() {
   const [show, setShow] = useState(false);
   class Node {
-    constructor(data, prev = null, next = null) {
+    constructor(data, link, prev = null, next = null) {
       this.data = data;
+      this.link = link;
       this.prev = prev;
       this.next = next;
     }
@@ -81,74 +91,50 @@ export default function NavMobile() {
   
   
   root.next = [
-    new Node("VỀ BITI'S", root),
-    new Node("NAM", root),
-    new Node("NỮ", root),
-    new Node("BÉ TRAI", root),
-    new Node("BÉ GÁI", root),
-    new Node("PHỤ KIỆN", root),
-    new Node("CHIA SẺ", root)
+    new Node("NAM", 'nam', root),
+    new Node("NỮ", 'nu', root),
+    new Node("BÉ TRAI", 'be-trai', root),
+    new Node("BÉ GÁI", 'be-gai', root),
   ]
 
-  root.next[0].next = [
-    new Node("Câu Chuyện Bitis", root.next[0]),
-    new Node("Bước Tiến Phát Triển", root.next[0]),
-    new Node("Hoạt Động", root.next[0]),
-    new Node("Tuyển Dụng", root.next[0]),
-    new Node("Tin Tức", root.next[0])
+  root.next[0].next = [ //NAM
+    new Node("Hunter", '', root.next[0]),
+    new Node("Sandal", '', root.next[0]),
+    new Node("Giày Thể Thao", '', root.next[0]),
+    new Node("Giày Chạy Bộ", '', root.next[0]),
+    new Node("Giày Đá Banh", '', root.next[0]),
+    new Node("Giày Tây", '', root.next[0]),
+    new Node("Dép", '', root.next[0])
   ]
-  root.next[1].next = [
-    new Node("Hunter", root.next[1]),
-    new Node("Sandal", root.next[1]),
-    new Node("Giày Thể Thao", root.next[1]),
-    new Node("Giày Chạy Bộ", root.next[1]),
-    new Node("Giày Đá Banh", root.next[1]),
-    new Node("Giày Tây", root.next[1]),
-    new Node("Dép", root.next[1])
+  root.next[1].next = [ //NU
+    new Node("Hunter", '', root.next[1]),
+    new Node("GOSTO", '', root.next[1]),
+    new Node("Sandal", '', root.next[1]),
+    new Node("Giày Búp Bê", '', root.next[1]),
+    new Node("Giày Thời Trang", '', root.next[1]),
+    new Node("Giày Chạy Bộ - Đi Bộ", '', root.next[1]),
+    new Node("Giày Thể Thao", '', root.next[1]),
+    new Node("Dép", '', root.next[1]),
+    new Node("Túi Xách", '', root.next[1])
   ]
-  root.next[2].next = [
-    new Node("Hunter", root.next[2]),
-    new Node("GOSTO", root.next[2]),
-    new Node("Sandal", root.next[2]),
-    new Node("Giày Búp Bê", root.next[2]),
-    new Node("Giày Thời Trang", root.next[2]),
-    new Node("Giày Chạy Bộ - Đi Bộ", root.next[2]),
-    new Node("Giày Thể Thao", root.next[2]),
-    new Node("Dép", root.next[2]),
-    new Node("Túi Xách", root.next[2])
+  root.next[1].next[1].next = [ //NU GOSTO
+    new Node("Giày Cao Gót", '', root.next[1].next[1]),
+    new Node("Giày Thời Trang", '', root.next[1].next[1]),
+    new Node("Sandal", '', root.next[1].next[1]),
+    new Node("Dép", '', root.next[1].next[1]),
+    new Node("Túi Xách - Ví", '', root.next[1].next[1])
   ]
-  root.next[2].next[1].next = [
-    new Node("Giày Cao Gót", root.next[2].next[1]),
-    new Node("Giày Thời Trang", root.next[2].next[1]),
-    new Node("Sandal", root.next[2].next[1]),
-    new Node("Dép", root.next[2].next[1]),
-    new Node("Túi Xách - Ví", root.next[2].next[1])
+  root.next[2].next = [ //BE TRAI
+    new Node("Giày thể Thao", '', root.next[2]),
+    new Node("Sandal", '', root.next[2]),
+    new Node("Dép", '', root.next[2])
   ]
-  root.next[3].next = [
-    new Node("Giày thể Thao", root.next[3]),
-    new Node("Sandal", root.next[3]),
-    new Node("Dép", root.next[3])
-  ]
-  root.next[4].next = [
-    new Node("Giày Búp Bê", root.next[4]),
-    new Node("Giày Thể Thao", root.next[4]),
-    new Node("Sandal", root.next[4]),
-    new Node("Dép Bé Gái", root.next[4]),
-    new Node("Giày tập đi", root.next[4])
-  ]
-  root.next[5].next = [
-    new Node("Balo - Túi Xách", root.next[5]),
-    new Node("Áo Thun", root.next[5]),
-    new Node("Túi Tote", root.next[5]),
-    new Node("Tất Vớ", root.next[5]),
-    new Node("Nón", root.next[5]),
-    new Node("Ví Nam", root.next[5]),
-    new Node("Lót Đế", root.next[5])
-  ]
-  root.next[6].next = [
-    new Node("Xu Hướng Thời Trang", root.next[6]),
-    new Node("Tư Vấn Chọn Size", root.next[6]),
-    new Node("Kinh Nghiệm Hay", root.next[6])
+  root.next[3].next = [ //BE GAI
+    new Node("Giày Búp Bê", '', root.next[3]),
+    new Node("Giày Thể Thao", '', root.next[3]),
+    new Node("Sandal", '', root.next[3]),
+    new Node("Dép Bé Gái", '', root.next[3]),
+    new Node("Giày tập đi", '', root.next[3])
   ]
   
   const handleNextMenu = (indexLayer, layoutLocal, index) => {
@@ -160,6 +146,7 @@ export default function NavMobile() {
         layoutLocal={layoutLocal.next[index]}
         handleBackMenu={handleBackMenu}
         handleNextMenu={handleNextMenu}
+        setShow={setShow}
       />
     ]);
   }
@@ -172,6 +159,7 @@ export default function NavMobile() {
       layoutLocal={layout}
       handleBackMenu={handleBackMenu}
       handleNextMenu={handleNextMenu}
+      setShow={setShow}
     />]);
   
   useEffect(() => {
@@ -190,21 +178,23 @@ export default function NavMobile() {
         layoutLocal={layout}
         handleBackMenu={handleBackMenu}
         handleNextMenu={handleNextMenu}
+        setShow={setShow}
       />])
   }, [show])
-
+  useEffect(() => {
+    const body = document.querySelector('body');
+    if (show) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "visible";
+    }
+  }, [show])
   return (
     <div>
       <div
         className={`${style.menuIcon}`}
         onClick={() => {
-          const body = document.querySelector('body');
-          if (!show) {
-            body.style.overflow = "hidden";
-          } else {
-            body.style.overflow = "visible";
-          }
-          show ? setShow(false) : setShow(true);
+          setShow((prevShow) => !prevShow);
         }}
       >
         <i className="bi bi-list"></i>

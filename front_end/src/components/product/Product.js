@@ -13,7 +13,10 @@ export default function Product({ product }) {
     return (
         <div className={`${style.box_product}`} >
             <div className={style.container_image_product} >
-                <img src={product.pimg} alt={product.ptitle} />
+                <img
+                    loading='lazy'
+                    src={product.pimg}
+                    alt={product.ptitle} />
                 <span className={style.status_product}>Mới</span>
             </div>
 

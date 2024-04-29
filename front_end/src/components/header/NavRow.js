@@ -1,14 +1,14 @@
 import React from 'react'
 import style from './Header.module.css'
+import { Link } from 'react-router-dom'
 export default function NavRow() {
   return (
     <nav
       className={`${style.nav}`}>
-      
       <div className={`${style.navContent}`}>
-
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">VỀ BITI'S </a></div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">NAM</a>
+        <div className={style.hasSubmenu}>
+          <Link to="/collections/nam">NAM</Link>
+          
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -34,7 +34,8 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">NỮ</a>
+        <div className={style.hasSubmenu}>
+          <Link to={'/collections/nu'}>NỮ</Link>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -84,7 +85,8 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">BÉ TRAI</a>
+        <div className={style.hasSubmenu}>
+          <Link to={'/collections/be-trai'}>BÉ TRAI</Link>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -98,7 +100,8 @@ export default function NavRow() {
             </div>
           </div>
         </div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">BÉ GÁI</a>
+        <div className={style.hasSubmenu}>
+        <Link to={'/collections/be-gai'}>BÉ GÁI</Link>
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
@@ -116,49 +119,6 @@ export default function NavRow() {
             <div>
               <a href="http://localhost:3000/">Giày tập đi</a>
             </div>
-            
-            
-          </div>
-        </div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">PHỤ KIỆN</a>
-          <i className={`${style.iconDown} bi bi-chevron-down`}></i>  
-          <div className={`${style.menuListSubmain} shadow flex-column`}>
-            <div>
-              <a href="http://localhost:3000/">Balo - Túi xách</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Áo thun</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Túi Tote</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Tất vớ</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Nón</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Ví nam</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Lót đế</a>
-            </div>
-            
-          </div>
-        </div>
-        <div className={style.hasSubmenu}><a href="http://localhost:3000/">CHIA SẺ</a>
-          <i className={`${style.iconDown} bi bi-chevron-down`}></i>
-          <div className={`${style.menuListSubmain} shadow flex-column`}>
-            <div>
-              <a href="http://localhost:3000/">Xu hướng thời trang</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Tư vấn chọn size</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Kinh nghiệm hay</a>
-            </div>          
           </div>
         </div>
       </div>

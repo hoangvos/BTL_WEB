@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import style from './Header.module.css'
+import Cart from './Cart';
 
 export default function RightSideHeader() {
   const [showLogin, setShowLogin] = useState(false);
-
   useEffect(() => {
     const body = document.querySelector('body');
     const bodyWidth = body.clientWidth;
@@ -53,18 +53,7 @@ export default function RightSideHeader() {
           </div>
         </div>
       }
-      
-
-      <div className={`${style.favorite}`}>
-        <i className="bi bi-suit-heart"></i>
-        <i className="bi bi-circle-fill"></i>
-        <div className={`${style.number_favorite}`}>9</div>
-      </div>
-      <div className={`${style.bag}`}>
-        <i className="bi bi-bag-dash"></i>
-        <i className="bi bi-circle-fill"></i>
-        <div className={`${style.number_bag}`}>0</div>
-      </div>
+      <Cart />
     </div>
   )
 }

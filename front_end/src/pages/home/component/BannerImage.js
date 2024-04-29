@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import style from './MainHomePage.module.css';
+import style from './Home.module.css';
 import bannerBitis from '../../../assets/banner/banner_bitis.webp';
 import bannerDiscount from '../../../assets/banner/banner_discount.webp';
 import bannerDocQuyen from '../../../assets/banner/banner_docquyen.webp';

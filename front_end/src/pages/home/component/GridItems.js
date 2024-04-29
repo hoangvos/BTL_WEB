@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './MainHomePage.module.css'
+import style from './Home.module.css'
 import Product from '../../../components/product/Product'
 
 class ProductC {

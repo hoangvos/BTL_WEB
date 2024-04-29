@@ -145,13 +145,13 @@ export default function CategoryComponent({name}) {
   )
 
   let categories = []
-  if (name === "men") {
+  if (name === "nam") {
     categories.push(menCategory);
-  } else if (name === "woman") {
+  } else if (name === "nu") {
     categories.push(womenCategory);
-  } else if (name === "boy") {
+  } else if (name === "be-trai") {
     categories.push(boyCategory);
-  } else if (name === "girl") {
+  } else if (name === "be-gai") {
     categories.push(girlCategory);
   } else if (name === "all") {
     categories.push(menCategory);

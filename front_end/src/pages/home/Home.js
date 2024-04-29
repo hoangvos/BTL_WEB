@@ -1,14 +1,14 @@
 import React from 'react'
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-import MainHomePage from './mainHomePage/MainHomePage';
+import BannerImage from './component/BannerImage'
+import GridItems from './component/GridItems'
 
+import CategoryComponent from '../../components/category/Category'
 export default function Home() {
   return (
     <>
-      <Header/>
-      <MainHomePage/>
-      <Footer /> 
+      <BannerImage />
+      <CategoryComponent name="all"/>
+      <GridItems />
     </>
   )
 }
