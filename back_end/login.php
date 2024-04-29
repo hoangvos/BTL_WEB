@@ -1,5 +1,4 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors',1);
 header("Access-Control-Allow-Origin:* ");
@@ -23,18 +22,12 @@ if($num>=1)
 {
     http_response_code(200);
     $outp="";
-        $outp.= '{"username":"'. $rs["username"] . '",'.'"role":"'. $rs["role"] . '",  ' . '"image":"' . $rs["image"] . '", ';
+        $outp.= '{"username":"'. $rs["username"] . '",'.'"role":"'. $rs["role"] . '",  ' . '"fullname":"' . $rs["fullname"] . '", '.'"email":"'. $rs["email"] . '", ' .'"phonenumber":"'. $rs["phonenumber"] . '", ';
         $outp.='"Status":"200"}';
     echo $outp;
     
 }else{
     http_response_code(202);
 }
-
-
-
-
-
-
 
 ?>

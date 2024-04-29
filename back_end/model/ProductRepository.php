@@ -7,6 +7,11 @@ class ProductRepository {
         $products = $this->fetch($cond);
         return $products;
     }
+    function getByFilter($filter) {
+        $cond = "ptitle LIKE '%$filter%'";
+        $products = $this->fetch($cond);
+        return $products;
+    }
     function getAll() {
         return $this->fetch();
     }
@@ -27,6 +32,7 @@ class ProductRepository {
         }
         return $products;
     }
+
     function save($data) {
         global $conn;
         $ptitle= $data->ptitle;
@@ -37,7 +43,7 @@ class ProductRepository {
        
         if($pimg!="" and $pkind!="" and $pprice!="" and $ptitle!=""  )
         {
-            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$ptitle','$pimg','$pprice','$pgender','$pkind',)";
+            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$ptitle','$pimg','$pprice','$pgender','$pkind')";
             if ($conn->query($sql)) {
                 return true;
             }

@@ -8,6 +8,10 @@ class ProductController {
             $search = $_GET["search"];
             $products =  $productRepository->getBySearch($search);
         }
+        elseif(!empty($_GET["filter"])){
+            $filter = $_GET["filter"];
+            $products =  $productRepository->getByFilter($filter);
+        }
         else {
             $products =  $productRepository->getAll();
         }
@@ -33,7 +37,7 @@ class ProductController {
         $data=json_decode(file_get_contents("php://input"));
         $productRepository = new ProductRepository();
         if ($productRepository->save($data)) {
-            $_SESSION["success"] = "Đã tạo bình luận thành công";
+            $_SESSION["success"] = "Đã tạo sản phẩm thành công";
         }
         else {
             $_SESSION["error"] = $productRepository->error;
