@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import style from './Header.module.css'
 import Cart from './Cart';
+import Search from './Search';
 
 export default function RightSideHeader() {
   const [showLogin, setShowLogin] = useState(false);
@@ -17,12 +18,11 @@ export default function RightSideHeader() {
   return (
     <div
       className={`${style.rightSideHeader}`}>
-      <form className={style.search}>
-        <button className={style.searchButton}>
-          <i className="bi bi-search"></i>
-        </button>
-        <input type="text" placeholder="Bạn cần tìm gì ..." className={style.input} />
-      </form>
+      <div
+        className={style.searchLargeScreen}
+      >
+        <Search />
+      </div>
 
       
       <div

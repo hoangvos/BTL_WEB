@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import style from './Category.module.css'
+import { Link } from 'react-router-dom';
 
 class CategoryChildren{
   constructor(name, image, link) {
@@ -55,7 +56,7 @@ export default function CategoryComponent({name}) {
         "https://theme.hstatic.net/1000230642/1001205219/14/dep-nam.svg?v=612",
         "http://localhost:3000/"),
     ],
-    "http://localhost:3000/"
+    "/collections/nam"
   )
 
   const womenCategory = new Category(
@@ -95,7 +96,7 @@ export default function CategoryComponent({name}) {
         "https://theme.hstatic.net/1000230642/1001205219/14/dep-nu.svg?v=612",
         "http://localhost:3000/"),
     ],
-    "http://localhost:3000/"
+    "/collections/nu"
   )
 
   const boyCategory = new Category(
@@ -114,7 +115,7 @@ export default function CategoryComponent({name}) {
         "https://theme.hstatic.net/1000230642/1001205219/14/dep-be-trai.svg?v=612",
         "http://localhost:3000/"),
     ],
-    "http://localhost:3000/"
+    "/collections/be-trai"
   )
   
   const girlCategory = new Category(
@@ -141,7 +142,7 @@ export default function CategoryComponent({name}) {
         "https://theme.hstatic.net/1000230642/1001205219/14/giay-tap-di.svg?v=612",
         "http://localhost:3000/"),
     ],
-    "http://localhost:3000/"
+    "/collections/be-gai"
   )
 
   let categories = []
@@ -170,7 +171,7 @@ export default function CategoryComponent({name}) {
                 className={indexActive === index && style.parentActive}
                 onClick={() => { handleClickParent(index) }}
               >
-                <a href={category.link}>{category.name}</a>
+                <Link to={category.link}>{category.name}</Link>
               </div>
             );
           })}
