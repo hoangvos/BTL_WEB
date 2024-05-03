@@ -22,6 +22,8 @@ require "model/Order.php";
 require "model/OrderRepository.php";
 require "model/Size.php";
 require "model/SizeRepository.php";
+require "model/Description.php";
+require "model/DescriptionRepository.php";
 
 //router
 $c = $_GET["c"] ?? "user";

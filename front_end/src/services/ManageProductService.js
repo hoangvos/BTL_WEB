@@ -17,13 +17,18 @@ export class QuanLySanPhamService extends baseService {
     timKiemSanPham = (filter) => {
         return this.get(`http://localhost/BE/?c=product&a=list&filter=${filter}`);
     }
-    themSanpham = (ptitle, pimg, pprice,pgender, pkind)=>{
+    themSanpham = (ptitle, pimg, pprice,pgender, pkind, description, sizes, subImages)=>{
         const sendData = {
-            ptitle: ptitle,
-            pimg: pimg,
-            pprice: pprice,
-            pgender: pgender,
-            pkind: pkind,
+            product:{
+                ptitle: ptitle,
+                pimg: pimg,
+                pprice: pprice,
+                pgender: pgender,
+                pkind: pkind,
+            },
+            sizes: sizes,
+            subImages: subImages,
+            description: description
         };
         axios
         .post("http://localhost/BE/?c=product&a=save", sendData)

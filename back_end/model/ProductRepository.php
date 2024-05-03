@@ -35,22 +35,32 @@ class ProductRepository {
 
     function save($data) {
         global $conn;
-        $ptitle= $data->ptitle;
-        $pimg= $data->pimg;
-        $pprice= $data->pprice;
-        $pgender= $data->pgender;
-        $pkind= $data->pkind;
+        $product= $data->product;
+        $sizes= $data->sizes;
+        $subImages= $data->subImages;
+        $description= $data->description;
        
-        if($pimg!="" and $pkind!="" and $pprice!="" and $ptitle!=""  )
+        if($product!="")
         {
-            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$ptitle','$pimg','$pprice','$pgender','$pkind')";
+            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$product->ptitle','$product->pimg','$product->pprice','$product->pgender','$product->pkind')";
             if ($conn->query($sql)) {
                 $productID = $conn->insert_id;
-                for ($size = 35; $size <= 45; $size++) {
-                    $sql = "INSERT INTO size (productID, soluong, size) VALUES ($productID, 100, $size)";
+                foreach($sizes as $size){
+                    $sql = "INSERT INTO size (productID, soluong, size) VALUES ($productID, $size->soluong, $size->size)";
                     if(!$conn->query($sql)){
                         return false;
                     }
+                }
+                foreach($subImages as $subImage){
+                    $sql = "INSERT INTO subimage (productID, img) VALUES 
+                    ($productID, $subImage)";
+                    if(!$conn->query($sql)){
+                        return false;
+                    }
+                }
+                $sql = "INSERT INTO description (productID, content) VALUES ($productID, $description)";
+                if(!$conn->query($sql)){
+                    return false;
                 }
                 return true;
             }
