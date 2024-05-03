@@ -15,7 +15,7 @@ function ImageBanner({ path}) {
 
 
 
-export default function Men({ API_URL }) {
+export default function Collection() {
   const { collectionName } = useParams();
   let namePath = "";
   switch (collectionName) { 
@@ -41,7 +41,7 @@ export default function Men({ API_URL }) {
       <Path paths={paths} />
       <ImageBanner path={bannerRong} />
       <CategoryComponent name={collectionName} />
-      <GridItems url={ API_URL } />
+      <GridItems collectionName={ collectionName } />
 
     </>
   )
