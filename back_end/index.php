@@ -20,6 +20,8 @@ require "model/Cart.php";
 require "model/CartRepository.php";
 require "model/Order.php";
 require "model/OrderRepository.php";
+require "model/Size.php";
+require "model/SizeRepository.php";
 //router
 $c = $_GET["c"] ?? "user";
 $a = $_GET["a"] ?? "list";
