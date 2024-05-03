@@ -30,7 +30,9 @@
   }
 }
 @media only screen and (max-width: 760px){
-
+  .container{
+    /* width: 99%; */
+  }
 }
 @media only screen and (max-width: 500px){
 

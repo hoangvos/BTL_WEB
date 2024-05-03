@@ -59,13 +59,7 @@ function CartProduct({size, soLuong, product}) {
   )
 }
 export default function Cart() {
-  const { cartProducts } = useContext(CartContext);
-  let tongSoLuong = 0;
-  let tongTien = 0;
-  cartProducts.forEach((cartProduct) => {
-    tongSoLuong += cartProduct.product.soLuong;
-    tongTien += cartProduct.product.soLuong * cartProduct.product.product.pprice;
-  });
+  const { cartProducts, totalPrice, nItem } = useContext(CartContext);
   return (
     <Link
       to='/cart'
@@ -74,7 +68,7 @@ export default function Cart() {
         <i className="bi bi-bag-dash"></i>
         {/* <i className="bi bi-circle-fill"></i> */}
         <div className={`${style.number}`}>
-          {tongSoLuong}
+          {nItem}
         </div>
         <div className={`${style.cartContainer} shadow`}>
           <span>GIỎ HÀNG</span>
@@ -96,7 +90,7 @@ export default function Cart() {
           </div>
           <div className={style.cartCost}>
             <span>TỔNG TIỀN</span>
-            <span>{ tongTien }₫</span>
+            <span>{ totalPrice }₫</span>
           </div>
           <button>
             <Link

@@ -1,54 +1,38 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import style from './InfoComponent.module.css'
 import { CartContext } from '../../../context/CartContext';
 
 export default function InfoComponent({ product }) {
-  const { setCartProducts } = useContext(CartContext);
-  const sizes = [
-    {
-      id: 1,
-      soLuong: 10,
-      size: 39
-    },
-    {
-      id: 2,
-      soLuong: 30,
-      size: 40
-    },
-    {
-      id: 3,
-      soLuong: 40,
-      size: 41
-    },
-    {
-      id: 4,
-      soLuong: 0,
-      size: 42
-    },
-    {
-      id: 5,
-      soLuong: 10,
-      size: 43
-    },
-    {
-      id: 6,
-      soLuong: 20,
-      size: 44
-    },
-    {
-      id: 7,
-      soLuong: 87,
-      size: 45
-    },
-  ]
+  const { updateCartProducts } = useContext(CartContext);
+  const [sizes, setSizes] = useState(undefined);
+
+  const fetchData = async () => {
+    try {
+      const res = await fetch(`http://localhost/BE/?c=size&a=list&search=${product.id}`, {
+        method: 'GET',
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  useEffect(() => {
+    fetchData().then((data) => {
+      setSizes(data);
+    });
+  }, []);
+  
   const [sizeIndex, setSizeIndex] = useState(0);
   const [soLuong, setSoLuong] = useState(1);
   const handleClickSize = (index) => {
     setSizeIndex(index);
+    setSoLuong(1);
   }
   const handleClickIncreaseSoLuong = () => {
-    if(soLuong < sizes[sizeIndex].soLuong)
+    if(soLuong < sizes[sizeIndex].soluong)
       setSoLuong(soLuong + 1);
   }
   const handleClickDecreaseSoLuong = () => {
@@ -56,30 +40,20 @@ export default function InfoComponent({ product }) {
       setSoLuong(soLuong - 1);
   }
   const handleClickDatMua = () => {
-    // Cookies.set(`cart${sizes[sizeIndex].id}`, `{size:${sizes[sizeIndex].size}, product: ${JSON.stringify(product)}}`);
     const jsonProduct = {
       size: sizes[sizeIndex].size,
       soLuong: soLuong,
-      product: product
+      product: product,
+      
     }
     Cookies.set(`cart${sizes[sizeIndex].id}`, `${JSON.stringify(jsonProduct)}`);
-    setCartProducts(() => {
-      let temProducts = [];
-      const cookies = Cookies.get();
-      for (const key in cookies) {
-        if(key.includes('cart')) {
-          const sizeID = key.slice(4);
-          const product = JSON.parse(cookies[key]);   
-          temProducts.push({sizeID, product});
-        }
-      }
-      return temProducts;
-    });
+    updateCartProducts();
   }
 
 
   if (!product) return null;
   return (
+    sizes && 
     <div className={style.infoContainer}>
       <div className={style.title}>
         {product.ptitle}
@@ -91,8 +65,8 @@ export default function InfoComponent({ product }) {
         Tình trạng: 
         <strong>
           {
-            sizes[sizeIndex].soLuong > 0 ?
-              ` Còn hàng (${sizes[sizeIndex].soLuong})` : ' Hết hàng'
+            parseInt(sizes[sizeIndex].soluong) > 0 ?
+              ` Còn hàng (${sizes[sizeIndex].soluong})` : ' Hết hàng'
           }
         </strong>
       </div>
