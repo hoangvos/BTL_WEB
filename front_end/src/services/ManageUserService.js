@@ -24,6 +24,7 @@ export class QuanLyUserService extends baseService {
         axios.post("http://localhost/BE/login.php", sendData).then((result) => {
 
             if (result.data.Status === '200') {
+                localStorage.setItem("id", result.data.id);
                 localStorage.setItem("username", result.data.username);
                 localStorage.setItem("role", result.data.role);
                 localStorage.setItem("fullname", result.data.fullname);
