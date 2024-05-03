@@ -85,14 +85,22 @@ class ProductRepository {
         $ptitle= $data->ptitle;
         $pimg= $data->pimg;
         $pprice= $data->pprice;
+        $pgender = $data->pgender;
         $pkind= $data->pkind;
-        $sql = "UPDATE product SET ptitle='$ptitle', pprice='$pprice', pkind='$pkind',pimg='$pimg'  WHERE id = $id";
+        $description = $data->description; 
+        $sql = "UPDATE product SET ptitle='$ptitle', pprice='$pprice', pkind='$pkind',pimg='$pimg',pgender='$pgender' WHERE id = $id";
         if ($conn->query($sql)) {
+            if($description != ""){
+                $sql = "UPDATE description SET content='$description' WHERE productID = $id";
+                if ($conn->query($sql)) {
+                    return true;
+                }
+            }
             return true;
         }
+
         $this->error = "Error: $sql <br>" .$conn->error ;
         return false;
-
     }
 }
 ?>

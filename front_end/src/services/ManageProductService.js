@@ -24,7 +24,7 @@ export class QuanLySanPhamService extends baseService {
                 pimg: pimg,
                 pprice: pprice,
                 pgender: pgender,
-                pkind: pkind,
+                pkind: pkind
             },
             sizes: sizes,
             subImages: subImages,
@@ -36,6 +36,26 @@ export class QuanLySanPhamService extends baseService {
             if (result.data.Status === "Invalid") {
             } else {
                 window.location.reload();
+            }
+        });
+    }
+    chinhsuasanpham = (id, ptitle, pimg, pprice, pgender,pkind, description)=>{
+        const sendData = {
+            id: id,
+            ptitle: ptitle,
+            pimg: pimg,
+            pprice: pprice,
+            pgender: pgender,
+            pkind: pkind,
+            description: description
+        };
+        axios
+        .post("http://localhost/BE/?c=product&a=update", sendData)
+        .then((result) => {
+            if (result.data) {
+                console.log("Success update");
+            } else {
+                console.log("Error update");
             }
         });
     }

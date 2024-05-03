@@ -2,10 +2,10 @@
 header('Content-Type: application/json; charset=utf-8');
 class DescriptionController{
     function list(){
-        $sizeRepository = new SizeRepository(); 
+        $descriptionRepository = new DescriptionRepository(); 
         $search = $_GET["search"];
-        $sizeQuantity = $sizeRepository->getBySearch($search);
-        $result = json_encode($sizeQuantity);
+        $descriptionQuantity = $descriptionRepository->getBySearch($search);
+        $result = json_encode($descriptionQuantity);
         echo ($result);
     }
 }

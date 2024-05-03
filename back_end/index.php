@@ -24,7 +24,8 @@ require "model/Size.php";
 require "model/SizeRepository.php";
 require "model/Description.php";
 require "model/DescriptionRepository.php";
-
+require "model/SubImage.php";
+require "model/SubImageRepository.php";
 //router
 $c = $_GET["c"] ?? "user";
 $a = $_GET["a"] ?? "list";
