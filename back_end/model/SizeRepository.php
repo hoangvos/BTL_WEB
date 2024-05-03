@@ -39,7 +39,7 @@ class SizeRepository{
 
     function decreaseSizeQuantity($productID, $size, $sl){
         global $conn; 
-        $sql = "SELECT soluong FROM size WHERE productID='$productID' AND size='$size'";
+        $sql = "SELECT soluong FROM size WHERE productID=$productID AND size=$size";
         $result = $conn -> query($sql); 
         if($result->num_rows > 0 ){
             $row = $result->fetch_assoc(); 
@@ -59,7 +59,7 @@ class SizeRepository{
 
     function addSizeQuantity($productID, $size, $sl){
         global $conn; 
-        $sql = "UPDATE size SET soluong=soluong+$sl WHERE productID='$productID' AND size='$size'";
+        $sql = "UPDATE size SET soluong=soluong+$sl WHERE productID=$productID AND size=$size";
         return $conn->query($sql); 
 
     }

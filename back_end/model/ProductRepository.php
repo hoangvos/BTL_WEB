@@ -42,23 +42,22 @@ class ProductRepository {
        
         if($product!="")
         {
-            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$product->ptitle','$product->pimg','$product->pprice','$product->pgender','$product->pkind')";
+            $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$product->ptitle','$product->pimg',$product->pprice,'$product->pgender','$product->pkind')";
             if ($conn->query($sql)) {
                 $productID = $conn->insert_id;
                 foreach($sizes as $size){
-                    $sql = "INSERT INTO size (productID, soluong, size) VALUES ($productID, $size->soluong, $size->size)";
+                    $sql = "INSERT INTO size(productID, soluong, size) VALUES($productID, $size->soluong, $size->size)";
                     if(!$conn->query($sql)){
                         return false;
                     }
                 }
                 foreach($subImages as $subImage){
-                    $sql = "INSERT INTO subimage (productID, img) VALUES 
-                    ($productID, $subImage)";
+                    $sql = "INSERT INTO subimage(productID, img) VALUES('$productID', '$subImage')";
                     if(!$conn->query($sql)){
                         return false;
                     }
                 }
-                $sql = "INSERT INTO description (productID, content) VALUES ($productID, $description)";
+                $sql = "INSERT INTO description (productID, content) VALUES ('$productID', '$description')";
                 if(!$conn->query($sql)){
                     return false;
                 }
