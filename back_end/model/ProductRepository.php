@@ -45,6 +45,13 @@ class ProductRepository {
         {
             $sql = "INSERT INTO product(ptitle,pimg,pprice,pgender,pkind) VALUES('$ptitle','$pimg','$pprice','$pgender','$pkind')";
             if ($conn->query($sql)) {
+                $productID = $conn->insert_id;
+                for ($size = 35; $size <= 45; $size++) {
+                    $sql = "INSERT INTO size (productID, soluong, size) VALUES ($productID, 100, $size)";
+                    if(!$conn->query($sql)){
+                        return false;
+                    }
+                }
                 return true;
             }
             $this->error = "Error: $sql <br>" .$conn->error ;

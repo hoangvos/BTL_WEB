@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2024 at 07:21 PM
+-- Generation Time: May 03, 2024 at 06:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -48,7 +48,8 @@ CREATE TABLE `cart` (
   `id` int(50) NOT NULL,
   `sl` int(50) NOT NULL,
   `a_id` int(50) NOT NULL,
-  `p_id` int(50) NOT NULL
+  `p_id` int(50) NOT NULL,
+  `size` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -64,6 +65,115 @@ CREATE TABLE `comment` (
   `comment` varchar(250) NOT NULL,
   `p_id` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `description`
+--
+
+CREATE TABLE `description` (
+  `id` int(11) NOT NULL,
+  `productID` int(11) NOT NULL,
+  `content` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `description`
+--
+
+INSERT INTO `description` (`id`, `productID`, `content`) VALUES
+(1, 3, 'Giày thể thao Biti’s Hunter Street đế #BÀO MARVEL Spiderman, phiên bản Hunter-verse 2k23 HSM001898 dành cho nam hiện tại là phiên bản được mong đợi nhất hiện nay. Không chỉ “ghi điểm” với thiết kế nam tính và mạnh mẽ, sản phẩm còn có rất nhiều ưu điểm ấn tượng về chất lượng. Tìm hiểu chi tiết hơn tại đây nhé!\r\n\r\nĐế giày \r\nGiày Thể Thao Nam Biti’s Hunter Street đế #BÀO x MARVEL Spiderman - Hunter-verse 2k23 edition HSM001898 để lại ấn tượng khó phai với phần đế #BÀO đặc biệt, cao cấp. Cụ thể: \r\n\r\nĐế ngoài: Sử dụng cao su đúc, mặt đế bằng phẳng phù hợp với mục đích tập luyện, hoa văn đế trên từng mảng nhỏ tạo ma sát tốt.\r\nThành đế: Sử dụng cao su mềm 55 shore để đảm bảo độ uốn gấp khi vận động, tự do linh hoạt.\r\nĐế giữa: Đệm lót Eva tăng độ ma sát, chống trơn trượt có độ mềm 45 shore giúp đàn hồi, giảm trọng lượng đế cao su.\r\nĐệm mũi đế: Được thiết kế mỏng hơn, đục rỗng để đảm bảo trọng lượng, không ảnh hưởng tới độ uốn gấp của đế.\r\nĐệm gót đế: Đệm gót được Biti’s thiết kế dày giúp hấp thụ lực từ trên cao xuống làm giảm lực tác động vào phần gót chân.\r\nĐế trong : Đúc khuôn Eva, có lỗ đàn hồi với độ mềm 35-40 shore, mặt trên là vải kháng khuẩn, thông khí 6 góc độ massage.\r\nThân trên giày \r\nKết hợp với chất liệu si và da lộn, không chỉ mang lại nét thời thượng, phá cách mà còn sở hữu rất nhiều ưu điểm về chất lượng. Chẳng hạn, tính mềm mại cao, thấm hút mồ hôi tốt, độ bền cao, hỗ trợ giữ ấm cho cổ chân… \r\nĐây là phiên bản hợp tác đặc biệt giữa Biti’s và Marvel. Vậy nên, thương hiệu lấy cảm hứng từ Spiderman trong thế giới vũ trụ Marvel và tôn vinh di sản 19 năm của nhân vật Nhện huyền thoại. Từ đó “chiều lòng” người sử dụng bằng cách tạo điểm khác biệt với họa tiết mặt nạ Spiderman ở má trái giày. \r\nMàu sắc\r\nHiện tại, sản phẩm chỉ có một màu duy nhất là Đen, đi viền Đỏ ấn tượng. \r\nTùy theo điều kiện ánh sáng, màu sắc giày Biti’s Hunter Street thực tế có thể có sự chênh lệch màu sắc khoảng 3 - 5 %. \r\nSize giày\r\nCó 7 size là 39, 40, 41, 42, 43, 44 và 45. \r\nBảo hành\r\nSản phẩm được bảo hành trong vòng 3 tháng kể từ thời điểm mua hàng. Ngoài ra sản phẩm còn được bảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế không bị rách,…)\r\nĐổi size giày trong vòng 7 ngày, đổi sản phẩm lỗi trong vòng 7 ngày, kể từ thời điểm mua hàng, nếu sản phẩm vẫn đáp ứng chính sách đổi trả. Điều kiện và quy định đổi trả, quý khách vui lòng tham khảo trên website chính thức. \r\nTính năng và lợi ích nổi bật\r\nDưới đây là những ưu điểm tuyệt vời ở sản phẩm mà bạn không thể phủ nhận:\r\n\r\nBiti’s Hunter Street HSM001898 lựa chọn thiết kế cổ lửng với phần đỉnh hậu và lưỡi gà cao cũng như tích hợp thêm đệm xốp vững chắc. Qua đó vừa ôm trọn đôi chân, vừa mang lại cảm giác êm ái nhất cho thể trong mọi bước di chuyển. \r\nMàu sắc trung tính, đi viền nam tính nên khá phù hợp với nhiều độ tuổi khác nhau. \r\nForm giày đứng, cứng cáp, đế bằng thiết kế trẻ trung, năng động.\r\nMang lại khả năng thấm hút mồ hôi, thoáng khí hiệu quả. Từ đó tạo cảm giác thoải mái nhất có thể trong mọi bước đi. \r\nSản phẩm bao gồm\r\nBên trong mỗi sản phẩm đều có: \r\n\r\nHộp giày giấy bìa cứng cáp giúp bảo quản giày tốt hơn.\r\nDây giày chắc chắn.\r\nTúi chống ẩm.\r\nGiày. \r\nGiày thể thao nam Biti’s Hunter Street đế #BÀO MARVEL Spiderman, phiên bản Hunter-verse 2k23 HSM001898 xứng đáng là một trong những sản phẩm phải sở hữu trong năm nay. Để biết thêm thông tin chi tiết, bạn vui lòng liên hệ Bitis.com.vn để được tư vấn và hưởng những chương trình khuyến mãi hấp dẫn!'),
+(2, 5, 'Giày thể thao thông dụng nam Biti\'s Basic BSM000600 được xem là mẫu giày \"quốc dân\" chưa bao giờ ngừng hot. Mặc dù đã ra mắt từ rất lâu nhưng đây vẫn được xem là sự lựa chọn hàng đầu cho những bạn yêu thích sự đơn giản. Thiết kế giày full đen hoặc trắng sẽ là điểm nhấn làm rung động biết bao nhiêu tín đồ mê phong cách thời trang hiện đại, trẻ trung. Để hiểu hơn về sản phẩm, cùng xem chi tiết ngay sau đây.\r\n\r\nĐế giày\r\nĐế giày thể thao Basic BSM000600 là chất liệu PVC có khả năng uốn dẻo và chống mài mòn vô cùng tốt. Bên cạnh đó, đế PVC còn giúp cho giày có tính cách nhiệt và chịu lực cực hiệu quả\r\nPhần đế được thiết kế đặc biệt thu hút một cách tối đa lực tiếp xúc nên khi mang hoặc lúc vận động bạn sẽ có cảm giác được nâng niu một cách nhẹ nhàng\r\nĐế giày xuyên suốt từ gót đến mũi, các đường rãnh được tạo ra giúp tăng khả năng bám đường tốt hơn khi di chuyển, hạn chế trơn trượt tối đa\r\nLót giày OrthoLite mang đến sự êm ái và khả năng hút ẩm tốt, chống hôi chân\r\nThân giày\r\nThân giày được gia công từ chất liệu lưới kết hợp Si với độ ôm chân vừa phải, giúp đôi giày cố định và nâng đỡ tốt bàn chân trong quá trình di chuyển\r\nĐiểm nhấn ở Biti\'s Basic BSM000600 có thể kể đến là sự cân bằng hoàn hảo với các đường nét chế tác vô cùng sắc sảo.\r\nTrên thân giày sẽ có những lỗ li ti, khi mang bạn sẽ cảm nhận sự thông thoáng và trao đổi khí bên trong, điều này làm giảm thiểu đi tình trạng đổ mồ hôi, hầm bí như những đôi giày thể thao truyền thống\r\nMàu sắc giày\r\nBiti\'s Basic BSM000600 hữu những tone màu nhẹ nhàng nhưng không kém phần nổi bật, phù hợp với tủ đồ của các bạn nam giới\r\nGiày thiết kế đơn giản với 2 gam màu Trắng và Đen, bạn có thể dễ dàng diện giày nhiều phong cách khác nhau\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.\r\nSize giày\r\nGiày thể thao thông dụng nam Biti\'s Basic BSM000600 hiện có các size 40, 41, 42, 43 bạn có thể lựa chọn size số vừa vặn nhất với đôi chân của mình\r\nBảo hành\r\nSản phẩm được bảo hành trong vòng 3 tháng kể từ thời điểm mua hàng. Ngoài ra sản phẩm còn được bảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế không bị rách,…)\r\nĐổi size giày trong vòng 7 ngày, đổi sản phẩm lỗi trong vòng 7 ngày, kể từ thời điểm mua hàng, nếu sản phẩm vẫn đáp ứng chính sách đổi trả. Điều kiện và quy định đổi trả, quý khách vui lòng tham khảo trên website chính thức. \r\nTính năng và lợi ích nổi bật\r\nGiày thể thao thông dụng nam Biti\'s Basic BSM000600 đơn giản nhưng vẫn năng động, khỏe khoắn\r\nForm dáng thoải mái, chi tiết phối trẻ trung, thiết kế cài bát thuận tiện cho thao tác mang\r\nĐế chất liệu PVC được sử dụng công nghệ phun liệu đế dính vào quai, chất đế nổi trội với độ bám đường và chống sốc tốt, giày bền bỉ trước tác động của ngoại lực, va chạm mạnh.\r\nChất liệu giày vừa đảm bảo được yếu tố thoải mái vừa đáp ứng được tính thanh lịch, thời trang, với kết cấu nhiều lỗ nhỏ hình tròn sẽ giúp khí lưu thông tốt hơn, tránh tình trạng bí chân\r\nMẫu giày thể thao giá rẻ cho đối tượng là học sinh\r\nGiày với kiểu dáng basic có thể kết hợp cùng nhiều outfit khác nhau, thích hợp để mặc đi chơi, đi học, đi làm\r\nSản phẩm bao gồm\r\nHộp giày giấy bìa cứng cáp giúp bảo quản giày tốt hơn\r\nGiày\r\nTúi chống ẩm\r\nKhông quá cầu kỳ nhưng mang lại sự khác biệt và một đẳng cấp đầy nam tính chính là lý do mà bạn cần có một đôi giày thể thao thông dụng nam Biti\'s Basic BSM000600 trong tủ đồ của mình. Sư hiện đại và thanh lịch của sản phẩm chắc chắn sẽ làm bạn tự tin sải bước. Để đặt mua sản phẩm, bạn truy cập ngay vào Bitis.com.vn và làm theo các bước hướng dẫn.'),
+(3, 6, 'Giày Chạy Bộ Nam Biti\'s Hunter Running DSMH10000 là mẫu giày chạy với bộ đế thế hệ vượt trội và công nghệ độc quyền từ BITI’S Hunter không những đem đến sự thoải mái khi vận động mà còn mang đến cho người sử dụng phong cách thể thao năng động và sự ấn tượng cho mọi người.\r\n\r\nĐế giày\r\nBiti\'s Hunter Running DSMH10000 sử dụng bộ đế Lite Bounce với các đặc điểm:\r\n\r\nĐế ngoài:\r\nĐế ngoài được tạo bằng lớp cao su chống trơn trượt  có độ bám cao, giúp cho người dùng tăng khả năng bám chặt trên mọi địa hình.\r\nĐế trong (lót giày): \r\nĐế lót 2 lớp kết hợp Ortholite và Eva, rất vừa vặn với cấu trúc lòng bàn chân đặc trưng của người Việt, cùng độ êm được tính toán kỹ lưỡng nhất.\r\nĐế giữa:\r\nSử dụng công nghệ đế hai lớp – tiếp đất êm, phản hồi lực mạnh mẽ với độ đàn hồi vượt trội >50%, cho đường chạy nhẹ như bay.\r\nThân trên giày\r\nChất liệu: Sử dụng vải dệt Jacquard mềm mại, ôm trọn theo sự chuyển động của bàn chân và cấu tạo thiết kế thoáng khí tối đa đem đến một sự thông thoáng.\r\nLưỡi gà: Được may dính liền với thân giày, chất liệu co giãn tốt nên bạn có thể dễ dàng mang vào, tháo ra mà không cần phải tháo dây.\r\nThiết kế: Biti\'s Hunter Running  DSMH10000 có thiết kế hiện đại, phong cách trẻ trung,\r\nMàu sắc\r\nCó 4 màu  Orange – Grey – Electric Blue – Neon Green quen thuộc, dễ phối đồ từ thể thao tới trang phục hàng ngày.\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%. \r\nSize giày\r\nBiti\'s Hunter Running DSMH10000 có size chuẩn từ 39-45 được thiết kế để vừa vặn và ôm sát chân, tạo cảm giác thoải mái khi sử dụng hàng ngày.\r\nĐộ bền và bảo hành\r\nĐể đảm bảo chất lượng, Biti\'s Hunter Running DSMH10000 đã được kiểm tra kỹ lưỡng  bằng máy móc hiện đại.\r\n\r\nBảo hành:\r\n\r\nSản phẩm được bảo hành 3 tháng.\r\nBảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế).\r\nTính năng và lợi ích nổi bật\r\nCông nghệ thoáng khí giúp cho giày lưu thông không khí một cách tốt hơn, điều đó giúp cho đôi chân của bạn luôn thông thoáng khi sử dụng.\r\nThiết kế đẹp mắt, cá tính.\r\nChất liệu chắc chắn và có độ bền cao.\r\nĐộ thoáng khí tốt, giúp giảm mồ hôi và giảm mùi.\r\nĐộ đàn hồi tốt, giúp bảo vệ đôi chân và giảm chấn.\r\nTrang bị Pulltab sau gót giúp mang giày dễ dàng hơn.\r\nCó thể cung cấp linh hoạt cho chân, giúp người sử dụng dễ dàng thực hiện các động tác và chuyển động.\r\nSản phẩm bao gồm\r\nHộp giày giấy bìa cứng cáp giúp bảo quản giày tốt hơn.\r\nDây giày chắc chắn\r\nTúi chống ẩm.\r\nBiti\'s Hunter Running DSMH10000 là sự lựa chọn hoàn hảo cho các môn thể thao hay các hoạt động ngoài trời khác. Hãy đặt hàng ngay hôm nay để trải nghiệm sự thoải mái và phong cách độc đáo mà sản phẩm mang lại, đặc biệt Biti\'s thường xuyên có nhiều chương trình khuyến mãi hấp dẫn cho quý khách hàng.'),
+(4, 7, 'Nếu bạn muốn tìm một đôi giày đá banh chất lượng, thiết kế thể thao và êm ái khi sử dụng thì hãy chọn Giày Đá Banh Nam Biti\'s Football HSM003600. Cùng tìm hiểu chi tiết về sản phẩm trong bài viết dưới đây.\r\n\r\nĐế giày\r\nGiày Biti\'s Football HSM003600 có các đặc điểm nổi bật sau:\r\n\r\nĐế giày làm từ cao su cao cấp, mềm dẻo và uốn gấp tốt. Điều này không chỉ tạo cảm giác thoải mái mà còn mang đến khả năng chịu lực tốt, chống mài mòn đảm bảo độ an toàn cao cho người sử dụng.\r\nĐế giày còn có khả năng chống nước, độ đàn hồi tốt cùng độ bền cao. Hơn nữa, đế giày còn có tính năng hấp thụ chấn động, giảm ma sát khi di chuyển.\r\nPhần mặt đế có thiết kế nhiều gai, rãnh tạo độ ma sát giúp tăng cảm giác với bóng.\r\nGiày được lót đế cao cấp, giúp hạn chế mồ hôi, ngăn mùi hiệu quả.\r\nĐế ôm trọn bàn chân, không tạo ra cảm thấy bó cứng hay lỏng lẻo khi mang.\r\nThân giày\r\nQuai giày Biti\'s Football HSM003600 được làm từ chất liệu da tổng hợp dày dặn, chuyên dụng cho hoạt động đá bóng, nhằm mang đến độ mềm, êm ái trong từng chuyển động.\r\nPhần cổ giày mềm mại, ôm sát cổ chân giúp nâng cao độ linh hoạt cho bàn chân và hạn chế tình trạng tuột gót khi di chuyển nhiều. \r\nMàu sắc \r\nBiti\'s Football HSM003600 có 03 phiên bản màu gồm Cam, Đỏ và Xanh Mi Nơ. Đây đều là những màu sắc thời trang rất phù hợp cho các bạn nam.\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng từ 3 đến 5%.\r\nSize giày\r\nGiày đá banh nam Biti\'s Football HSM003600 ra mắt với 10 size bao gồm size 35, 36, 38, 39, 40, 41, 42, 43 và 44.  Điều này giúp các bạn nam dễ dàng tìm được sản phẩm phù hợp nhất cho mình dựa trên bảng size mà Biti’s gợi ý.\r\nBảo hành\r\nSản phẩm được bảo hành trong vòng 3 tháng kể từ thời điểm mua hàng. Ngoài ra sản phẩm còn được bảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế không bị rách,…)\r\nĐổi size giày trong vòng 7 ngày, đổi sản phẩm lỗi trong vòng 7 ngày, kể từ thời điểm mua hàng, nếu sản phẩm vẫn đáp ứng chính sách đổi trả. Điều kiện và quy định đổi trả, quý khách vui lòng tham khảo trên website chính thức. \r\nTính năng và lợi ích nổi bật\r\nCông nghệ thoáng khí giúp cho đôi chân bạn luôn khô ráo, không đổ mô hôi hay mùi khó chịu.\r\nGiày Đá Banh Nam Biti\'s Football HSM003600 có thiết kế giày tinh gọn, kiểu dáng thể thao, mạnh mẽ.\r\nGiày được làm từ chất liệu cao cấp và được xử lý chỉn chu đảm bảo chất lượng.\r\nĐế giày và thân giày đếu có tính co giãn tốt, chịu lực và chống trơn trượt hiệu quả đảm bảo an toàn khi di chuyển trên bề mặt ẩm ướt.\r\nPhần đế ôm trọn bàn chân, mang đến cảm giác êm ái, thoải mái cho người sử dụng.\r\nGiày Biti\'s Football HSM003600 chuyên sử dụng để đá banh sân trong nhà, sân futsal.\r\nNgoài ra, bạn có thể sử dụng giày để chạy bộ, leo núi hay các môn thể thao.\r\nSản phẩm có nhiều size đáp ứng được đa dạng form bàn chân của khách hàng.\r\nSản phẩm bao gồm\r\nHộp giấy bìa cứng giúp bảo quản giày tốt nhất.\r\nGiày đá banh nam Biti\'s Football HSM003600.\r\nTúi chống ẩm.\r\nVới những thông tin bên trên, bạn còn chần chừ gì mà không nhanh tay trang bị đôi giày đá banh nam Biti\'s Football HSM003600 để đáp ứng sở thích đá bóng của mình. Bạn có thể ghé qua trực tiếp tại các chuỗi cửa hàng của Biti’s hoặc truy cập vào website Bitis.com.vn và liên hệ hotline để đặt mua hàng nhanh nhất nhé!'),
+(5, 8, 'Đôi giày là phụ kiện thể hiện niềm đam mê và cá tính của người mang, với thiết kế thời trang, năng động, trẻ trung phù hợp với mọi lứa tuổi sẽ làm nổi bật lên cá tính, phong cách của bạn.\r\n\r\nNhiều màu sắc, mẫu để lựa chọn làm mới phong cách hàng ngày.\r\n\r\nKhông chỉ phụ nữ, hiện nay, thời trang dành cho nam giới ngày càng phong phú, đa dạng và được nhiều người quan tâm. Để thể hiện mình là người lịch sự, các bạn nam đều phải để ý để vẻ ngoài của mình mỗi khi đi ra ngoài. Đặc biệt, kết hợp trang phục với cá phụ kiện thời trang là vô cùng quan trong. Một đôi giày sẽ giúp bạn thể hiện phong cách của riêng mình.\r\n\r\nĐặc điểm nổi bật của sản phẩm\r\n\r\nChất liệu bền đẹp: Được làm từ da chất lượng cao, giày tây da nam dây luôn mềm mại và bền chắc. Do đó, bạn sẽ dễ dàng bảo quản và vệ sinh.\r\n\r\nThiết kế trẻ trung, kiểu dáng tinh tế giữa nét cổ điển và hiện đại, tạo nên sự hài hòa.\r\n\r\nĐường may tỉ mỉ chắc chắn: Với đường may tỉ mỉ và tinh tế đảm bảo độ bền chắc trong suốt thời gian bạn sử dụng, giày nam sẽ mang đến cho bạn vẻ đẹp thật cá tính và lịch lãm.\r\n\r\nDễ phối trang phục: Sản phẩm với gam màu truyền thống, không chỉ giúp bạn thể hiện phong cách thời trang cực kỳ nam tính và lịch lãm mà còn giúp dễ dàng khi phối cùng nhiều trang phục như: quần jean, áo thun hay phụ kiện khác để trở nên thật cá tính và thời trang.\r\n\r\n- Có kèm bàn chải đánh giày.\r\n\r\n- Có dây buộc.\r\n\r\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.'),
+(6, 14, 'BITI’S HUNTER RUNNING - GIÀY CHẠY BỘ THẾ HỆ ĐẾ VƯỢT TRỘI MỚI TỪ BITI\'S HUNTER \r\nGiày Chạy Bộ Biti\'s Hunter Running White DSWH08300 màu trắng dành cho nữ được yêu thích bởi thiết kế đầy trẻ trung và cá tính. Với bộ đế Lite Bounce Cushion độc quyền từ Biti’s Hunter, mang đến trải nghiệm thoải mái, êm ái nhất, có thể chạy mọi lúc mọi nơi.\r\n\r\nĐế giày\r\nBiti\'s Hunter Running White DSWH08300 sử dụng bộ đế Lite Bounce với các đặc điểm:\r\n\r\nĐế ngoài: \r\n\r\nĐế ngoài được đệm cao su ở gót nhiều và phần trước, tạo được lựa kéo tốt, tăng thêm sự ma sát với đường, giúp chạy bền bỉ giảm đuối sức.\r\nĐế trong (lót giày): \r\n\r\nLót đế hai lớp Ortholite và Eva êm ái, thoải mái, ôm vừa vặn, trọn lòng bàn chân.\r\nĐế giữa (midsole): \r\n\r\nCông nghệ Lite Bounce Cushion độc quyền đây là công nghệ đế vượt trội mới của Biti’s Hunter, làm từ cao su non với đặc điểm siêu bền, thấm hút siêu êm ái, công nghệ hai lớp – tiếp đất êm, phản hồi lực mạnh mẽ với độ đàn hồi vượt trội >50%, cho đường chạy nhẹ như bay.\r\nThân trên giày (Upper)\r\nChất liệu: Thiết kế vải dệt Jacquard với cấu trúc sợi đan tạo sự mềm mại, uyển chuyển khi sử dụng. Ôm trọn bàn chân, có độ thoáng khí, thấm hút mồ hôi hiệu quả.\r\nPhần lưỡi gà được thiết kế dính liền với thân giày, chất liệu có độ co giãn cao nên có thể dễ dàng mang và tháo giày mà không cần phải tháo dây.\r\nMàu sắc\r\nCó màu trắng cơ bản giúp nàng dễ phối đồ từ thể thao tới trang phục hàng ngày.\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%. \r\nSize giày\r\nBiti\'s Hunter Running White DSWH08300 có size chuẩn từ 35-39 được thiết kế để vừa vặn và ôm sát chân, tạo cảm giác thoải mái khi sử dụng hàng ngày.\r\nBảo hành\r\nBiti’s áp dụng chính sách bảo hành cho mọi sản phẩm trong vòng 3 tháng kể từ thời điểm mua hàng cho mọi vấn đề phát sinh đến từ bên cung cấp. Ngoài ra, quý khách còn được bảo hành trọn đời sản phẩm khi bị bong keo, đứt chỉ.\r\nÁp dụng chính sách đổi size trong vòng 7 ngày nếu chưa phù hợp hay đổi sản phẩm lỗi trong vòng 7 ngày (kể từ thời điểm mua hàng) theo chính sách đổi trả được quy định\r\nTính năng và lợi ích nổi bật\r\nKiểu dáng thon gọn, mũi và form ôm vừa vặn từ gót lên đến cổ chân, đem lại thoải mái khi vận động và di chuyển. Thiết kế dây giày cũng giúp bạn có thể điều chỉnh để phù hợp với kích cỡ của chân.\r\nTem TPU định hình và trợ lực gót chân nhẹ nhàng hơn khi di chuyển\r\nTrang bị Pulltab xuất hiện trên lưỡi gà và sau gót giúp mang giày dễ dàng hơn.\r\nĐặc biệt, đôi giày Biti\'s Hunter Running White DSWH08300 ra đời giúp bạn bộ có hành trình chạy marathon đường dài êm ái, hạn chế phát sinh chấn thương.\r\nNgoài ra, công nghệ LITE BOUNCE độc quyền mang lại phản hồi lực nhịp nhàng, đảm bảo người chạy bộ luôn sự sung sức.\r\nCó dây buộc.\r\nCó thể cung cấp linh hoạt cho chân, giúp người sử dụng dễ dàng thực hiện các động tác và chuyển động.\r\nSản phẩm bao gồm\r\nHộp giày giấy bìa cứng cáp giúp bảo quản giày tốt hơn.\r\nDây giày chắc chắn\r\nTúi chống ẩm.\r\nBiti\'s Hunter Running White DSWH08300 là sự lựa chọn hoàn hảo cho các chuyến leo núi, trekking hay các hoạt động ngoài trời khác. Hãy đặt hàng ngay hôm nay để trải nghiệm sự thoải mái và phong cách độc đáo mà sản phẩm mang lại, đặc biệt Biti\'s thường xuyên có nhiều chương trình khuyến mãi hấp dẫn cho quý khách hàng. '),
+(7, 16, 'Có phải bạn muốn diện những bộ cánh lộng lẫy khi ra đường, phối đồ cực thời trang để “cháy” với những tấm ảnh, nhưng thời tiết sáng nắng chiều mưa khiến công cuộc “sống ảo” của bạn không thuận lợi? Đừng lo, Biti’s gợi ý đến bạn sản phẩm Dép Eva Phun Nữ Biti\'s BEW000900 vừa thời trang vừa không lo ướt sũng khi trời mưa.\r\n\r\nĐế dép\r\nĐế dép được hãng đầu tư chỉn chu khi sử dụng chất liệu IP siêu nhẹ và siêu êm, giúp đôi chân bạn luôn thoải mái ngay cả khi mang dép suốt ngày dài. Chưa kể, chất liệu IP còn có khả năng kháng nước, chống biến dạng, cong vênh, đàn hồi tốt, không lo gãy form nếu bạn vô tình uốn gập dép.\r\nPhần đáy đế dép có thiết kế hoa văn chìm nổi ấn tượng. Ngoài tạo nên sự mới lạ, những vân rãnh này còn giúp ma sát với mặt đường, từ đó hạn chế trơn trượt, té ngã khi di chuyển dưới trời mưa.\r\nThân dép\r\nQuai dép nữ Biti\'s BEW000900 được làm từ chất liệu EVA phun liền quai, mang đến kết cấu liền kề tinh tế. Đồng thời, chất liệu này còn có khả năng chống nước và bụi bẩn tối ưu.\r\nPhần thân trên được thiết kế thoáng khí với các lỗ đan xen, mang lại hiệu quả thoát mồ hôi, hơi ẩm, không gây bí bách hay mùi hôi. Do đó, dù bạn sử dụng dép vào mùa hè nóng nực hay mùa mưa ẩm ướt cũng rất phù hợp.\r\nBên trên còn có các sticker 3D đủ màu sắc gắn trên thân dép, lấy cảm hứng từ bộ sưu tập thức ăn nhanh lạ mắt, giúp sản phẩm trông ấn tượng và nổi bật hơn. \r\nMàu sắc\r\nSản phẩm hiện có 4 màu, gồm đen đơn giản, hay các màu sắc ngọt ngào khác như trắng, hồng, kem.\r\nMàu sắc thực tế có thể chênh lệch 3 - 5% tùy vào điều kiện ánh sáng và màn hình.\r\nKích cỡ\r\nSản phẩm đang được bày bán từ size 35 - 39 tại tất cả cửa hàng Biti’s trên toàn quốc. \r\nBạn có thể chọn size như bình thường, hoặc đến hệ thống Biti’s và trực tiếp trải nghiệm.\r\nBảo hành\r\nSản phẩm được bảo hành trong vòng 3 tháng kể từ thời điểm mua hàng. Ngoài ra sản phẩm còn được bảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế không bị rách,…)\r\nĐổi size giày trong vòng 7 ngày, đổi sản phẩm lỗi trong vòng 7 ngày, kể từ thời điểm mua hàng, nếu sản phẩm vẫn đáp ứng chính sách đổi trả. Điều kiện và quy định đổi trả, quý khách vui lòng tham khảo trên website chính thức. \r\nTính năng và lợi ích nổi bật\r\nSản phẩm có thiết kế đơn giản nhưng nổi bật, với sự phối màu tinh tế giữa màu dép và các sticker gắn kèm.\r\nCó tính ứng dụng cao, có thể mang đi học, đi chơi, đi chụp ảnh, dã ngoại,... trong mọi thời tiết.\r\nĐế IP nhẹ êm, cùng với hệ thống thoát khí tốt giúp bạn thoải mái sử dụng hàng ngày mà không lo bí bách hay gây mùi hôi.\r\nSản phẩm được thiết kế phù hợp xu hướng hiện nay, khiến các bạn nữ ngất ngây ngay từ lần đầu tiên nhìn thấy.\r\nPhần quai hậu có thể đẩy ra trước hoặc sau, “hô biến” dép trở thành đôi giày mang đi học.\r\nSản phẩm bao gồm\r\nDép.\r\nTúi chống ẩm.\r\nTrên đây là tất tần tật thông tin về sản phẩm Dép Eva Phun Nữ Biti\'s BEW000900 cho bạn tham khảo. Nếu có hứng thú với sản phẩm, bạn có thể ghé đến các cửa hàng Biti’s trên toàn quốc để trực tiếp trải nghiệm, hoặc truy cập bitis.com.vn để được nhân viên tư vấn nhé!'),
+(8, 20, 'Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%'),
+(9, 24, 'Sandal Biti\'s Bé Gái\r\n\r\nQuai vải\r\n\r\nĐế TPR\r\n\r\nCao 2 cm\r\n\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `discount`
+--
+
+CREATE TABLE `discount` (
+  `id` int(11) NOT NULL,
+  `productID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `discount`
+--
+
+INSERT INTO `discount` (`id`, `productID`) VALUES
+(1, 2),
+(2, 4),
+(3, 6),
+(4, 8),
+(5, 10),
+(6, 12),
+(7, 14),
+(8, 16),
+(9, 18),
+(10, 20),
+(11, 22),
+(12, 24),
+(13, 1),
+(14, 3),
+(15, 5),
+(16, 7),
+(17, 9),
+(18, 11),
+(19, 13),
+(20, 15),
+(21, 17),
+(22, 19),
+(23, 21),
+(24, 23);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `new`
+--
+
+CREATE TABLE `new` (
+  `id` int(11) NOT NULL,
+  `productID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `new`
+--
+
+INSERT INTO `new` (`id`, `productID`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15),
+(16, 16),
+(17, 17),
+(18, 18),
+(19, 19),
+(20, 20),
+(21, 21),
+(22, 22),
+(23, 23),
+(24, 24);
 
 -- --------------------------------------------------------
 
@@ -84,49 +194,88 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `outstanding`
+--
+
+CREATE TABLE `outstanding` (
+  `id` int(11) NOT NULL,
+  `productID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `outstanding`
+--
+
+INSERT INTO `outstanding` (`id`, `productID`) VALUES
+(1, 2),
+(2, 4),
+(3, 1),
+(4, 3),
+(5, 6),
+(6, 8),
+(7, 5),
+(8, 7),
+(9, 10),
+(10, 12),
+(11, 9),
+(12, 11),
+(13, 14),
+(14, 16),
+(15, 13),
+(16, 15),
+(17, 18),
+(18, 20),
+(19, 17),
+(20, 19),
+(21, 22),
+(22, 24),
+(23, 21),
+(24, 23);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
   `id` int(50) NOT NULL,
   `ptitle` varchar(250) NOT NULL,
-  `rating` float NOT NULL DEFAULT 5,
   `pimg` varchar(250) NOT NULL,
   `pprice` varchar(250) NOT NULL,
   `pgender` varchar(100) NOT NULL,
-  `pkind` varchar(100) NOT NULL,
-  `sl` int(50) NOT NULL DEFAULT 100
+  `pkind` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `ptitle`, `rating`, `pimg`, `pprice`, `pgender`, `pkind`, `sl`) VALUES
-(1, 'Giày Thể Thao Nam Bitis Hunter Street Còn Gì Dùng Đó HSM006300', 4.5, 'https://product.hstatic.net/1000230642/product/hsm006302doo_fbdb3c22b0ca4e828b2b452100299df5.jpg', '19.99', 'Nữ', 'Hunter', 100),
-(2, 'Giày Thể Thao Nam Bitis Hunter X Dune Titan HSM005800', 4, 'https://product.hstatic.net/1000230642/product/hsw005800xam__2__9c53325536e2425c8bd7d47eb36ed027.jpg', '39.99', 'Nam', 'Hunter', 75),
-(3, 'Giày Thể Thao Nam Biti’s Hunter Street đế #BÀO x MARVEL Spiderman - Hunter-verse 2k23 edition HSM001898', 4, 'https://product.hstatic.net/1000230642/product/08b_774a037f29d040d3bd57509f7ecd7e47.png', '39.99', 'Nam', 'Hunter', 75),
-(4, 'Sandal Nam Bitis BDM001577', 4.5, 'https://product.hstatic.net/1000230642/product/bdm001577den__2__4ea0417daf614f56a20152f6c442e8f0.jpg', '19.99', 'Nam', 'Sandal', 100),
-(5, 'Giày Thể Thao Thông Dụng Nam Bitis Basic BSM000600\n', 4.5, 'https://product.hstatic.net/1000230642/product/bsm000600trg__2__dc7ce618c3f14f9283a11fbff9e3b56a.jpg', '19.99', 'Nam', 'Giày Thể Thao', 100),
-(6, 'Giày Chạy Bộ Nam Bitis Hunter Running DSMH10000\r\n', 4.5, 'https://product.hstatic.net/1000230642/product/hay-bo-nam-biti-s-hunter-running-gray-dsmh10000xam-xam-k8iou-color-xam_c0300a46d8944863b7b99f6702abb6b1.jpg', '19.99', 'Nam', 'Giày Chạy Bộ', 100),
-(7, 'Giày Đá Bóng Nam Bitis Hunter Football HSM003600\r\n', 4.5, 'https://product.hstatic.net/1000230642/product/hsm003600cam__2__ebba4c44b4b64642ae2694d0de986b86.jpg', '19.99', 'Nam', 'Giày Đá Banh', 100),
-(8, 'Giày Da Nam Bitis X DMM371880\r\n', 4.5, 'https://product.hstatic.net/1000230642/product/dmm371880vdb__2__8ff7b0c0fd324878b6322fd045834604.jpg', '19.99', 'Nam', 'Giày Tây', 100),
-(9, 'Dép Nam Bitis BPM000200\r\n', 4.5, 'https://product.hstatic.net/1000230642/product/bpm000200nau_3f3dce10d397426996afb71785826ab8.jpg', '19.99', 'Nam', 'Dép', 100),
-(10, 'Giày Thể Thao Nữ Gosto GFW018100', 3, 'https://product.hstatic.net/1000230642/product/gfw018100hog__2__0379dd9a60484bd5965aa7839565482c_1024x1024.jpg', '1,011,000', 'Nữ', 'Gosto', 100),
-(11, 'Sandal Nữ Biti\'s Hunter HEW000800', 3.5, 'https://product.hstatic.net/1000230642/product/hew000800hog_d467a56b559f46c1aaead88baf13e923_1024x1024.jpg', '520,000', 'Nữ', 'Sandal', 100),
-(12, 'Giày Búp Bê Nữ Biti\'s BBW001688', 3.8, 'https://product.hstatic.net/1000230642/product/bbw001688xdg2_b324da45894b4547ab16a5e4173e7825_1024x1024.jpg', '369,000', 'Nữ', 'Giày Búp Bê', 100),
-(13, 'Giày Bít Thời Trang Nữ Biti\'s BFW003588', 3.8, 'https://product.hstatic.net/1000230642/product/bfw003588kem__2__f7ddeb5aeb3442539d5740193b53e68d_1024x1024.jpg', '432,000', 'Nữ', 'Giày Thời Trang', 100),
-(14, 'Giày Chạy Bộ Nữ Biti\'s Hunter Running DSWH08300', 4, 'https://product.hstatic.net/1000230642/product/hay-bo-nu-biti-s-hunter-running-tiger-dswh08300cam-cam-ls3g5-color-cam_a6f2a5322e6742aa83eb8c32b20f1485_1024x1024.jpg', '735,750', 'Nữ', 'Giày Chạy Bộ', 100),
-(15, 'Giày Thể Thao Nữ Biti\'s BSW002300', 4, 'https://product.hstatic.net/1000230642/product/bsw002300xam2_0266e9c574c845a2b2c4f61623e26c11_1024x1024.jpg', '555,000', 'Nữ', 'Giày Thể Thao', 100),
-(16, 'Dép Eva Phun Nữ Biti\'s BEW000900', 5, 'https://product.hstatic.net/1000230642/product/bew000900hog__2__28ba40e840084077a34276a4edac5758_1024x1024.jpg', '261,000', 'Nữ', 'Dép', 100),
-(17, 'Giày Thể Thao Bé Trai Biti\'s Spiderman BSB004398', 5, 'https://product.hstatic.net/1000230642/product/bsb004398xdg__2__cc74839870d743eda169ffebddbbcedd_1024x1024.jpg', '579,000', 'Bé Trai', 'Giày Thể Thao', 100),
-(18, 'Sandal Bé Trai Biti\'s BEB002100', 5, 'https://product.hstatic.net/1000230642/product/beb002100cam_e8107d2c85ce48f6a73264ec5fd711bc_1024x1024.jpg', '305,000', 'Bé Trai', 'Sandal', 100),
-(19, 'Dép Eva Bé Trai Biti\'s DEB010101', 3, 'https://product.hstatic.net/1000230642/product/deb010101trg__2__1d14e5c7ef184088bbeb33003f28d151_1024x1024.jpg', '221,000', 'Bé Trai', 'Dép', 100),
-(20, 'Giày búp bê bé gái DBB010901', 5, 'https://product.hstatic.net/1000230642/product/ttn_6844_50d2f558d2e74a1f8bd5dcb79a00fd87_1024x1024.jpg', '344,000', 'Bé Gái', 'Giày Búp Bê', 100),
-(21, 'Giày Thể Thao Bé Gái Biti\'s BSG002600', 4.1, 'https://product.hstatic.net/1000230642/product/bsg002600hog__2__7f24ad58575340ba87654040a82889bb_1024x1024.jpg', '447,000', 'Bé Gái', 'Giày Thể Thao', 100),
-(22, 'Sandal Bé Gái Biti\'s BEG002200', 5, 'https://product.hstatic.net/1000230642/product/beg002200vag__4__270e08ca1e654a84b8ccedaae48618b7_1024x1024.jpg', '310,000', 'Bé Gái', 'Sandal', 100),
-(23, 'Dép Eva Phun Bé Gái Biti\'s E-Cloud BEG001801', 5, 'https://product.hstatic.net/1000230642/product/beg001801vag__2__1f339d6856974ba3ac4df1471d1ddac1_1024x1024.jpg', '128,000', 'Bé Gái', 'Dép', 100),
-(24, 'Giày Tập Đi Bé Gái DTG003900', 5, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-u8nfg-color-cam_edbba01013b5474bade2182eb08b24ca_1024x1024.jpg', '172,000', 'Bé Gái', 'Giày Tập Đi', 100);
+INSERT INTO `product` (`id`, `ptitle`, `pimg`, `pprice`, `pgender`, `pkind`) VALUES
+(1, 'Giày Thể Thao Nam Bitis Hunter Street Còn Gì Dùng Đó HSM006300', 'https://product.hstatic.net/1000230642/product/hsm006302doo_fbdb3c22b0ca4e828b2b452100299df5.jpg', '19.99', 'Nữ', 'Hunter'),
+(2, 'Giày Thể Thao Nam Bitis Hunter X Dune Titan HSM005800', 'https://product.hstatic.net/1000230642/product/hsw005800xam__2__9c53325536e2425c8bd7d47eb36ed027.jpg', '39.99', 'Nam', 'Hunter'),
+(3, 'Giày Thể Thao Nam Biti’s Hunter Street đế #BÀO x MARVEL Spiderman - Hunter-verse 2k23 edition HSM001898', 'https://product.hstatic.net/1000230642/product/08b_774a037f29d040d3bd57509f7ecd7e47.png', '39.99', 'Nam', 'Hunter'),
+(4, 'Sandal Nam Bitis BDM001577', 'https://product.hstatic.net/1000230642/product/bdm001577den__2__4ea0417daf614f56a20152f6c442e8f0.jpg', '19.99', 'Nam', 'Sandal'),
+(5, 'Giày Thể Thao Thông Dụng Nam Bitis Basic BSM000600', 'https://product.hstatic.net/1000230642/product/bsm000600trg__2__dc7ce618c3f14f9283a11fbff9e3b56a.jpg', '19.99', 'Nam', 'Giày Thể Thao'),
+(6, 'Giày Chạy Bộ Nam Bitis Hunter Running DSMH10000', 'https://product.hstatic.net/1000230642/product/hay-bo-nam-biti-s-hunter-running-gray-dsmh10000xam-xam-k8iou-color-xam_c0300a46d8944863b7b99f6702abb6b1.jpg', '19.99', 'Nam', 'Giày Chạy Bộ'),
+(7, 'Giày Đá Bóng Nam Bitis Hunter Football HSM003600', 'https://product.hstatic.net/1000230642/product/hsm003600cam__2__ebba4c44b4b64642ae2694d0de986b86.jpg', '19.99', 'Nam', 'Giày Đá Banh'),
+(8, 'Giày Da Nam Bitis X DMM371880', 'https://product.hstatic.net/1000230642/product/dmm371880vdb__2__8ff7b0c0fd324878b6322fd045834604.jpg', '19.99', 'Nam', 'Giày Tây'),
+(9, 'Dép Nam Bitis BPM000200', 'https://product.hstatic.net/1000230642/product/bpm000200nau_3f3dce10d397426996afb71785826ab8.jpg', '19.99', 'Nam', 'Dép'),
+(10, 'Giày Thể Thao Nữ Gosto GFW018100', 'https://product.hstatic.net/1000230642/product/gfw018100hog__2__0379dd9a60484bd5965aa7839565482c_1024x1024.jpg', '1,011,000', 'Nữ', 'Gosto'),
+(11, 'Sandal Nữ Biti\'s Hunter HEW000800', 'https://product.hstatic.net/1000230642/product/hew000800hog_d467a56b559f46c1aaead88baf13e923_1024x1024.jpg', '520,000', 'Nữ', 'Sandal'),
+(12, 'Giày Búp Bê Nữ Biti\'s BBW001688', 'https://product.hstatic.net/1000230642/product/bbw001688xdg2_b324da45894b4547ab16a5e4173e7825_1024x1024.jpg', '369,000', 'Nữ', 'Giày Búp Bê'),
+(13, 'Giày Bít Thời Trang Nữ Biti\'s BFW003588', 'https://product.hstatic.net/1000230642/product/bfw003588kem__2__f7ddeb5aeb3442539d5740193b53e68d_1024x1024.jpg', '432,000', 'Nữ', 'Giày Thời Trang'),
+(14, 'Giày Chạy Bộ Nữ Biti\'s Hunter Running DSWH08300', 'https://product.hstatic.net/1000230642/product/hay-bo-nu-biti-s-hunter-running-tiger-dswh08300cam-cam-ls3g5-color-cam_a6f2a5322e6742aa83eb8c32b20f1485_1024x1024.jpg', '735,750', 'Nữ', 'Giày Chạy Bộ'),
+(15, 'Giày Thể Thao Nữ Biti\'s BSW002300', 'https://product.hstatic.net/1000230642/product/bsw002300xam2_0266e9c574c845a2b2c4f61623e26c11_1024x1024.jpg', '555,000', 'Nữ', 'Giày Thể Thao'),
+(16, 'Dép Eva Phun Nữ Biti\'s BEW000900', 'https://product.hstatic.net/1000230642/product/bew000900hog__2__28ba40e840084077a34276a4edac5758_1024x1024.jpg', '261,000', 'Nữ', 'Dép'),
+(17, 'Giày Thể Thao Bé Trai Biti\'s Spiderman BSB004398', 'https://product.hstatic.net/1000230642/product/bsb004398xdg__2__cc74839870d743eda169ffebddbbcedd_1024x1024.jpg', '579,000', 'Bé Trai', 'Giày Thể Thao'),
+(18, 'Sandal Bé Trai Biti\'s BEB002100', 'https://product.hstatic.net/1000230642/product/beb002100cam_e8107d2c85ce48f6a73264ec5fd711bc_1024x1024.jpg', '305,000', 'Bé Trai', 'Sandal'),
+(19, 'Dép Eva Bé Trai Biti\'s DEB010101', 'https://product.hstatic.net/1000230642/product/deb010101trg__2__1d14e5c7ef184088bbeb33003f28d151_1024x1024.jpg', '221,000', 'Bé Trai', 'Dép'),
+(20, 'Giày búp bê bé gái DBB010901', 'https://product.hstatic.net/1000230642/product/ttn_6844_50d2f558d2e74a1f8bd5dcb79a00fd87_1024x1024.jpg', '344,000', 'Bé Gái', 'Giày Búp Bê'),
+(21, 'Giày Thể Thao Bé Gái Biti\'s BSG002600', 'https://product.hstatic.net/1000230642/product/bsg002600hog__2__7f24ad58575340ba87654040a82889bb_1024x1024.jpg', '447,000', 'Bé Gái', 'Giày Thể Thao'),
+(22, 'Sandal Bé Gái Biti\'s BEG002200', 'https://product.hstatic.net/1000230642/product/beg002200vag__4__270e08ca1e654a84b8ccedaae48618b7_1024x1024.jpg', '310,000', 'Bé Gái', 'Sandal'),
+(23, 'Dép Eva Phun Bé Gái Biti\'s E-Cloud BEG001801', 'https://product.hstatic.net/1000230642/product/beg001801vag__2__1f339d6856974ba3ac4df1471d1ddac1_1024x1024.jpg', '128,000', 'Bé Gái', 'Dép'),
+(24, 'Giày Tập Đi Bé Gái DTG003900', 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-u8nfg-color-cam_edbba01013b5474bade2182eb08b24ca_1024x1024.jpg', '172,000', 'Bé Gái', 'Giày Tập Đi');
 
 -- --------------------------------------------------------
 
@@ -475,11 +624,35 @@ ALTER TABLE `comment`
   ADD KEY `fk_comment_account` (`a_id`);
 
 --
+-- Indexes for table `description`
+--
+ALTER TABLE `description`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `discount`
+--
+ALTER TABLE `discount`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `new`
+--
+ALTER TABLE `new`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_order_account` (`a_id`);
+
+--
+-- Indexes for table `outstanding`
+--
+ALTER TABLE `outstanding`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product`
@@ -522,6 +695,30 @@ ALTER TABLE `comment`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `description`
+--
+ALTER TABLE `description`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `discount`
+--
+ALTER TABLE `discount`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `new`
+--
+ALTER TABLE `new`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `outstanding`
+--
+ALTER TABLE `outstanding`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -531,7 +728,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `subimage`
