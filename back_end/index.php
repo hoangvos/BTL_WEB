@@ -22,10 +22,7 @@ require "model/Order.php";
 require "model/OrderRepository.php";
 require "model/Size.php";
 require "model/SizeRepository.php";
-<<<<<<< HEAD
 
-=======
->>>>>>> 3910f5cc0034afc218202afa062b5cb51f95d83b
 //router
 $c = $_GET["c"] ?? "user";
 $a = $_GET["a"] ?? "list";
