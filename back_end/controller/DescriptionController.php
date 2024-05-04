@@ -8,6 +8,28 @@ class DescriptionController{
         $result = json_encode($descriptionQuantity);
         echo ($result);
     }
+    function update() {
+        $data = json_decode(file_get_contents("php://input"));
+        $descriptionRepository = new DescriptionRepository(); 
+            
+        if ($descriptionRepository->update($data)) {
+            $_SESSION["success"] = "Cập nhật mô tả sản phẩm thành công !!";
+        } else {
+            $_SESSION["error"] = $descriptionRepository->error;
+        }
+    }   
+    function delete() {
+        $data = json_decode(file_get_contents("php://input"));
+        $descriptionRepository = new DescriptionRepository(); 
+            
+        if ($descriptionRepository->delete($data)) {
+            $_SESSION["success"] = "Xóa mô tả sản phẩm thành công !!";
+        } else {
+            $_SESSION["error"] = $descriptionRepository->error;
+        }
+    }   
+
+
 }
 
 

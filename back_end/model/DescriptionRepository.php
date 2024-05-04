@@ -23,6 +23,27 @@ class DescriptionRepository{
         }
         return $products;
     }   
+    function update($data) {
+        global $conn;
+        $id = $data->id;
+        $content = $data->content; 
+        $sql = "UPDATE description SET content='$content' WHERE id = $id";
+        if ($conn->query($sql)) {
+            return true;
+        }
+        $this->error = "Error: $sql <br>" .$conn->error ;
+        return false;
+    }
+    function delete($data){
+        global $conn;
+        $id = $data->id;
+        $sql = "DELETE FROM description WHERE id=$id";
+        if ($conn->query($sql)) {
+            return true;
+        }
+        $this->error = "Error: $sql <br>" .$conn->error ;
+        return false;
+    } 
 }
 
 

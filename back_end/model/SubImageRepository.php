@@ -23,6 +23,28 @@ class SubImageRepository{
         }
         return $products;
     }   
+    function update($data) {
+        global $conn;
+        $id = $data->id;
+        $img = $data->img; 
+        $sql = "UPDATE subimage SET img='$img' WHERE id = $id";
+        if ($conn->query($sql)) {
+            return true;
+        }
+        $this->error = "Error: $sql <br>" .$conn->error ;
+        return false;
+    }
+    function delete($data){
+        global $conn;
+        $id = $data->id;
+        $sql = "DELETE FROM subimage WHERE id=$id";
+        if ($conn->query($sql)) {
+            return true;
+        }
+        $this->error = "Error: $sql <br>" .$conn->error ;
+        return false;
+    } 
+
 }
 
 
