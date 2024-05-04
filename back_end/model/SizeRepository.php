@@ -26,10 +26,14 @@ class SizeRepository{
         return $products;
     }
 
-    function update($productID, $size, $sl){
+    function update($data){
         global $conn; 
+        $id = $data -> id; 
+        $productID = $data->productID; 
+        $soluong = $data->soluong; 
+        $size = $data->size; 
 
-        $sql = "UPDATE size SET soluong=$sl WHERE productID=$productID AND size=$size";
+        $sql = "UPDATE size SET productID=$productID, soluong=$soluong, size=$size WHERE id=$id";
         if ($conn->query($sql)) {
             return true;
         }
@@ -37,16 +41,22 @@ class SizeRepository{
         return false;
     }
 
-    function decreaseSizeQuantity($productID, $size, $sl){
+    function decreaseSizeQuantity($id, $sl){
         global $conn; 
-        $sql = "SELECT soluong FROM size WHERE productID=$productID AND size=$size";
+        $sql = "SELECT soluong FROM size WHERE id=$id";
         $result = $conn -> query($sql); 
         if($result->num_rows > 0 ){
             $row = $result->fetch_assoc(); 
             $soluong = $row['soluong'];
             if($soluong >= $sl){
                 $soluong = $soluong - $sl; 
-                return $this->update($productID, $size, $soluong);
+                $sql = "UPDATE size SET soluong=$soluong WHERE id=$id";
+                
+                if($conn->query($sql)){
+                    return true; 
+                }
+                $this->error = "Error: $sql <br>" .$conn->error ;
+                return false;
             }
             else{
                 $this->error = "Số lượng sản phẩm không đủ";
@@ -57,9 +67,9 @@ class SizeRepository{
         return false;
     }
 
-    function addSizeQuantity($productID, $size, $sl){
+    function addSizeQuantity($id, $sl){
         global $conn; 
-        $sql = "UPDATE size SET soluong=soluong+$sl WHERE productID=$productID AND size=$size";
+        $sql = "UPDATE size SET soluong=soluong+$sl WHERE id=$id";
         return $conn->query($sql); 
 
     }
@@ -78,8 +88,18 @@ class SizeRepository{
         return false;
     }
 
+
+    function delete($id){
+        global $conn;
+        $sql = "DELETE FROM size WHERE id=$id";
+        if($conn->query($sql)){
+            return true; 
+        }
+        $this->error = "Error: $sql <br>" . $conn->error;
+        return false;
+    }
+
    
 }
-
 
 ?>

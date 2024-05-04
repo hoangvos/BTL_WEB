@@ -7,11 +7,11 @@ export class QuanLySizeService extends baseService {
   laysizetheoproductId = (productId) => {
     return this.get(`http://localhost/BE/?c=size&a=list&search=${productId}`)
   }
-  themluongsanphamtheosize = (productID, size, sl) => {
-    return this.get(`http://localhost/BE/?c=size&a=add&productID=${productID}&size=${size}&sl=${sl}`);
+  themluongsanphamtheosize = (id, sl) => {
+    return this.get(`http://localhost/BE/?c=size&a=add&id=${id}&sl=${sl}`);
   }
-  giamluongsanphamtheosize = (productID, size, sl) => {
-    return this.get(`http://localhost/BE/?c=size&a=add&productID=${productID}&size=${size}&sl=${sl}`);
+  giamluongsanphamtheosize = (id, sl) => {
+    return this.get(`http://localhost/BE/?c=size&a=minus&id=${id}&sl=${sl}`);
   }
   themSizemoi = (productID, soluong, size)=>{
     const sendData = {
@@ -20,14 +20,26 @@ export class QuanLySizeService extends baseService {
       size: size,
     };
     axios
-    .post("http://localhost/BE/?c=size&a=save", sendData)
+    .post(" ", sendData)
     .then((result) => {
 
     });
   }
 
-  capnhatSize = (productID, size, sl) => {
-    return this.get(`http://localhost/BE/?c=size&a=update&productID=${productID}&size=${size}&sl=${sl}`);
+  capnhatSize = (id, productID, soluong, size) => {
+    const sendData = {
+      id : id, 
+      productID: productID,
+      soluong: soluong,
+      size: size,
+    };
+    // return this.get(`http://localhost/BE/?c=size&a=update&productID=${productID}&size=${size}&sl=${sl}`);
+    axios
+      .post("http://localhost/BE/?c=size&a=update", sendData);
+  }
+
+  xoaSize = (id) => {
+    return this.get(`http://localhost/BE/?c=size&a=delete&id=${id}`);
   }
 
 }
