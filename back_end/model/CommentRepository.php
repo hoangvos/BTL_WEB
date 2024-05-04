@@ -47,7 +47,7 @@ class CommentRepository {
     }
     function delete($id) {
         global $conn;
-        $sql = "DELETE FROM commentdb WHERE id=$id";
+        $sql = "DELETE FROM comment WHERE id=$id";
         if ($conn->query($sql)) {
             return true;
         }
