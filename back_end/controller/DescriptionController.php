@@ -14,6 +14,7 @@ class DescriptionController{
             
         if ($descriptionRepository->update($data)) {
             $_SESSION["success"] = "Cập nhật mô tả sản phẩm thành công !!";
+            echo json_encode("true");
         } else {
             $_SESSION["error"] = $descriptionRepository->error;
         }
@@ -34,6 +35,7 @@ class DescriptionController{
             
         if ($descriptionRepository->save($data)) {
             $_SESSION["success"] = "Thêm mô tả sản phẩm thành công !!";
+            echo json_encode("true");
         } else {
             $_SESSION["error"] = $descriptionRepository->error;
         }

@@ -39,7 +39,7 @@ export class QuanLySizeService extends baseService {
   }
 
   xoaSize = (id) => {
-    return this.get(`http://localhost/BE/?c=size&a=delete&id=${id}`);
+    return this.delete(`http://localhost/BE/?c=size&a=delete&id=${id}`);
   }
 
 }

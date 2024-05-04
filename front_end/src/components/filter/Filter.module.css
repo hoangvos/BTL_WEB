@@ -1,0 +1,123 @@
+.container{
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+}
+.icon{
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icon i{
+  font-size: 25px;
+}
+.type{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.optionContainer{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+}
+.sizeContainer, .priceContainer{
+  width: 200px;
+  height: 30px;
+  /* background-color: white; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+
+}
+.sizeContainer i, .priceContainer i{
+  cursor: pointer;
+}
+.price{
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 5px);
+  left: 0px;
+  border: 1px solid #cccccc;
+  height: 90px;
+  background-color: white;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.size{
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 5px);
+  left: 0px;
+  border: 1px solid #cccccc;
+  height: 90px;
+  background-color: white;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.size > div{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+}
+.sizeActive{
+  border: 1px solid red !important;
+}
+
+.constraintContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.constraintContainer i{
+  color: #1b4ea0;
+  font-size: 15px;
+  cursor: pointer;
+}
+.constraint{
+  padding: 3px 10px;
+  border-radius: 5px;
+  width: fit-content;
+  border: 1px solid #1b4ea0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}

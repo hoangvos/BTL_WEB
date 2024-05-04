@@ -1,10 +1,13 @@
 .box_product {
   width: 100%;
+  height: fit-content;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  /* min-width: 240px; */
+
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
 }
 
 .box_product:hover {
@@ -12,7 +15,7 @@
 
 .container_image_product {
   width: 100%;
-  height: 254px;
+  height: auto;
 }
 .container_image_product img{
   width: 100%;
@@ -84,14 +87,14 @@
 
 @media only screen and (max-width: 1400px){
   .name_product{
-    height: calc(16 * 4px);
+    height: calc(16 * 5px);
   }
   
 }
 
 @media only screen and (max-width: 1200px){
   .name_product{
-    height: calc(16 * 3px);
+    height: calc(16 * 5px);
   }
 }
 
@@ -102,9 +105,17 @@
 }
 @media only screen and (max-width: 760px){
   .name_product{
-    height: calc(16 * 3px);
+    height: calc(16 * 4px);
+  }
+  .box_product{
+    min-width: 240px;
   }
 }
 @media only screen and (max-width: 500px){
-  
+  .box_product{
+    min-width: 180px;
+  }
+  .name_product{
+    height: calc(16 * 5px);
+  }
 }

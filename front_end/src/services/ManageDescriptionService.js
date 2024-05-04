@@ -7,7 +7,7 @@ export class QuanLyDescriptionService extends baseService {
   }
   capnhatdescription = (id, content) => {
     const sendData = {
-      id: id,
+      id: id, //id of description
       content: content
     }
     axios.post("http://localhost/BE/?c=description&a=update", sendData).then((result)=>{

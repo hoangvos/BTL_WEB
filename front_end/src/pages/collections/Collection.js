@@ -6,6 +6,7 @@ import CategoryComponent from '../../components/category/Category';
 import style from './Collection.module.css';
 import GridItems from '../../components/gridItems/GridItems';
 import { useParams } from 'react-router-dom';
+import Filter from '../../components/filter/Filter';
 
 function ImageBanner({ path}) {
   return (
@@ -41,6 +42,7 @@ export default function Collection() {
       <Path paths={paths} />
       <ImageBanner path={bannerRong} />
       <CategoryComponent name={collectionName} />
+      <Filter />
       <GridItems collectionName={ collectionName } />
 
     </>
