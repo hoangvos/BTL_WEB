@@ -22,6 +22,7 @@ class CommentController {
         $data=json_decode(file_get_contents("php://input"));
         $commentRepository = new CommentRepository();
         if ($commentRepository->save($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã tạo bình luận thành công";
         }
         else {
@@ -34,6 +35,7 @@ class CommentController {
         $id = $_GET["id"];
         $commentRepository = new CommentRepository();
         if ($commentRepository->delete($id)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa bình luận thành công";
         }
         else {

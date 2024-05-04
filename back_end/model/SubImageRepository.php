@@ -44,7 +44,16 @@ class SubImageRepository{
         $this->error = "Error: $sql <br>" .$conn->error ;
         return false;
     } 
-
+    function save($data){
+        global $conn;
+        $productID = $data->productID;
+        $img = $data->img; 
+        $sql = "INSERT INTO subimage (productID, img) VALUES ('$productID', '$img')";
+        if($conn->query($sql)){
+            return true;
+        }
+        return false;
+    }
 }
 
 

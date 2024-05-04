@@ -6,11 +6,14 @@ export class QuanLyGioHangService extends baseService {
     }
 
     xoaDanhSachGioHang = (p_id, a_id) => {
-
         return this.delete(`http://localhost/BE/?c=cart&a=delete&p_id=${p_id}&a_id=${a_id}`)
     }
-    themDanhSachGioHang = (formData) => {
-
+    themDanhSachGioHang = (sl, a_id, p_id) => {
+        formData = {
+            sl : sl,
+            a_id : a_id,
+            p_id : p_id
+        }
         return this.post(`http://localhost/BE/?c=cart&a=save`, formData);
 
     }

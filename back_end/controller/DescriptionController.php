@@ -13,8 +13,9 @@ class DescriptionController{
         $descriptionRepository = new DescriptionRepository(); 
             
         if ($descriptionRepository->update($data)) {
-            $_SESSION["success"] = "Cập nhật mô tả sản phẩm thành công !!";
             echo json_encode("true");
+            $_SESSION["success"] = "Cập nhật mô tả sản phẩm thành công !!";
+            
         } else {
             $_SESSION["error"] = $descriptionRepository->error;
         }
@@ -24,6 +25,7 @@ class DescriptionController{
         $descriptionRepository = new DescriptionRepository(); 
             
         if ($descriptionRepository->delete($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Xóa mô tả sản phẩm thành công !!";
         } else {
             $_SESSION["error"] = $descriptionRepository->error;
@@ -34,8 +36,8 @@ class DescriptionController{
         $descriptionRepository = new DescriptionRepository(); 
             
         if ($descriptionRepository->save($data)) {
-            $_SESSION["success"] = "Thêm mô tả sản phẩm thành công !!";
             echo json_encode("true");
+            $_SESSION["success"] = "Thêm mô tả sản phẩm thành công !!";
         } else {
             $_SESSION["error"] = $descriptionRepository->error;
         }

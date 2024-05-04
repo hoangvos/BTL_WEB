@@ -24,6 +24,7 @@ class ProductController {
         $productRepository = new ProductRepository();
        
         if ($productRepository->update($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã tạo cập nhật sinh viên thành công";
         }
         else {
@@ -37,6 +38,7 @@ class ProductController {
         $data=json_decode(file_get_contents("php://input"));
         $productRepository = new ProductRepository();
         if ($productRepository->save($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã tạo sản phẩm thành công";
         }
         else {
@@ -47,8 +49,8 @@ class ProductController {
         $id = $_GET["id"];
         $productRepository = new ProductRepository();
         if ( $productRepository->delete($id)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa user thành công";
-            echo "thanh cong";
         }
         else {
             $_SESSION["error"] = $productRepository->error;

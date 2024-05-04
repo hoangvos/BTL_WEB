@@ -32,6 +32,20 @@ export class QuanLySubImageService extends baseService {
       }
     });
   }
+  themSubImage = (productID, img) => {
+    const sendData = {
+      productID : productID,
+      img : img
+    }
+    axios.post("http://localhost/BE/?c=subImage&a=save", sendData).then((result)=>{
+      if(result.data){
+        console.log("Success add");
+      }
+      else{
+        console.log("Error add");
+      }
+    });
+  }
 
 
 }

@@ -19,6 +19,7 @@ class OrderController {
         $data=json_decode(file_get_contents("php://input"));
         $orderRepository = new OrderRepository();
         if ($orderRepository->save($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã Địa chỉ bình luận thành công";
         }
         else {
@@ -33,6 +34,7 @@ class OrderController {
         $orderRepository = new OrderRepository();
       
         if ($orderRepository->update($data)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã tạo cập nhật sinh viên thành công";
         }
         else {
@@ -44,6 +46,7 @@ class OrderController {
         $id = $_GET["id"];
         $orderRepository = new OrderRepository();
         if ($orderRepository->delete($id)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa bình luận thành công";
         }
         else {

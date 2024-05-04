@@ -20,6 +20,7 @@ class CartController {
         $a_id= $_GET["a_id"];
         $cartRepository = new CartRepository();
         if ( $cartRepository->delete($p_id, $a_id)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa sản phẩm";
         }
         else {
@@ -34,6 +35,7 @@ class CartController {
         if ($cartRepository->productExistsInCart($data->p_id, $data->a_id)) {
             // Product exists, update quantity
             if ($cartRepository->updateProductQuantity($data->a_id, $data->p_id, $data->sl)) {
+                echo json_encode("true");
                 $_SESSION["success"] = "Số lượng sản phẩm đã được cập nhật trong giỏ hàng";
             } else {
                 $_SESSION["error"] = "Không thể cập nhật số lượng sản phẩm";
@@ -41,6 +43,7 @@ class CartController {
         } else {
             
             if ($cartRepository->save($data)) {
+                echo json_encode("true");
                 $_SESSION["success"] = "Đã thêm sản phẩm vào giỏ hàng thành công";
             } else {
                 $_SESSION["error"] = $cartRepository->error;
@@ -53,6 +56,7 @@ class CartController {
         $a_id= $_GET["a_id"];
         $cartRepository = new CartRepository();
         if ( $cartRepository->updateProductQuantity($a_id,$p_id,1)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa sản phẩm";
         }
         else {
@@ -66,6 +70,7 @@ class CartController {
         $a_id= $_GET["a_id"];
         $cartRepository = new CartRepository();
         if ( $cartRepository->decreaseProductQuantity($a_id,$p_id)) {
+            echo json_encode("true");
             $_SESSION["success"] = "Đã xóa sản phẩm";
         }
         else {

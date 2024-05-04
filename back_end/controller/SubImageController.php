@@ -13,7 +13,8 @@ class SubImageController{
         $subImageRepository = new SubImageRepository(); 
             
         if ($subImageRepository->update($data)) {
-            $_SESSION["success"] = "Cập nhật mô tả sản phẩm thành công !!";
+            echo json_encode("true");
+            $_SESSION["success"] = "Cập nhật ảnh sản phẩm thành công !!";
         } else {
             $_SESSION["error"] = $subImageRepository->error;
         }
@@ -23,7 +24,19 @@ class SubImageController{
         $subImageRepository = new SubImageRepository(); 
             
         if ($subImageRepository->delete($data)) {
-            $_SESSION["success"] = "Xóa mô tả sản phẩm thành công !!";
+            echo json_encode("true");
+            $_SESSION["success"] = "Xóa ảnh sản phẩm thành công !!";
+        } else {
+            $_SESSION["error"] = $subImageRepository->error;
+        }
+    }   
+    function save() {
+        $data = json_decode(file_get_contents("php://input"));
+        $subImageRepository = new SubImageRepository(); 
+            
+        if ($subImageRepository->save($data)) {
+            echo json_encode("true");
+            $_SESSION["success"] = "Lưu ảnh sản phẩm thành công !!";
         } else {
             $_SESSION["error"] = $subImageRepository->error;
         }
