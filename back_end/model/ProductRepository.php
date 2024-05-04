@@ -88,7 +88,7 @@ class ProductRepository {
         $pgender = $data->pgender;
         $pkind= $data->pkind;
         $description = $data->description; 
-        $sql = "UPDATE product SET ptitle='$ptitle', pprice='$pprice', pkind='$pkind',pimg='$pimg',pgender='$pgender' WHERE id = $id";
+        $sql = "UPDATE product SET ptitle=\"$ptitle\", pimg='$pimg', pprice='$pprice', pgender='$pgender', pkind='$pkind' WHERE id=$id";
         if ($conn->query($sql)) {
             if($description != ""){
                 $sql = "UPDATE description SET content='$description' WHERE productID = $id";
