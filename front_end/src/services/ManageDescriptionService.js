@@ -32,6 +32,20 @@ export class QuanLyDescriptionService extends baseService {
       }
     });
   }
+  themdescription = (productID, description) => {
+    const sendData = {
+      productID : productID ,
+      description : description 
+    }
+    axios.post("http://localhost/BE/?c=description&a=save", sendData).then((result)=>{
+      if(result.data){
+        console.log("Success delete");
+      }
+      else{
+        console.log("Error delete");
+      }
+    });
+  }
 }
 
 export const quanLyDescriptionService = new QuanLyDescriptionService();

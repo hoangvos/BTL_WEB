@@ -44,6 +44,18 @@ class DescriptionRepository{
         $this->error = "Error: $sql <br>" .$conn->error ;
         return false;
     } 
+    function save($data){
+        global $conn;
+        $productID = $data->productID;
+        $description = $data->description; 
+        $sql = "INSERT INTO description (productID, content) VALUES ('$productID', '$description')";
+        if($conn->query($sql)){
+            return true;
+        }
+        return false;
+    }
+
+
 }
 
 

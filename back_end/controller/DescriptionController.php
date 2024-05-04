@@ -28,6 +28,16 @@ class DescriptionController{
             $_SESSION["error"] = $descriptionRepository->error;
         }
     }   
+    function save() {
+        $data = json_decode(file_get_contents("php://input"));
+        $descriptionRepository = new DescriptionRepository(); 
+            
+        if ($descriptionRepository->save($data)) {
+            $_SESSION["success"] = "Thêm mô tả sản phẩm thành công !!";
+        } else {
+            $_SESSION["error"] = $descriptionRepository->error;
+        }
+    }
 
 
 }
