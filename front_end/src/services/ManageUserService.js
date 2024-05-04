@@ -1,6 +1,5 @@
 import { baseService } from "./baseService";
 import axios from 'axios';
-import { toast } from "react-toastify";
 
 export class QuanLyUserService extends baseService {
 
@@ -55,10 +54,10 @@ export class QuanLyUserService extends baseService {
         axios.post("http://localhost/BE/?c=user&a=register", sendData).then((result) => {
             console.log(result)
             if (result.data === 'false') {
-                toast.error("Tài khoản đã tồn tại")
+                console.log("Tài khoản đã tồn tại");
             }
             else {    
-                window.location.href = "/login";
+                console.log("Thêm tài khoản thành công");
             }
         });
 
