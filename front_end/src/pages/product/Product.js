@@ -4,6 +4,7 @@ import style from './Product.module.css';
 import ImageComponent from './components/ImageComponent';
 import InfoComponent from './components/InfoComponent';
 import { useParams } from 'react-router-dom';
+import Comment from './components/Commemt';
 
 export default function Product() {
   const { productID } = useParams();
@@ -30,10 +31,15 @@ export default function Product() {
     <>
       <Path paths={paths}/>
       {product ? 
-        <div className={style.container}>
-          <ImageComponent product={ product } />
-          <InfoComponent product={ product }/>
-        </div>
+        <>
+          <div className={style.container}>
+            <ImageComponent product={ product } />
+            <InfoComponent product={product} />
+          </div>
+          <div className={style.containerComment}>
+            <Comment product={product}/>
+          </div>
+        </>
         :
         <div className={style.loading}>
           <div className="spinner-border mx-auto" role="status"></div>

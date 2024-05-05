@@ -4,7 +4,7 @@ class UserRepository
     public $error;
     public function getBySearch($search)
     {
-        $cond = "username = '$search'";
+        $cond = "id = '$search'";
         $users = $this->fetch($cond);
         return $users;
     }

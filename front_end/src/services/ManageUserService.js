@@ -2,8 +2,6 @@ import { baseService } from "./baseService";
 import axios from 'axios';
 
 export class QuanLyUserService extends baseService {
-
-
     layDanhSachUser = () => {
         return this.get(`http://localhost/BE/?c=user&a=list`);
     }
@@ -37,7 +35,7 @@ export class QuanLyUserService extends baseService {
                     window.location.href = "/admin";
                 }
             } else {
-                alert("Tên đăng nhập hoặc mật khẩu sai!");
+                toast.error("Tên đăng nhập hoặc mật khẩu sai!");
             }
 
         });
@@ -60,8 +58,27 @@ export class QuanLyUserService extends baseService {
                 console.log("Thêm tài khoản thành công");
             }
         });
-
     }
+    update_user = (username, password, fullname, email, address, phonenumber)=>{
+        const sendData = {
+            username: username,
+            password: password,
+            fullname: fullname,
+            email: email,
+            address: address,
+            phonenumber: phonenumber
+        }
+        axios.post("http://localhost/BE/?c=user&a=updateInfo", sendData).then((result) => {
+            console.log(result)
+            if (result.data) {
+                console.log("Cập nhật thành công");
+            }
+            else {    
+                console.log("Cập nhật thất bại");
+            }
+        });
+    }
+
 
 
 }

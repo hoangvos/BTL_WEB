@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './UserInfor.module.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function UserInfor() {
   const navigate = useNavigate();
   if (localStorage.getItem('role') !== 'user' && localStorage.getItem('role') !== 'admin') {
@@ -23,7 +23,11 @@ export default function UserInfor() {
         <div>Xin Chào <span>{localStorage.getItem('fullname')}</span></div>
         <ul>
           <li><i className="bi bi-person-circle"></i>Thông tin tài khoản</li>
-          <li><i className="bi bi-kanban"></i>Quản lý đơn hàng</li>
+          <li>
+            <Link to='/account/order'>
+              <i className="bi bi-kanban"></i>Quản lý đơn hàng
+            </Link>
+          </li>
           <li
             onClick={() =>{handleClickLogout()}}
           ><i className="bi bi-box-arrow-right"></i>Đăng xuất</li>

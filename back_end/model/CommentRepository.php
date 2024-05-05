@@ -3,7 +3,7 @@ class CommentRepository {
     public $error;
 
     function getBySearch($search) {
-        $cond = "productid LIKE '%$search%'";
+        $cond = "p_id LIKE '%$search%'";
         $comments = $this->fetch($cond);
         return $comments;
     }

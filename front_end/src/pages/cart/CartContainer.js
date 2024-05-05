@@ -1,9 +1,37 @@
 import React from 'react'
 import style from './Cart.module.css';
 import CartProduct from './CartProduct';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CartContainer({ cartProducts, updateCartProducts, totalPrice, nItem }) {
+  const navigate = useNavigate();
+  const handleClickSubmitBuy = () => {
+    if (localStorage.getItem('role') === 'user') {
+      cartProducts.forEach((cartProduct) => {
+        const product = cartProduct.product;
+        const formData = {
+          sl : product.soLuong,
+          a_id : localStorage.getItem('id'),
+          p_id: product.product.id,
+          size: product.size
+        }
+        console.log(formData);
+        axios
+          .post(`http://localhost/BE/?c=cart&a=save`, formData)
+          .then((result) => {
+            if (result.data === 'true') {
+              alert('Mua hàng thành công');
+            } else {
+              alert('Mua hàng thất bại');
+            }
+          })
+      });
+    } else {
+      navigate('/account/login')
+    }
+  };
   return (
     <div className={`${style.container}`}>
       <div className={style.wrapContent}>
@@ -40,6 +68,12 @@ export default function CartContainer({ cartProducts, updateCartProducts, totalP
             <div>Tổng tiền</div>
             <div>{totalPrice} ₫</div>
           </div>
+          <button
+            className='btn btn-danger col-12 mt-4'
+            onClick={() => {
+              handleClickSubmitBuy();
+            }}
+          >Xác nhận mua hàng</button>
         </div>
       </div>
     </div>

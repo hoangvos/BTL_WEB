@@ -1,0 +1,49 @@
+.comment_container {
+}
+
+.comment_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 10px;
+  background-color: rgb(247, 247, 250);
+}
+
+.comment_form h5 {
+  padding: 10px;
+}
+
+.custom_input_name {
+  width: 100%; 
+  height: 40px; 
+  margin-bottom: 20px;
+}
+
+.custom_input_comment {
+  width: 100%;
+}
+
+
+.comment_list {
+  display: flex;
+  flex-direction: column;
+  max-height: 330px;
+  overflow: auto;
+  
+}
+
+.comment_client_box {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: fit-content;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.name_client {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
