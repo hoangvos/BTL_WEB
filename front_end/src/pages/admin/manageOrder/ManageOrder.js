@@ -38,49 +38,7 @@ export default function ManageOrder() {
 
   }, [])
 
-  // const handleClickDelete = (user) => {
-  //   console.log(user.username);
-  //   if (user.id === '1') {
-  //     alert('Không thể xóa user này');
-  //     return;
-  //   }
-  //   if (window.confirm(`Bạn có chắc chắn muốn xóa ${user.username}`) === false) return;
-    
-  //   axios
-  //     .delete(`http://localhost/BE/?c=user&a=delete&id=${user.username}`)
-  //     .then((result) => {
-  //       if (result.data === 'thanh cong') {
-  //         if (window.confirm(`Xóa ${user.username} thành công. \nNhấn đồng ý để reload lại trang`)) {
-  //           window.location.reload();
-  //         }
-  //       }else {
-  //         alert(result.data);
-  //       }
-  //     });
-  // }
-
-  // const handleUpdateRole = (e, index) => {
-  //   const sendData = {
-  //     username: users[index].username,
-  //     role: e.target.value
-  //   };
-  //   console.log(sendData);
-  //   if (window.confirm(`Bạn có chắc chắn muốn cập nhật role của ${users[index].username} thành ${e.target.value}`)) {
-  //     //call api update role
-      
-  //     axios.post("http://localhost/BE/?c=user&a=updateRole", sendData)
-  //       .then((result) => {
-  //         if (result.data) {
-  //           if(window.confirm(`Cập nhật role của ${users[index].username} thành ${sendData.role} thành công. \nNhấn đồng ý để reload lại trang`)){
-  //             window.location.reload();
-  //           }
-  //         }
-  //         else {    
-  //           alert("Cập nhật role thất bại");
-  //         }
-  //     });
-  //   } 
-  // }
+  
   const handleChangeStatus = (e, index) => {
     const cartProduct = cartProducts[index];
     const sendData = {
@@ -103,6 +61,20 @@ export default function ManageOrder() {
         }
     });
   }
+  const handleClickDeleteOrder = async (cartProduct) => {
+    //delete order
+    // await axios.delete(`http://localhost/BE/?c=cart&a=delete&p_id=${p_id}&a_id=${a_id}&size=${size}`)
+    // xoaDanhSachGioHang = (p_id, a_id, size) => {
+    //   return this.delete(`http://localhost/BE/?c=cart&a=delete&p_id=${p_id}&a_id=${a_id}&size=${size}`)
+    // }
+
+    // themluongsanphamtheosize = (id, sl) => {
+    //   return this.get(`http://localhost/BE/?c=size&a=add&id=${id}&sl=${sl}`);
+    // }
+    // await axios.get(`http://localhost/BE/?c=size&a=add&id=${cart}&sl=${sl}`)
+    console.log(cartProduct)
+  }
+
   return (
     <div className={style.container}>
       <Header route={'manageOrder'}/>
@@ -144,7 +116,7 @@ export default function ManageOrder() {
                       </select>
                     </td>
                     <td className='d-flex justify-content-center'>
-                      <button className="btn btn-danger" onClick={() => {  }}>Delete</button>
+                      {/* <button className="btn btn-danger" onClick={() => { handleClickDeleteOrder(cartProduct) }}>Delete</button> */}
                     </td>
                   </tr>
                 )

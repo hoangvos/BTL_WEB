@@ -20,6 +20,7 @@ export default function ManageProduct() {
   }, [])
 
   const handleClickDelete = (product) => {
+    if(window.confirm(`Bạn có chắc chắn muốn xóa ${product.ptitle}`) === false) return;
     axios
       .delete(`http://localhost/BE/?c=product&a=delete&id=${product.id}`)
       .then((result) => {
@@ -37,6 +38,15 @@ export default function ManageProduct() {
       navigate('/account/login');
     }
   }, [])
+  const handleClickAddToNewProduct = (product) => {
+
+  }
+  const handleClickAddToDiscount = (product) => {
+
+  }
+  const handleClickAddToOutStanding = (product) => {
+
+  }
   return (
     <div className={style.container}>
       <Header route={'manageProduct'}/>
@@ -75,7 +85,19 @@ export default function ManageProduct() {
                     </button>
                   </Link>
                     
-                    <button className="btn btn-danger" onClick={() => {handleClickDelete(product)}}>Delete</button>
+                    <button className="btn btn-danger" onClick={() => { handleClickDelete(product) }}>Delete</button><br/>
+                    <button
+                      className="btn btn-success mt-1"
+                      onClick={() => {handleClickAddToNewProduct(product)}}
+                    >New</button>
+                    <button
+                      className="btn btn-success mt-1"
+                      onClick={() => {handleClickAddToDiscount(product)}}
+                    >Discount</button>
+                    <button
+                      className="btn btn-success mt-1"
+                      onClick={() => {handleClickAddToOutStanding(product)}}
+                    >Out Standing</button>
                   </td>
                 </tr>
               })}

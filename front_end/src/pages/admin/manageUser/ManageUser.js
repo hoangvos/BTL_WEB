@@ -103,7 +103,7 @@ export default function ManageUser() {
                   </td>
                   <td className='d-flex justify-content-center gap-4'>
                     <button className="btn btn-danger" onClick={() => { handleClickDelete(user) }}>Delete</button>
-                    <button className="btn btn-success ml-2" onClick={() => {handleClickDelete(user)}}>Update</button>
+                    {/* <button className="btn btn-success ml-2" onClick={() => {handleClickDelete(user)}}>Update</button> */}
                   </td>
                 </tr>
               })}
