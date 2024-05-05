@@ -4,14 +4,16 @@ import Cart from './pages/cart/Cart';
 import Product from './pages/product/Product';
 import Collection from './pages/collections/Collection';
 import { CartProvider } from './context/CartContext';
-import Login from './pages/account/Login';
-import Register from './pages/account/Register';
+import Login from './pages/account/login/Login';
+import Register from './pages/account/register/Register';
 import Layout from './pages/layout/Layout';
 import ManageProduct from './pages/admin/manageProduct/ManageProduct';
 import CreateProduct from './pages/admin/createProduct/CreateProduct';
 import UpdateProduct from './pages/admin/updateProduct/UpdateProduct';
 import Search from './pages/search/Search';
-
+import UserInfor from './pages/account/user/UserInfor';
+import Order from './pages/account/order/Order';
+import ManageUser from './pages/admin/manageUser/ManageUser';
 function App() {
   return (
     <>
@@ -21,6 +23,7 @@ function App() {
           <Route path='/createProduct' element={<CreateProduct />} />
           <Route path='/manageProduct' element={<ManageProduct />} />
           <Route path='/updateProduct/:productID' element={<UpdateProduct />} />
+          <Route path='/manageUser' element={<ManageUser />} />
           <Route path='/' element={<Layout />} >
             <Route path='/' element={<Home />} />
             <Route path='/search/:searchTerm' element={<Search />} />
@@ -39,8 +42,17 @@ function App() {
               element={<Login/>}
             />
             <Route
+            path='/account/userInfor'
+              element={<UserInfor />}
+              
+            />
+            <Route
               path='/account/register'
               element={<Register/>}
+            />
+            <Route
+              path='/account/order'
+              element={<Order/>}
             />
           </Route>
         </Routes>

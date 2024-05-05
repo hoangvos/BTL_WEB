@@ -48,7 +48,14 @@ function Container({ indexLayer, layoutLocal, handleBackMenu, handleNextMenu, se
                     <i className="bi bi-chevron-right"></i>
                   </>
                   :
-                  <a href="http://localhost:3000/" className={`${style.menuItemLink}`}>{item.data}</a>
+                  <Link
+                    onClick={() => {
+                      setShow(false);
+                    }}
+                    to={`/collections/${item.link}`}
+                    className={`${style.menuItemLink}`}
+                  >{item.data}</Link>
+                  // <a href="http://localhost:3000/" className={`${style.menuItemLink}`}>{item.data}</a>
                 }
               </div>
             </>  
@@ -98,43 +105,34 @@ export default function NavMobile() {
   ]
 
   root.next[0].next = [ //NAM
-    new Node("Hunter", '', root.next[0]),
-    new Node("Sandal", '', root.next[0]),
-    new Node("Giày Thể Thao", '', root.next[0]),
-    new Node("Giày Chạy Bộ", '', root.next[0]),
-    new Node("Giày Đá Banh", '', root.next[0]),
-    new Node("Giày Tây", '', root.next[0]),
-    new Node("Dép", '', root.next[0])
+    new Node("Hunter", 'nam-hunter', root.next[0]),
+    new Node("Sandal", 'nam-sandal', root.next[0]),
+    new Node("Giày Thể Thao", 'nam-the-thao', root.next[0]),
+    new Node("Giày Chạy Bộ", 'nam-chay-bo', root.next[0]),
+    new Node("Giày Đá Banh", 'nam-da-banh', root.next[0]),
+    new Node("Giày Tây", 'nam-tay', root.next[0]),
+    new Node("Dép", 'nam-dep', root.next[0])
   ]
   root.next[1].next = [ //NU
-    new Node("Hunter", '', root.next[1]),
-    new Node("GOSTO", '', root.next[1]),
-    new Node("Sandal", '', root.next[1]),
-    new Node("Giày Búp Bê", '', root.next[1]),
-    new Node("Giày Thời Trang", '', root.next[1]),
-    new Node("Giày Chạy Bộ - Đi Bộ", '', root.next[1]),
-    new Node("Giày Thể Thao", '', root.next[1]),
-    new Node("Dép", '', root.next[1]),
-    new Node("Túi Xách", '', root.next[1])
-  ]
-  root.next[1].next[1].next = [ //NU GOSTO
-    new Node("Giày Cao Gót", '', root.next[1].next[1]),
-    new Node("Giày Thời Trang", '', root.next[1].next[1]),
-    new Node("Sandal", '', root.next[1].next[1]),
-    new Node("Dép", '', root.next[1].next[1]),
-    new Node("Túi Xách - Ví", '', root.next[1].next[1])
+    new Node("Hunter", 'nu-hunter', root.next[1]),
+    new Node("Sandal", 'nu-sandal', root.next[1]),
+    new Node("Giày Búp Bê", 'nu-bup-be', root.next[1]),
+    new Node("Giày Thời Trang", 'nu-thoi-trang', root.next[1]),
+    new Node("Giày Chạy Bộ - Đi Bộ", 'nu-chay-bo', root.next[1]),
+    new Node("Giày Thể Thao", 'nu-the-thao', root.next[1]),
+    new Node("Dép", 'nu-dep', root.next[1]),
   ]
   root.next[2].next = [ //BE TRAI
-    new Node("Giày thể Thao", '', root.next[2]),
-    new Node("Sandal", '', root.next[2]),
-    new Node("Dép", '', root.next[2])
+    new Node("Giày thể Thao", 'be-trai-the-thao', root.next[2]),
+    new Node("Sandal", 'be-trai-sandal', root.next[2]),
+    new Node("Dép", 'be-trai-dep', root.next[2])
   ]
   root.next[3].next = [ //BE GAI
-    new Node("Giày Búp Bê", '', root.next[3]),
-    new Node("Giày Thể Thao", '', root.next[3]),
-    new Node("Sandal", '', root.next[3]),
-    new Node("Dép Bé Gái", '', root.next[3]),
-    new Node("Giày tập đi", '', root.next[3])
+    new Node("Giày Búp Bê", 'be-gai-bup-be', root.next[3]),
+    new Node("Giày Thể Thao", 'be-gai-the-thao', root.next[3]),
+    new Node("Sandal", 'be-gai-sandal', root.next[3]),
+    new Node("Dép Bé Gái", 'be-gai-dep', root.next[3]),
+    new Node("Giày tập đi", 'be-gai-tap-di', root.next[3])
   ]
   
   const handleNextMenu = (indexLayer, layoutLocal, index) => {

@@ -5,13 +5,13 @@ export class QuanLyUserService extends baseService {
 
 
     layDanhSachUser = () => {
-        return this.get(`http://localhost/qlsvmvc/?c=user&a=list`);
+        return this.get(`http://localhost/BE/?c=user&a=list`);
     }
     layThongTinUser = (id) => {
-        return this.get(`http://localhost/qlsvmvc/?c=user&a=list&search=${id}`)
+        return this.get(`http://localhost/BE/?c=user&a=list&search=${id}`)
     }
     xoaUser = (id) => {
-        return this.delete(`http://localhost/qlsvmvc/?c=user&a=delete&id=${id}`)
+        return this.delete(`http://localhost/BE/?c=user&a=delete&id=${id}`)
 
     }
 
@@ -37,7 +37,7 @@ export class QuanLyUserService extends baseService {
                     window.location.href = "/admin";
                 }
             } else {
-                toast.error("Tên đăng nhập hoặc mật khẩu sai!");
+                alert("Tên đăng nhập hoặc mật khẩu sai!");
             }
 
         });

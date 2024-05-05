@@ -12,25 +12,25 @@ export default function NavRow() {
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
-              <a href="http://localhost:3000/">Hunter</a>
+              <Link to={'/collections/nam-hunter'}>Hunter</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Sandal</a>
+              <Link to={'/collections/nam-sandal'}>Sandal</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày thể thao</a>
+              <Link to={'/collections/nam-the-thao'}>Giày thể thao</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày chạy bộ</a>
+              <Link to={'/collections/nam-chay-bo'}>Giày chạy bộ</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày đá banh</a>
+              <Link to={'/collections/nam-da-banh'}>Giày đá banh</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày tây</a>
+              <Link to={'/collections/nam-tay'}>Giày tây</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Dép</a>
+              <Link to={'/collections/nam-dep'}>Dép</Link>
             </div>
           </div>
         </div>
@@ -39,49 +39,25 @@ export default function NavRow() {
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
-              <a href="http://localhost:3000/">Hunter</a>
-            </div>
-            <div className={`${style.hasSubsubmenu} d-flex justify-content-between`}>
-              <a href="http://localhost:3000/">GOSTO</a>
-              <i className={`${style.iconRight} bi bi-chevron-right`}></i>
-              <div className={`${style.menuListSubsubmain} shadow flex-column`}>
-                <div>
-                  <a href="http://localhost:3000/">Giày cao gót</a>
-                </div>
-                <div>
-                  <a href="http://localhost:3000/">Giày thời trang</a>
-                </div>
-                <div>
-                  <a href="http://localhost:3000/">Sandal</a>
-                </div>
-                <div>
-                  <a href="http://localhost:3000/">Dép</a>
-                </div>
-                <div>
-                  <a href="http://localhost:3000/">Túi xách - ví</a>
-                </div>
-              </div>
+              <Link to={'/collections/nu-hunter'}>Hunter</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Sandal</a>
+              <Link to={'/collections/nu-sandal'}>Sandal</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày búp bê</a>
+              <Link to={'/collections/nu-bup-be'}>Giày búp bê</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày thời trang</a>
+              <Link to={'/collections/nu-thoi-trang'}>Giày thời trang</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày chạy bộ - đi bộ</a>
+              <Link to={'/collections/nu-chay-bo'}>Giày chạy bộ - đi bộ</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày thể thao</a>
+              <Link to={'/collections/nu-the-thao'}>Giày thể thao</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Dép</a>
-            </div>
-            <div>
-              <a href="http://localhost:3000/">Túi xách</a>
+              <Link to={'/collections/nu-dep'}>Dép</Link>
             </div>
           </div>
         </div>
@@ -90,13 +66,13 @@ export default function NavRow() {
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
-              <a href="http://localhost:3000/">Sandal</a>
+              <Link to={'/collections/be-trai-sandal'}>Sandal</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày thể thao</a>
+              <Link to={'/collections/be-trai-the-thao'}>Giày thể thao</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Dép</a>
+              <Link to={'/collections/be-trai-dep'}>Dép</Link>
             </div>
           </div>
         </div>
@@ -105,19 +81,19 @@ export default function NavRow() {
           <i className={`${style.iconDown} bi bi-chevron-down`}></i>
           <div className={`${style.menuListSubmain} shadow flex-column`}>
             <div>
-              <a href="http://localhost:3000/">Giày búp bê</a>
+              <Link to={'/collections/be-gai-bup-be'}>Giày búp bê</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày thể thao</a>
+              <Link to={'/collections/be-gai-the-thao'}>Giày thể thao</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Sandal</a>
+              <Link to={'/collections/be-gai-sandal'}>Sandal</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Dép bé gái</a>
+              <Link to={'/collections/be-gai-dep'}>Dép</Link>
             </div>
             <div>
-              <a href="http://localhost:3000/">Giày tập đi</a>
+              <Link to={'/collections/be-gai-tap-di'}>Giày tập đi</Link>
             </div>
           </div>
         </div>

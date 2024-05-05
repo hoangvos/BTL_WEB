@@ -54,7 +54,7 @@ export default function ManageProduct() {
               {arrProduct && arrProduct.map((product, index) => {
                 return <tr key={product.id}>
                   <th scope="row">{product.id}</th>
-                  <td><img src={product.pimg} alt={product.ptitle} style={{width: '100px'}}/></td>
+                  <td><img src={product.pimg} alt={product.pimg} style={{width: '100px'}}/></td>
                   <td>{product.ptitle}</td>
                   <td>{product.pprice}</td>
                   <td>{product.pgender}</td>

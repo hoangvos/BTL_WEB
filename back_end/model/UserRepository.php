@@ -37,16 +37,14 @@ class UserRepository
         $password = md5($data->password);
         $fullname = $data->fullname;
         $email = $data->email;
-        $address = $data->address;
         $phonenumber = $data->phonenumber;
         $result = mysqli_query($conn, "SELECT * FROM account where username='$username'");
         $num = mysqli_num_rows($result);
         if ($num >= 1) return false;
         if ($username != "" and $password != "") {
-            $sql = "INSERT INTO account(username,password,role,fullname ,email,
-            address, phonenumber) VALUES('$username','$password','user','$fullname',
-            '$email','$address','$phonenumber'
-            
+            $sql = "INSERT INTO account(username,password,role,fullname ,email, phonenumber) 
+            VALUES('$username','$password','user','$fullname',
+            '$email','$phonenumber'
             )";
             if ($conn->query($sql)) {
                 return true;

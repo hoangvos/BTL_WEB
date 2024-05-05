@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './Filter.module.css';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
@@ -6,14 +6,14 @@ import Box from '@mui/material/Box';
 function valuetext(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-export default function Filter() {  
+export default function Filter({priceConstraint, setPriceConstraint, indexSortOption, setIndexSortOption}) {  
 
   const [showPriceOption, setShowPriceOption] = useState(false)
   const [showSizeOption, setShowSizeOption] = useState(false)
   const sizeOptions = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
   const [sizeConstraint, setSizeConstraint] = useState([33,35,38])
-  const [priceConstraint, setPriceConstraint] = useState([0, 2000000])
-
+  const [showSortOption, setShowSortOption] = useState(false)
+  const sortOptions = ['Giá tăng dần', 'Giá giảm dần', 'Tên: A-Z', 'Tên: Z-A'];
   const handleChange = (event, newValue) => {
     setPriceConstraint(newValue);
   };
@@ -70,23 +70,38 @@ export default function Filter() {
             }
           </div>
         </div>
-        <div className={style.sortContainer}>Sort</div>
+        <div className={style.sortContainer}>
+          <span>Sắp xếp theo</span>
+          <i
+            className="bi bi-caret-down"
+            onClick={() => setShowSortOption(!showSortOption)}
+          ></i>
+          {showSortOption &&
+            <div
+              className={style.sortOption}
+            >
+              <ul>
+                {sortOptions.map((option, index) => {
+                  return (
+                    <li
+                      onClick={() => {
+                        // setIndexSortOption(index);
+                        setIndexSortOption(index);
+                        // setShowSortOption(false);
+                      }}
+                    >
+                      <span>{option}</span> {indexSortOption === index && <i class="bi bi-check-lg"></i>}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          }
+
+        </div>
       </div>
 
       <div className={style.constraintContainer}>
-        {/* {sizeConstraint.map((size, index) => {
-          return(
-            <div key={size} className={style.constraint}>
-              <div>{size} </div>
-              <i
-                className="bi bi-x-circle"
-                onClick={() => {
-                  setSizeConstraint(sizeConstraint.filter((item) => item != size))
-                }}
-              ></i>
-            </div>
-          )
-        })} */}
         {(priceConstraint[0] != 0 || priceConstraint[1] != 2000000)  &&
           <div className={style.constraint}>
             <div>{valuetext(priceConstraint[0])}đ : {valuetext(priceConstraint[1])}đ</div>

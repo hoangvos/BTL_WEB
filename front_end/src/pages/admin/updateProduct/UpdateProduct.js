@@ -17,14 +17,8 @@ export default function UpdateProduct() {
   const productIndexMainImage = useRef(-1);
   const keySize = useRef(0);
   const [sizeInputs, setSizeInputs] = useState([{ size: '', soluong: '', key: 0 }]);
-  
-  function removeVietnameseAccent(str) {
-    // Chuyển chuỗi tiếng Việt thành chuỗi không dấu
-    let unicode = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-    // Chuyển chuỗi thành chuỗi viết hoa và thay thế khoảng trắng bằng dấu gạch dưới
-    return unicode.toUpperCase().replace(/\s/g, "_");
-  }
+  const newSize = useRef({ size: '', soluong: ''});
+  const newImage = useRef('');
   //get product
   useEffect(() => {
     axios
@@ -32,11 +26,9 @@ export default function UpdateProduct() {
     .then((result) => {
       productName.current = result.data[0].ptitle;
       productPrice.current = result.data[0].pprice.replace(/,/g, '');
-      productGender.current = removeVietnameseAccent(result.data[0].pgender);
-      productType.current = removeVietnameseAccent(result.data[0].pkind);
+      productGender.current = result.data[0].pgender;
+      productType.current = result.data[0].pkind;
       keyImage.current++;
-      productIndexMainImage.current = 0;
-      console.log(result.data[0]);
       setProduct(result.data[0]);
     })
   }, [])
@@ -49,10 +41,16 @@ export default function UpdateProduct() {
         result.data.forEach((subImage, index) => {
           keyImage.current++;
           subImages.push({ id: subImage.id, productID: subImage.productID, link: subImage.img, key: keyImage.current });
+          if (subImage.img === product.pimg) {
+            productIndexMainImage.current = index;
+            setindexDisplayImage(index);
+          }
+          
         })
         setImages(subImages)
       })
   }, [product])
+  
   //get size of product
   useEffect(() => {
     axios
@@ -103,6 +101,21 @@ export default function UpdateProduct() {
       return;
     }
   }
+  const handleClickUpdateSize = (index) => {
+    const size = sizeInputs[index];
+    const sendData = size;
+    axios
+      .post("http://localhost/BE/?c=size&a=update", sendData)
+      .then((result) => {
+        if (result.data) {
+          if (window.confirm('Cập nhất size thành công. Bấm đồng ý để reload lại trang')) {
+            window.location.reload();
+          }
+        } else {
+          alert('Cập nhật size thất bại')  
+        }
+      })
+  }
   
   const categories = [
     'NAM:HUNTER',
@@ -142,17 +155,31 @@ export default function UpdateProduct() {
   }
 
   //btn delete in image which is displayed
-  const handleClickDeleteImage = () => {
+  const handleClickDeleteImage = (indexImage) => {
     //if the image which is displayed is mainImage -> not allow
-    if (indexDisplayImage === productIndexMainImage.current) {
+    if (indexImage === productIndexMainImage.current) {
       alert('Không thể xóa ảnh chính');
       return;
     }
-    // console.log(images[indexDisplayImage])
-    //remove image which is displayed from images
-    const newImages = images.filter((image, index) => index !== indexDisplayImage);
-    setImages(newImages);
-    setindexDisplayImage(0);
+    
+    //get image which will be deleted
+    const image = images[indexImage];
+    //call api to delete image
+    const sendData = {
+      id : image.id 
+    }
+    axios
+      .post("http://localhost/BE/?c=subImage&a=delete", sendData)
+      .then((result) => {
+        if(result.data){
+          if(window.confirm('Xóa ảnh thành công. Bấm đồng ý để reload lại trang')) {
+            window.location.reload();
+          }
+        }
+        else{
+          alert('Xóa ảnh thất bại');
+        }
+    });
   }
 
 
@@ -168,73 +195,66 @@ export default function UpdateProduct() {
     setShowInputAddImage(false);
   }
   const handleClickSubmitImage = () => {
-    setImages((prevImages) => {
-      prevImages = prevImages.filter(image => image.link !== '');
-      return prevImages;
+    const sendData = {
+      productID : productID,
+      img : newImage.current
+    }
+    axios
+      .post("http://localhost/BE/?c=subImage&a=save", sendData)
+      .then((result) => {
+        if (result.data) {
+          if (window.confirm('Thêm ảnh thành công. Bấm đồng ý để reload lại trang')) {
+            window.location.reload();
+          }
+        }
+        else{
+          alert('Thêm ảnh thất bại');
+        }
     });
-    setShowInputAddImage(false);
+    // console.log(newImage.current);
   }
   const handleClickAddInputImage = () => {
     keyImage.current++;
     setImages([...images, {id: '', productID: '', link: '', key: keyImage.current}]);
   }
-
-  
-  const sizes = sizeInputs.filter(sizeInput => sizeInput.size !== '' && sizeInput.soluong !== '');
-  const subImages = images.filter((image, index) => index !== productIndexMainImage.current);
-  const btnSubmitAddProduct = () => {
-    
-    //check input empty
-    if (productName.current === ''
-      || productIndexMainImage.current === -1
-      || productPrice.current === ''
-      || productGender.current === ''
-      || productType.current === ''
-      || sizes.length === 0
-      || subImages.length === 0
-      || description.current === '') {
-      alert("Vui lòng điền đầy đủ thông tin sản phẩm");
-      return;
-    }
-    
-    //check size equal
-    for (let i = 0; i < sizes.length; i++) {
-      for (let j = i + 1; j < sizes.length; j++) {
-        if (sizes[i].size === sizes[j].size) {
-          alert('Size không được trùng nhau');
-          return;
-        }
-      }
-    }
-
-
-    const sendData = {
-      product:{
-        ptitle: productName.current,
-        pimg: images[productIndexMainImage.current].link,
-        pprice: productPrice.current,
-        pgender: productGender.current,
-        pkind: productType.current,
-      },
-      sizes: sizes,
-      subImages: subImages.map(image => image.link),
-      description: description.current
-    };
-    axios
-    .post("http://localhost/BE/?c=product&a=save", sendData)
-    .then((result) => {
-      if (result.data.Status === "Invalid") {
-        alert('Tạo mới sản phẩm thất bại')  
-      } else {
-        if (window.confirm('Tạo mới sản phẩm thành công. Bấm đồng ý để reload lại trang')) {
-          window.location.reload();
-        }
-      }
-    });
-  }
   
   //update general information
   const handleClickUpdateGeneralInfor = () => {
+    //confirm from admin
+    
+    //call api to update general information
+    const sendData = {
+      id: productID,
+      ptitle: productName.current,
+      pimg: product.pimg,
+      pprice: productPrice.current,
+      pgender: productGender.current,
+      pkind: productType.current,
+    };
+    console.log(sendData.pprice)
+    if (!window.confirm('Xác nhận cập nhật thông tin sản phẩm')) {
+      return;
+    }
+    axios
+      .post("http://localhost/BE/?c=product&a=update", sendData)
+      .then((result) => {
+          if (result.data) {
+            if(window.confirm('Cập nhật thông tin sản phẩm thành công. Bấm đồng ý để reload lại trang')) {
+              window.location.reload();
+            }
+          } else {
+            alert(result)
+          }
+      });
+  }
+  //update main image
+  const handleUpdateMainImage = (index) => {
+    if (!window.confirm('Xác nhận cập nhật ảnh chính')) {
+      return;
+    }
+    //change value of productIndexMainImage
+    productIndexMainImage.current = index;
+    //call api to update main image
     const sendData = {
       id: productID,
       ptitle: productName.current,
@@ -255,11 +275,47 @@ export default function UpdateProduct() {
           }
       });
   }
-  //update main image
-  const handleUpdateMainImage = (index) => {
 
+  //update sub image
+  const handleClickUpdateImage = (index) => {
+    if(index === productIndexMainImage.current){
+      // call api update this image in product table
+      // call api to update main image
+      const sendData = {
+        id: productID,
+        ptitle: productName.current,
+        pimg: images[index].link,
+        pprice: productPrice.current,
+        pgender: productGender.current,
+        pkind: productType.current,
+      };
+      axios
+        .post("http://localhost/BE/?c=product&a=update", sendData)
+        .then((result) => {
+          if (!result.data) {
+            alert('Cập nhật ảnh chính thất bại');
+            return
+          } 
+        });
+    }
+    // call api update this image in subImage table
+    const sendData = {
+      id: images[index].id,
+      img: images[index].link
+    };
+    axios
+      .post("http://localhost/BE/?c=subImage&a=update", sendData)
+      .then((result) => {
+        if(result.data){
+          if(window.confirm('Cập nhật ảnh thành công. Bấm đồng ý để reload lại trang')) {
+            window.location.reload();
+          }
+        }
+        else{
+          alert('Cập nhật ảnh thất bại');
+        }
+    });
   }
-
   //update description
   const handleClickUpdateDescription = () => {
     if (typeof description.current === 'string') {
@@ -299,6 +355,25 @@ export default function UpdateProduct() {
     
   }
 
+  //create new size
+  const handleClickSubmitSize = () => {
+    const sendData = {
+      productID: productID,
+      soluong: newSize.current.soluong,
+      size: newSize.current.size,
+    };
+    axios
+      .post(" ", sendData)
+      .then((result) => {
+        if (result.data) {
+          if(window.confirm('Thêm size mới thành công. Bấm đồng ý để reload lại trang')) {
+            window.location.reload();
+          }
+        } else {
+          alert('Thêm size mới thất bại');
+        }
+      });
+  }
   return (
     <div className={style.container}>
       <Header route={'updateProduct'}/>
@@ -309,7 +384,7 @@ export default function UpdateProduct() {
             <div className={style.inputHeader}>
               <label>Ảnh chính</label>
               <label>Link ảnh</label>
-              <label>Xóa ảnh</label>
+              <label>Action</label>
             </div>
             <div className={style.inputRows}> 
               {images.map((image, index) => {
@@ -318,7 +393,8 @@ export default function UpdateProduct() {
                     <input
                       type='radio' name='indexNameImage'
                       onChange={() => { handleUpdateMainImage(index) }}
-                      defaultChecked={index === productIndexMainImage.current ? true : false}
+                      // defaultChecked={index === productIndexMainImage.current ? true : false}
+                      checked={index === productIndexMainImage.current ? true : false}
                     />
                     <input
                       type='text' className={style.inputAddImage}
@@ -326,25 +402,49 @@ export default function UpdateProduct() {
                       onChange={(e) => { image.link = e.target.value}}
                       defaultValue={image.link}
                     />
-                    <button
-                      className='btn'
-                      onClick={() => {
-                        const newImages = images.filter((img, i) => i !== index);
-                        setImages(newImages);
-                      }}
-                    ><i className="bi bi-x-circle"></i></button>
+                    <div className={style.imageAction}>
+                      <button
+                        className='btn'
+                        onClick={() => {handleClickDeleteImage(index);}}
+                      ><i className="bi bi-x-circle"></i></button>
+                      <button
+                        className='btn btn-success'
+                        onClick={() => {handleClickUpdateImage(index);}}
+                      >Cập nhật</button>
+                    </div>
+                    
                   </div>
                 )
               })}
+              <div className={style.inputAddImageRow}>
+                <input
+                  type='radio' 
+                  // onChange={() => { handleUpdateMainImage(index) }}
+                  // defaultChecked={index === productIndexMainImage.current ? true : false}
+                  checked={false}
+                  readOnly={true}
+                />
+                <input
+                  type='text' className={style.inputAddImage}
+                  placeholder='Nhập Link ảnh vào đây'
+                  onChange={(e) => { newImage.current = e.target.value}}
+                />
+                <div className={style.imageAction}>
+                  <button
+                    className='btn btn-success'
+                    onClick={() => {
+                      handleClickSubmitImage()
+                    }}
+
+                  >Thêm ảnh</button>
+                </div>
+                
+              </div>
             </div>
 
             <button
               className={`btn ${style.btnCancelAddImage}`}
               onClick={() => { handleClickCancelSubmitImage() }}><i className="bi bi-x-circle"></i></button>
-            <div className='d-flex col-12 justify-content-between'>
-              <button className='btn btn-success' onClick={() => { handleClickSubmitImage() }}>Đồng ý</button>
-              <button className='btn btn-success' onClick={() => { handleClickAddInputImage() }}>Thêm ảnh</button>
-            </div>
             
           </div>
         </div>
@@ -352,8 +452,7 @@ export default function UpdateProduct() {
       <div className={style.middle}>
         
         <div className={style.title}>
-          <h1>Thêm sản phẩm</h1>
-          <button className='btn btn-primary' onClick={() => {btnSubmitAddProduct()}}>Submit</button>
+          <h1>Chỉnh sửa sản phẩm</h1>
         </div>
         <div className={style.addProductContainer}>
           <div className={style.addProductImage}>
@@ -361,7 +460,7 @@ export default function UpdateProduct() {
             <div className={style.mainImageContainer}>
               <button
                 className={style.btnDeleteImage}
-                onClick={() => {handleClickDeleteImage()}}
+                onClick={() => {handleClickDeleteImage(indexDisplayImage)}}
               ><i className="bi bi-x-circle"></i></button>
               {images.length === 0 ?
                 <h1>Chưa có ảnh</h1>
@@ -414,7 +513,7 @@ export default function UpdateProduct() {
               <div className={style.textInputContainer}>
                 <label for='productCategory'>Phân loại</label>
                 <select
-                  id="inputState" class={style.textInput}
+                  id="inputState" className={style.textInput}
                   onChange={(e) => {
                     productGender.current = e.target.value.split(':')[0];
                     productType.current = e.target.value.split(':')[1];
@@ -463,6 +562,7 @@ export default function UpdateProduct() {
                     <th scope="col">Size</th>
                     <th scope="col">Số lượng</th>
                     <th scope="col">Xóa</th>
+                    <th scope="col">Cập nhật</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -488,9 +588,44 @@ export default function UpdateProduct() {
                             ><i className="bi bi-x-circle"></i></button>
                           
                         </td>
+                        <td>
+                          <button
+                              className='btn btn-success'
+                              onClick={() => handleClickUpdateSize(index)}
+                            >Cập nhật</button>
+                          
+                        </td>
                       </tr>
                     )
                   })} 
+                  <tr className={style.sizeInput}>
+                    <th scope="row"></th>
+                    <td><input
+                      type='number' className={style.size}
+                      onChange={(e) => { newSize.current.size = e.target.value }}
+                      // defaultValue={sizeInput.size}
+                    /></td>
+                    <td>
+                      <input
+                        type='number' className={style.soluong}
+                        onChange={(e) => { newSize.current.soluong = e.target.value }}
+                        // defaultValue={sizeInput.soluong}
+                      /></td>
+                    <td>
+                      <button
+                          className='btn'
+                          // onClick={() => handleClickDeleteSize(index)}
+                        ><i className="bi bi-x-circle"></i></button>
+                      
+                    </td>
+                    <td>
+                      <button
+                          className='btn btn-success'
+                          onClick={() => handleClickSubmitSize()}
+                        >Submit</button>
+                      
+                    </td>
+                  </tr>
                 </tbody>
               </table>
               <div className='d-flex justify-content-between col-12'>

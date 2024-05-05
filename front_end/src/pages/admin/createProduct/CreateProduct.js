@@ -274,7 +274,7 @@ export default function CreateProduct() {
               <div className={style.textInputContainer}>
                 <label for='productCategory'>Phân loại</label>
                 <select
-                  id="inputState" class={style.textInput}
+                  id="inputState" className={style.textInput}
                   onChange={(e) => {
                     productGender.current = e.target.value.split(':')[0];
                     productType.current = e.target.value.split(':')[1];

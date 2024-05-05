@@ -21,7 +21,11 @@ export default function Header({route}) {
             Quản lý sản phẩm
           </Link>
         </li>
-        
+        <li className={route === 'manageUser' && style.isActive}>
+          <Link to='/manageUser'>
+            Quản lý người dùng
+          </Link>
+        </li>
       </ul>
     </div>
   )
