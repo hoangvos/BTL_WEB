@@ -1,14 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import style from './Account.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function Login() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem('role') === 'user') {
+      navigate('/')
+    } else if(localStorage.getItem('role') === 'admin'){
+      navigate('/account/userInfor') 
+    }
+  }, [])
+
   const username = useRef('')
   const password = useRef('')
   const handleClickLogin = (e) => {
     e.preventDefault();
-    console.log(username.current, password.current)
     const sendData = {
       taiKhoan: username.current,
       matKhau: password.current
@@ -16,22 +24,20 @@ export default function Login() {
     axios.post("http://localhost/BE/login.php", sendData).then((result) => {
 
       if (result.data.Status === '200') {
-            localStorage.setItem("id", result.data.id);
-            localStorage.setItem("username", result.data.username);
-            localStorage.setItem("role", result.data.role);
-            localStorage.setItem("fullname", result.data.fullname);
-            localStorage.setItem("email", result.data.email);
-            localStorage.setItem("phonenumber", result.data.phonenumber);
-
-            var role = localStorage.getItem('role');
-            if (role === "user") {
-                window.location.href = "/account";
-            } else if (role === "admin") {
-                window.location.href = "/admin";
-            }
-        } else {
-            alert("Tên đăng nhập hoặc mật khẩu sai!");
+        localStorage.setItem("id", result.data.id);
+        localStorage.setItem("username", result.data.username);
+        localStorage.setItem("role", result.data.role);
+        localStorage.setItem("fullname", result.data.fullname);
+        localStorage.setItem("email", result.data.email);
+        localStorage.setItem("phonenumber", result.data.phonenumber);
+        if (localStorage.getItem('role') === 'user') {
+          navigate('/')
+        } else if(localStorage.getItem('role') === 'admin'){
+          navigate('/admin') 
         }
+      } else {
+        alert("Tên đăng nhập hoặc mật khẩu sai!");
+      }
 
     });
   };

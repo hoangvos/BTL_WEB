@@ -4,8 +4,9 @@ import axios from 'axios';
 import Header from '../component/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { layDanhSachSanPhamAction } from '../../../redux/actions/ManageProductAction';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function ManageProduct() {
+  const navigate = useNavigate();
   const { arrProduct } = useSelector(state => state.QuanLySanPhamReducer);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,10 +27,11 @@ export default function ManageProduct() {
         }
       });
   }
-  const handleClickUpdate = (product) => {
-    
-  }
-
+  useEffect(() => {
+    if (localStorage.getItem('role') !== 'admin' || !localStorage.getItem('role')) {
+      navigate('/account/login');
+    }
+  }, [])
   return (
     <div className={style.container}>
       <Header route={'manageProduct'}/>
@@ -61,7 +63,7 @@ export default function ManageProduct() {
                   <td>{product.pkind}</td>
                   <td>
                   <Link
-                    to={`/updateProduct/${product.id}`}
+                    to={`/admin/updateProduct/${product.id}`}
                   >
                     <button className="btn btn-primary">
                       Edit

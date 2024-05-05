@@ -2,15 +2,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import style from './ManageUser.module.css'
 import axios from 'axios';
 import Header from '../component/Header';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function ManageUser() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    axios
-      .get(`http://localhost/BE/?c=user&a=list`)
-      .then((result) => {
-        setUsers(result.data);
-      })
+    if (localStorage.getItem('role') !== 'admin' || !localStorage.getItem('role')) {
+      navigate('/account/login');
+    }
+    else {
+      axios
+        .get(`http://localhost/BE/?c=user&a=list`)
+        .then((result) => {
+          setUsers(result.data);
+        })
+    }
   }, [])
 
   const handleClickDelete = (user) => {

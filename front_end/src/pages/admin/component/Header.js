@@ -7,22 +7,22 @@ export default function Header({route}) {
       <h4>Quản lý sản phẩm</h4>
       <ul>
         <li className={route === 'createProduct' && style.isActive}>
-          <Link to='/createProduct'>
+          <Link to='/admin/createProduct'>
             Thêm sản phẩm
           </Link>
         </li>
         <li className={route === 'updateProduct' && style.isActive}>
-          <Link to='/updateProduct'>
+          <Link to='/admin/updateProduct'>
             Cập nhật sản phẩm
           </Link>
         </li>
         <li className={route === 'manageProduct' && style.isActive}>
-          <Link to='/manageProduct'>
+          <Link to='/admin/manageProduct'>
             Quản lý sản phẩm
           </Link>
         </li>
         <li className={route === 'manageUser' && style.isActive}>
-          <Link to='/manageUser'>
+          <Link to='/admin/manageUser'>
             Quản lý người dùng
           </Link>
         </li>

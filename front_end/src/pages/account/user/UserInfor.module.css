@@ -42,6 +42,10 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+}
+.leftSide > ul li:hover{
+  color: #1451bc;
 }
 
 

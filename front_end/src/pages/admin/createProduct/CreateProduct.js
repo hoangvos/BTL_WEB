@@ -2,8 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import style from './CreateProduct.module.css'
 import axios from 'axios';
 import Header from '../component/Header';
+import { useNavigate } from 'react-router-dom';
 export default function CreateProduct() {
-  
+
+  const navigate = useNavigate();
+
   const keySize = useRef(0);
   const [sizeInputs, setSizeInputs] = useState([{ size: '', soluong: '', key: 0 }]);
   const handleClickAddSize = () => {
@@ -51,7 +54,12 @@ export default function CreateProduct() {
       mainImage.src = images[indexDisplayImage].link;
     }
   }, [indexDisplayImage])
-  
+  useEffect(() => {
+    if (localStorage.getItem('role') !== 'admin' || !localStorage.getItem('role')) {
+      navigate('/account/login');
+      
+    }
+  }, [])
   const handleClickSubImage = (index) => {
     setindexDisplayImage(index);
   }

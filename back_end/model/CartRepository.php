@@ -39,8 +39,9 @@ class CartRepository
         $sl = $data->sl;
         $a_id = $data->a_id;
         $p_id = $data->p_id;
+        $size = $data->size;
     
-        $sql = "INSERT INTO cart(sl,a_id,p_id) VALUES('$sl','$a_id','$p_id')";
+        $sql = "INSERT INTO cart(sl,a_id,p_id,size) VALUES('$sl','$a_id','$p_id','$size')";
         if ($conn->query($sql)) {
 
             return true;
@@ -48,34 +49,34 @@ class CartRepository
         $this->error = "Error: $sql <br>" . $conn->error;
         return false;
     }
-    public function delete($p_id, $a_id)
+    public function delete($p_id, $a_id, $size)
     {
         global $conn;
-        $sql = "DELETE FROM cart WHERE p_id='$p_id' And a_id='$a_id'";
+        $sql = "DELETE FROM cart WHERE p_id='$p_id' And a_id='$a_id' And size='$size'";
         if ($conn->query($sql)) {
             return true;
         }
         $this->error = "Error: $sql <br>" . $conn->error;
         return false;
     }
-    public function productExistsInCart($p_id, $a_id)
+    public function productExistsInCart($p_id, $a_id, $size)
     {
         global $conn;
-        $sql = "SELECT * FROM cart WHERE a_id = '$a_id' AND p_id = '$p_id'";
+        $sql = "SELECT * FROM cart WHERE a_id = '$a_id' AND p_id = '$p_id' AND size='$size'";
         $result = $conn->query($sql);
         return $result && $result->num_rows > 0;
     }
 
-    public function updateProductQuantity($a_id, $p_id, $additionalQuantity)
+    public function updateProductQuantity($a_id, $p_id, $additionalQuantity, $size)
     {
         global $conn;
-        $sql = "UPDATE cart SET sl = sl + $additionalQuantity WHERE a_id = '$a_id' AND p_id = '$p_id'";
+        $sql = "UPDATE cart SET sl = sl + $additionalQuantity WHERE a_id = '$a_id' AND p_id = '$p_id' AND size = '$size'";
         return $conn->query($sql);
     }
-    function decreaseProductQuantity($a_id, $p_id)
+    function decreaseProductQuantity($a_id, $p_id, $size)
     {
         global $conn;
-        $sql = "SELECT sl FROM cart WHERE a_id='$a_id' AND p_id='$p_id'";
+        $sql = "SELECT sl FROM cart WHERE a_id='$a_id' AND p_id='$p_id' AND size='$size'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -83,7 +84,7 @@ class CartRepository
             if ($currentQuantity > 1) {
                 // Giảm số lượng sản phẩm
                 $newQuantity = $currentQuantity - 1;
-                $updateSql = "UPDATE cart SET sl='$newQuantity' WHERE a_id='$a_id' AND p_id='$p_id'";
+                $updateSql = "UPDATE cart SET sl='$newQuantity' WHERE a_id='$a_id' AND p_id='$p_id' AND size='$size'";
                 if ($conn->query($updateSql)) {
                     return true;
                 }
@@ -91,7 +92,7 @@ class CartRepository
                 return false;
             } else if ($currentQuantity == 1) {
                 // Số lượng = 1, xóa sản phẩm
-                return $this->delete($p_id, $a_id);
+                return $this->delete($p_id, $a_id, $size);
             }
         }
         $this->error = "Sản phẩm không tồn tại trong giỏ hàng";

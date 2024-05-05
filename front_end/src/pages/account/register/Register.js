@@ -1,9 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import style from './Account.module.css'
-import { Link } from 'react-router-dom'
-import { QuanLyUserService } from '../../../services/ManageUserService'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 export default function Register() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem('role') === 'user' || localStorage.getItem('role') === 'admin') {
+      navigate('/account/userInfor')
+    }
+  }, [])
+
   const firstName = useRef('')
   const lastName = useRef('')
   const username = useRef('')
@@ -23,7 +29,7 @@ export default function Register() {
     axios.post("http://localhost/BE/?c=user&a=register", sendData).then((result) => {
       // console.log(result)
       if (result.data === 'true') {
-        alert("Thêm tài khoản thành công");
+        navigate('/account/login');
       }
       else {    
         alert("Tài khoản đã tồn tại");

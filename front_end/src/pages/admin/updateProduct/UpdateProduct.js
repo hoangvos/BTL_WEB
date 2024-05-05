@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import style from './UpdateProduct.module.css'
 import axios from 'axios';
 import Header from '../component/Header';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 export default function UpdateProduct() {
+  const navigate = useNavigate();
   const productID = useParams().productID;
   const [product, setProduct] = useState({});
   const productName = useRef('');
@@ -21,16 +22,21 @@ export default function UpdateProduct() {
   const newImage = useRef('');
   //get product
   useEffect(() => {
-    axios
-    .get(`http://localhost/BE/?c=product&a=list&search=${productID}`)
-    .then((result) => {
-      productName.current = result.data[0].ptitle;
-      productPrice.current = result.data[0].pprice.replace(/,/g, '');
-      productGender.current = result.data[0].pgender;
-      productType.current = result.data[0].pkind;
-      keyImage.current++;
-      setProduct(result.data[0]);
-    })
+    
+    if (localStorage.getItem('role') !== 'admin' || !localStorage.getItem('role')) {
+      navigate('/account/login');
+    } else {
+      axios
+        .get(`http://localhost/BE/?c=product&a=list&search=${productID}`)
+        .then((result) => {
+          productName.current = result.data[0].ptitle;
+          productPrice.current = result.data[0].pprice.replace(/,/g, '');
+          productGender.current = result.data[0].pgender;
+          productType.current = result.data[0].pkind;
+          keyImage.current++;
+          setProduct(result.data[0]);
+        })
+    }
   }, [])
   //get sub images
   useEffect(() => {
