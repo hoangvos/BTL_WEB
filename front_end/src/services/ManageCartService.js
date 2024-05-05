@@ -24,5 +24,24 @@ export class QuanLyGioHangService extends baseService {
     congGioHang = (p_id, a_id, size) => {
         return this.put(`http://localhost/BE/?c=cart&a=plus&p_id=${p_id}&a_id=${a_id}&size=${size}`);
     }
+    capNhatGioHang = (id, sl, a_id, p_id, size, status) => {
+        const sendData = {
+            id: id,
+            sl: sl,
+            a_id: a_id,
+            p_id: p_id,
+            size: size,
+            status: status
+        }
+        axios.post("http://localhost/BE/?c=cart&a=update", sendData).then((result) => {
+            console.log(result)
+            if (result.data === 'false') {
+                console.log("Cập nhật giỏ hàng thất bại");
+            }
+            else {
+                console.log("Cập nhật giỏ hàng thành công");
+            }
+        });
+    }
 }
 export const quanLyGioHangService = new QuanLyGioHangService();

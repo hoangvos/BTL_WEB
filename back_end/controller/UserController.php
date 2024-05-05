@@ -71,6 +71,15 @@ class UserController
         $result = $user->updateInfo($username, $fullname, $email, $phonenumber, $address);
         echo json_encode($result);
     }
+    public function updateRole()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $username = isset($_POST["username"]) ? $_POST["username"] : '';
+        $role = isset($_POST["role"]) ? $_POST["role"] : '';
+        $user = new UserRepository();
+        $result = $user->updateRole($username, $role);
+        echo json_encode($result);
+    }
     public function updatePass()
     {
         $_POST = json_decode(file_get_contents("php://input"), true);

@@ -40,7 +40,6 @@ class CartController {
                 $_SESSION["error"] = "Không thể cập nhật số lượng sản phẩm";
             }
         } else {
-            
             if ($cartRepository->save($data)) {
                 echo json_encode("true");
                 $_SESSION["success"] = "Đã thêm sản phẩm vào giỏ hàng thành công";
@@ -80,7 +79,24 @@ class CartController {
 
     }
 
+    function update(){
+        $data = json_decode(file_get_contents("php://input"));
+        $cartRepository = new CartRepository();
 
+        if ($cartRepository->productExistsInCart($data->p_id, $data->a_id, $data->size)) {
+            // Product exists, update quantity
+            if ($cartRepository->update($data)) {
+                echo json_encode("true");
+                $_SESSION["success"] = "Giỏ hàng đã được cập nhật";
+            } else {
+                echo json_encode("false");
+                $_SESSION["error"] = $cartRepository->error;
+            }
+        } else {
+            echo json_encode("false");
+            $_SESSION["error"] = "Không tồn tại trong giỏ hàng";
+        }
+    }
 
 }
 

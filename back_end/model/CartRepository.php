@@ -40,8 +40,9 @@ class CartRepository
         $a_id = $data->a_id;
         $p_id = $data->p_id;
         $size = $data->size;
+        $status = "Wating"; 
     
-        $sql = "INSERT INTO cart(sl,a_id,p_id,size) VALUES('$sl','$a_id','$p_id','$size')";
+        $sql = "INSERT INTO cart(sl,a_id,p_id,size,status) VALUES('$sl','$a_id','$p_id','$size','$status')";
         if ($conn->query($sql)) {
 
             return true;
@@ -97,5 +98,23 @@ class CartRepository
         }
         $this->error = "Sản phẩm không tồn tại trong giỏ hàng";
         return false;
+    }
+    function update($data){
+        global $conn;
+        $id = $data->id;
+        $sl = $data->sl;
+        $a_id = $data->a_id;
+        $p_id = $data->p_id;
+        $size = $data->size;
+        $status = $data->status; 
+        $updateSql = "UPDATE cart SET sl='$sl', a_id='$a_id', p_id='$p_id', size='$size', status='$status' WHERE id=$id";
+        if($conn->query($updateSql)){
+            return true;
+        }
+        else{
+            $this->error = "Error: $updateSql <br>" . $conn->error;
+            return false;
+        }
+
     }
 }

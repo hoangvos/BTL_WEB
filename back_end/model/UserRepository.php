@@ -76,6 +76,15 @@ class UserRepository
         }
         return false;
     }
+    public function updateRole($username, $role)
+    {
+        global $conn;
+        $sql = "UPDATE account SET `role`='$role' WHERE `username`= '$username'";
+        if ($conn->query($sql)) {
+            return true;
+        }
+        return false;
+    }
     public function updatePass($username, $oldPass, $newPass)
     {
         global $conn;

@@ -78,7 +78,21 @@ export class QuanLyUserService extends baseService {
             }
         });
     }
-
+    update_role_user = (username, role)=>{
+        const sendData = {
+            username: username,
+            role: role
+        }
+        axios.post("http://localhost/BE/?c=user&a=updateRole", sendData).then((result) => {
+            console.log(result)
+            if (result.data) {
+                console.log("Cập nhật thành công");
+            }
+            else {    
+                console.log("Cập nhật thất bại");
+            }
+        });
+    }
 
 
 }

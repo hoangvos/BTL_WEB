@@ -23,7 +23,8 @@ function App() {
       <CartProvider>
         <Routes>
           
-          <Route path="/admin" element={<ManageUser />}>
+          <Route path="/admin" >
+            <Route path="" element={<Navigate to="/admin/manageProduct" />} />
             <Route path="createProduct" element={<CreateProduct />} />
             <Route path="manageProduct" element={<ManageProduct />} />
             <Route path="updateProduct/:productID" element={<UpdateProduct />} />

@@ -20,26 +20,54 @@ export default function ManageUser() {
   }, [])
 
   const handleClickDelete = (user) => {
-    // axios
-    //   .delete(`http://localhost/BE/?c=product&a=delete&id=${product.id}`)
-    //   .then((result) => {
-    //     if (result.data === 'thanh cong') {
-    //       if (window.confirm(`Xóa ${product.ptitle} thành công. \nNhấn đồng ý để reload lại trang`)) {
-    //         window.location.reload();
-    //       }
-    //     }else {
-    //       alert(result.data);
-    //     }
-    //   });
+    console.log(user.username);
+    if (user.id === '1') {
+      alert('Không thể xóa user này');
+      return;
+    }
+    if (window.confirm(`Bạn có chắc chắn muốn xóa ${user.username}`) === false) return;
+    
+    axios
+      .delete(`http://localhost/BE/?c=user&a=delete&id=${user.username}`)
+      .then((result) => {
+        if (result.data === 'thanh cong') {
+          if (window.confirm(`Xóa ${user.username} thành công. \nNhấn đồng ý để reload lại trang`)) {
+            window.location.reload();
+          }
+        }else {
+          alert(result.data);
+        }
+      });
   }
 
-
+  const handleUpdateRole = (e, index) => {
+    const sendData = {
+      username: users[index].username,
+      role: e.target.value
+    };
+    console.log(sendData);
+    if (window.confirm(`Bạn có chắc chắn muốn cập nhật role của ${users[index].username} thành ${e.target.value}`)) {
+      //call api update role
+      
+      axios.post("http://localhost/BE/?c=user&a=updateRole", sendData)
+        .then((result) => {
+          if (result.data) {
+            if(window.confirm(`Cập nhật role của ${users[index].username} thành ${sendData.role} thành công. \nNhấn đồng ý để reload lại trang`)){
+              window.location.reload();
+            }
+          }
+          else {    
+            alert("Cập nhật role thất bại");
+          }
+      });
+    } 
+  }
   return (
     <div className={style.container}>
       <Header route={'manageUser'}/>
       <div className={style.middle}>
         <div className={style.title}>
-          <h1>Quản lý sản phẩm</h1>
+          <h1>Quản lý người dùng</h1>
         </div>
         <div className={style.productContainer}>
           <table className="table table-bordered">
@@ -64,9 +92,10 @@ export default function ManageUser() {
                   <td>{user.phonenumber}</td>
                   <td>
                     <select
-                      class="form-select"
-                      onChange={(e) => { console.log(e.target.value) }}
+                      className="form-select"
+                      onChange={(e) => { handleUpdateRole(e, index) }}
                       disabled={user.id === '1'}
+                      value={user.role}
                     >
                       <option value="user" selected={user.role === 'user'}>user</option>
                       <option value="admin" selected={user.role === 'admin'}>admin</option>

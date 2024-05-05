@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2024 at 06:58 AM
+-- Generation Time: May 05, 2024 at 12:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -34,9 +34,19 @@ CREATE TABLE `account` (
   `role` varchar(50) NOT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `username`, `password`, `role`, `fullname`, `email`, `phonenumber`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin', 'admin@gmail.com', '0366592599'),
+(2, 'admin1', 'e00cf25ad42683b3df678c61f42c6bda', 'user', 'admin1 admin1', 'admin1@gmail.com', '0366592599'),
+(3, 'adjfjk123h4jk2h', '5e13d4470ff64dc28235561ad0f261e3', 'user', 'jhhklhklhjkl jkhlkh', 'klhkjhlh@gmail.com', '0366592599'),
+(6, 'than', '7761127a460aaf290ed953098284dd1a', 'user', 'than than', 'than@gmail.com', '0366592599'),
+(7, 'quangvu', 'b65f330ff909cec989b32c75a9fe1ec9', 'user', 'quangvu quangvu', 'quangvu@gmail.com', '123345454');
 
 -- --------------------------------------------------------
 
@@ -49,8 +59,18 @@ CREATE TABLE `cart` (
   `sl` int(50) NOT NULL,
   `a_id` int(50) NOT NULL,
   `p_id` int(50) NOT NULL,
-  `size` int(50) NOT NULL
+  `size` int(50) NOT NULL,
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `sl`, `a_id`, `p_id`, `size`, `status`) VALUES
+(4, 3, 7, 1, 42, 'Waiting'),
+(5, 1, 7, 1, 37, ''),
+(6, 4, 7, 2, 44, '');
 
 -- --------------------------------------------------------
 
@@ -65,6 +85,15 @@ CREATE TABLE `comment` (
   `comment` varchar(250) NOT NULL,
   `p_id` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `a_id`, `time`, `comment`, `p_id`) VALUES
+(1, 7, '2024-05-05', 'kahdfjkahslk kjhqew hr kashdfqw jhasdflhsq qưe', 1),
+(2, 7, '0000-00-00', 'demi 2demo 2', 1),
+(3, 6, '2024-05-05', 'okeoke', 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +120,26 @@ INSERT INTO `description` (`id`, `productID`, `content`) VALUES
 (6, 14, 'BITI’S HUNTER RUNNING - GIÀY CHẠY BỘ THẾ HỆ ĐẾ VƯỢT TRỘI MỚI TỪ BITI\'S HUNTER \r\nGiày Chạy Bộ Biti\'s Hunter Running White DSWH08300 màu trắng dành cho nữ được yêu thích bởi thiết kế đầy trẻ trung và cá tính. Với bộ đế Lite Bounce Cushion độc quyền từ Biti’s Hunter, mang đến trải nghiệm thoải mái, êm ái nhất, có thể chạy mọi lúc mọi nơi.\r\n\r\nĐế giày\r\nBiti\'s Hunter Running White DSWH08300 sử dụng bộ đế Lite Bounce với các đặc điểm:\r\n\r\nĐế ngoài: \r\n\r\nĐế ngoài được đệm cao su ở gót nhiều và phần trước, tạo được lựa kéo tốt, tăng thêm sự ma sát với đường, giúp chạy bền bỉ giảm đuối sức.\r\nĐế trong (lót giày): \r\n\r\nLót đế hai lớp Ortholite và Eva êm ái, thoải mái, ôm vừa vặn, trọn lòng bàn chân.\r\nĐế giữa (midsole): \r\n\r\nCông nghệ Lite Bounce Cushion độc quyền đây là công nghệ đế vượt trội mới của Biti’s Hunter, làm từ cao su non với đặc điểm siêu bền, thấm hút siêu êm ái, công nghệ hai lớp – tiếp đất êm, phản hồi lực mạnh mẽ với độ đàn hồi vượt trội >50%, cho đường chạy nhẹ như bay.\r\nThân trên giày (Upper)\r\nChất liệu: Thiết kế vải dệt Jacquard với cấu trúc sợi đan tạo sự mềm mại, uyển chuyển khi sử dụng. Ôm trọn bàn chân, có độ thoáng khí, thấm hút mồ hôi hiệu quả.\r\nPhần lưỡi gà được thiết kế dính liền với thân giày, chất liệu có độ co giãn cao nên có thể dễ dàng mang và tháo giày mà không cần phải tháo dây.\r\nMàu sắc\r\nCó màu trắng cơ bản giúp nàng dễ phối đồ từ thể thao tới trang phục hàng ngày.\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%. \r\nSize giày\r\nBiti\'s Hunter Running White DSWH08300 có size chuẩn từ 35-39 được thiết kế để vừa vặn và ôm sát chân, tạo cảm giác thoải mái khi sử dụng hàng ngày.\r\nBảo hành\r\nBiti’s áp dụng chính sách bảo hành cho mọi sản phẩm trong vòng 3 tháng kể từ thời điểm mua hàng cho mọi vấn đề phát sinh đến từ bên cung cấp. Ngoài ra, quý khách còn được bảo hành trọn đời sản phẩm khi bị bong keo, đứt chỉ.\r\nÁp dụng chính sách đổi size trong vòng 7 ngày nếu chưa phù hợp hay đổi sản phẩm lỗi trong vòng 7 ngày (kể từ thời điểm mua hàng) theo chính sách đổi trả được quy định\r\nTính năng và lợi ích nổi bật\r\nKiểu dáng thon gọn, mũi và form ôm vừa vặn từ gót lên đến cổ chân, đem lại thoải mái khi vận động và di chuyển. Thiết kế dây giày cũng giúp bạn có thể điều chỉnh để phù hợp với kích cỡ của chân.\r\nTem TPU định hình và trợ lực gót chân nhẹ nhàng hơn khi di chuyển\r\nTrang bị Pulltab xuất hiện trên lưỡi gà và sau gót giúp mang giày dễ dàng hơn.\r\nĐặc biệt, đôi giày Biti\'s Hunter Running White DSWH08300 ra đời giúp bạn bộ có hành trình chạy marathon đường dài êm ái, hạn chế phát sinh chấn thương.\r\nNgoài ra, công nghệ LITE BOUNCE độc quyền mang lại phản hồi lực nhịp nhàng, đảm bảo người chạy bộ luôn sự sung sức.\r\nCó dây buộc.\r\nCó thể cung cấp linh hoạt cho chân, giúp người sử dụng dễ dàng thực hiện các động tác và chuyển động.\r\nSản phẩm bao gồm\r\nHộp giày giấy bìa cứng cáp giúp bảo quản giày tốt hơn.\r\nDây giày chắc chắn\r\nTúi chống ẩm.\r\nBiti\'s Hunter Running White DSWH08300 là sự lựa chọn hoàn hảo cho các chuyến leo núi, trekking hay các hoạt động ngoài trời khác. Hãy đặt hàng ngay hôm nay để trải nghiệm sự thoải mái và phong cách độc đáo mà sản phẩm mang lại, đặc biệt Biti\'s thường xuyên có nhiều chương trình khuyến mãi hấp dẫn cho quý khách hàng. '),
 (7, 16, 'Có phải bạn muốn diện những bộ cánh lộng lẫy khi ra đường, phối đồ cực thời trang để “cháy” với những tấm ảnh, nhưng thời tiết sáng nắng chiều mưa khiến công cuộc “sống ảo” của bạn không thuận lợi? Đừng lo, Biti’s gợi ý đến bạn sản phẩm Dép Eva Phun Nữ Biti\'s BEW000900 vừa thời trang vừa không lo ướt sũng khi trời mưa.\r\n\r\nĐế dép\r\nĐế dép được hãng đầu tư chỉn chu khi sử dụng chất liệu IP siêu nhẹ và siêu êm, giúp đôi chân bạn luôn thoải mái ngay cả khi mang dép suốt ngày dài. Chưa kể, chất liệu IP còn có khả năng kháng nước, chống biến dạng, cong vênh, đàn hồi tốt, không lo gãy form nếu bạn vô tình uốn gập dép.\r\nPhần đáy đế dép có thiết kế hoa văn chìm nổi ấn tượng. Ngoài tạo nên sự mới lạ, những vân rãnh này còn giúp ma sát với mặt đường, từ đó hạn chế trơn trượt, té ngã khi di chuyển dưới trời mưa.\r\nThân dép\r\nQuai dép nữ Biti\'s BEW000900 được làm từ chất liệu EVA phun liền quai, mang đến kết cấu liền kề tinh tế. Đồng thời, chất liệu này còn có khả năng chống nước và bụi bẩn tối ưu.\r\nPhần thân trên được thiết kế thoáng khí với các lỗ đan xen, mang lại hiệu quả thoát mồ hôi, hơi ẩm, không gây bí bách hay mùi hôi. Do đó, dù bạn sử dụng dép vào mùa hè nóng nực hay mùa mưa ẩm ướt cũng rất phù hợp.\r\nBên trên còn có các sticker 3D đủ màu sắc gắn trên thân dép, lấy cảm hứng từ bộ sưu tập thức ăn nhanh lạ mắt, giúp sản phẩm trông ấn tượng và nổi bật hơn. \r\nMàu sắc\r\nSản phẩm hiện có 4 màu, gồm đen đơn giản, hay các màu sắc ngọt ngào khác như trắng, hồng, kem.\r\nMàu sắc thực tế có thể chênh lệch 3 - 5% tùy vào điều kiện ánh sáng và màn hình.\r\nKích cỡ\r\nSản phẩm đang được bày bán từ size 35 - 39 tại tất cả cửa hàng Biti’s trên toàn quốc. \r\nBạn có thể chọn size như bình thường, hoặc đến hệ thống Biti’s và trực tiếp trải nghiệm.\r\nBảo hành\r\nSản phẩm được bảo hành trong vòng 3 tháng kể từ thời điểm mua hàng. Ngoài ra sản phẩm còn được bảo hành trọn đời với lỗi bong keo, đứt chỉ (vật tư của sản phẩm đủ điều kiện tái chế không bị rách,…)\r\nĐổi size giày trong vòng 7 ngày, đổi sản phẩm lỗi trong vòng 7 ngày, kể từ thời điểm mua hàng, nếu sản phẩm vẫn đáp ứng chính sách đổi trả. Điều kiện và quy định đổi trả, quý khách vui lòng tham khảo trên website chính thức. \r\nTính năng và lợi ích nổi bật\r\nSản phẩm có thiết kế đơn giản nhưng nổi bật, với sự phối màu tinh tế giữa màu dép và các sticker gắn kèm.\r\nCó tính ứng dụng cao, có thể mang đi học, đi chơi, đi chụp ảnh, dã ngoại,... trong mọi thời tiết.\r\nĐế IP nhẹ êm, cùng với hệ thống thoát khí tốt giúp bạn thoải mái sử dụng hàng ngày mà không lo bí bách hay gây mùi hôi.\r\nSản phẩm được thiết kế phù hợp xu hướng hiện nay, khiến các bạn nữ ngất ngây ngay từ lần đầu tiên nhìn thấy.\r\nPhần quai hậu có thể đẩy ra trước hoặc sau, “hô biến” dép trở thành đôi giày mang đi học.\r\nSản phẩm bao gồm\r\nDép.\r\nTúi chống ẩm.\r\nTrên đây là tất tần tật thông tin về sản phẩm Dép Eva Phun Nữ Biti\'s BEW000900 cho bạn tham khảo. Nếu có hứng thú với sản phẩm, bạn có thể ghé đến các cửa hàng Biti’s trên toàn quốc để trực tiếp trải nghiệm, hoặc truy cập bitis.com.vn để được nhân viên tư vấn nhé!'),
 (8, 20, 'Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%'),
-(9, 24, 'Sandal Biti\'s Bé Gái\r\n\r\nQuai vải\r\n\r\nĐế TPR\r\n\r\nCao 2 cm\r\n\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.');
+(9, 24, 'Sandal Biti\'s Bé Gái\r\n\r\nQuai vải\r\n\r\nĐế TPR\r\n\r\nCao 2 cm\r\n\r\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.'),
+(10, 64, 'asdnmfbmbtjkl3fiourh oi2u giowy ioty23 4giwhg2 uio34y '),
+(11, 65, 'demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe demo dmoe '),
+(12, 66, 'aksdlhfaklshdfk asdkl fajklsdh fjklasdhlfjka hsdjklfhasdklfhasdjkl hfajklsh aflk shdjklf hskljadh fjklashdjklfa hsdjkla hsfjkl hk'),
+(13, 0, ''),
+(14, 1, 'aksdfhaklsdjh a sdklfh asldkjh laksdhklajsdh flakjsdh kafjsd hlakfdksh'),
+(15, 1, 'aksdfhaklsdjh a sdklfh asldkjh laksdhklajsdh flakjsdh kafjsd hlakfdksh'),
+(16, 0, ''),
+(17, 1, 'aksdfhaklsdjh a sdklfh asldkjh laksdhklajsdh flakjsdh kafjsd hlakfdksh'),
+(18, 0, ''),
+(19, 2, 'k1io41823 794172 3094712308974yiuh1236dfkh 3yy2089q7s'),
+(20, 0, ''),
+(21, 4, 'ajkdsfhkashd qwu hasdjkfh sly fklasdh fasyoiy23y'),
+(22, 0, ''),
+(23, 23, 'kljlkad asldk jfasjkd klfqwje ouasdkfa skldjf wej '),
+(24, 0, ''),
+(25, 11, 'kskl skd hajksd hfkajshd fahs dlahfsdjkl '),
+(26, 0, ''),
+(27, 22, 'asdjlfhaskdjhfq wio u asdkj fh2i3hsfklashdk fasjkld hfkashd klfh asjkldh 23asdkjh faklsd h'),
+(28, 67, 'lasd ufklasjd kfj wklej rusadjf asdjfioqwue fasdj fkqwu asd,j k');
 
 -- --------------------------------------------------------
 
@@ -252,30 +300,33 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `ptitle`, `pimg`, `pprice`, `pgender`, `pkind`) VALUES
-(1, 'Giày Thể Thao Nam Bitis Hunter Street Còn Gì Dùng Đó HSM006300', 'https://product.hstatic.net/1000230642/product/hsm006302doo_fbdb3c22b0ca4e828b2b452100299df5.jpg', '19.99', 'Nữ', 'Hunter'),
-(2, 'Giày Thể Thao Nam Bitis Hunter X Dune Titan HSM005800', 'https://product.hstatic.net/1000230642/product/hsw005800xam__2__9c53325536e2425c8bd7d47eb36ed027.jpg', '39.99', 'Nam', 'Hunter'),
-(3, 'Giày Thể Thao Nam Biti’s Hunter Street đế #BÀO x MARVEL Spiderman - Hunter-verse 2k23 edition HSM001898', 'https://product.hstatic.net/1000230642/product/08b_774a037f29d040d3bd57509f7ecd7e47.png', '39.99', 'Nam', 'Hunter'),
-(4, 'Sandal Nam Bitis BDM001577', 'https://product.hstatic.net/1000230642/product/bdm001577den__2__4ea0417daf614f56a20152f6c442e8f0.jpg', '19.99', 'Nam', 'Sandal'),
-(5, 'Giày Thể Thao Thông Dụng Nam Bitis Basic BSM000600', 'https://product.hstatic.net/1000230642/product/bsm000600trg__2__dc7ce618c3f14f9283a11fbff9e3b56a.jpg', '19.99', 'Nam', 'Giày Thể Thao'),
-(6, 'Giày Chạy Bộ Nam Bitis Hunter Running DSMH10000', 'https://product.hstatic.net/1000230642/product/hay-bo-nam-biti-s-hunter-running-gray-dsmh10000xam-xam-k8iou-color-xam_c0300a46d8944863b7b99f6702abb6b1.jpg', '19.99', 'Nam', 'Giày Chạy Bộ'),
-(7, 'Giày Đá Bóng Nam Bitis Hunter Football HSM003600', 'https://product.hstatic.net/1000230642/product/hsm003600cam__2__ebba4c44b4b64642ae2694d0de986b86.jpg', '19.99', 'Nam', 'Giày Đá Banh'),
-(8, 'Giày Da Nam Bitis X DMM371880', 'https://product.hstatic.net/1000230642/product/dmm371880vdb__2__8ff7b0c0fd324878b6322fd045834604.jpg', '19.99', 'Nam', 'Giày Tây'),
-(9, 'Dép Nam Bitis BPM000200', 'https://product.hstatic.net/1000230642/product/bpm000200nau_3f3dce10d397426996afb71785826ab8.jpg', '19.99', 'Nam', 'Dép'),
-(10, 'Giày Thể Thao Nữ Gosto GFW018100', 'https://product.hstatic.net/1000230642/product/gfw018100hog__2__0379dd9a60484bd5965aa7839565482c_1024x1024.jpg', '1,011,000', 'Nữ', 'Gosto'),
-(11, 'Sandal Nữ Biti\'s Hunter HEW000800', 'https://product.hstatic.net/1000230642/product/hew000800hog_d467a56b559f46c1aaead88baf13e923_1024x1024.jpg', '520,000', 'Nữ', 'Sandal'),
-(12, 'Giày Búp Bê Nữ Biti\'s BBW001688', 'https://product.hstatic.net/1000230642/product/bbw001688xdg2_b324da45894b4547ab16a5e4173e7825_1024x1024.jpg', '369,000', 'Nữ', 'Giày Búp Bê'),
-(13, 'Giày Bít Thời Trang Nữ Biti\'s BFW003588', 'https://product.hstatic.net/1000230642/product/bfw003588kem__2__f7ddeb5aeb3442539d5740193b53e68d_1024x1024.jpg', '432,000', 'Nữ', 'Giày Thời Trang'),
-(14, 'Giày Chạy Bộ Nữ Biti\'s Hunter Running DSWH08300', 'https://product.hstatic.net/1000230642/product/hay-bo-nu-biti-s-hunter-running-tiger-dswh08300cam-cam-ls3g5-color-cam_a6f2a5322e6742aa83eb8c32b20f1485_1024x1024.jpg', '735,750', 'Nữ', 'Giày Chạy Bộ'),
-(15, 'Giày Thể Thao Nữ Biti\'s BSW002300', 'https://product.hstatic.net/1000230642/product/bsw002300xam2_0266e9c574c845a2b2c4f61623e26c11_1024x1024.jpg', '555,000', 'Nữ', 'Giày Thể Thao'),
-(16, 'Dép Eva Phun Nữ Biti\'s BEW000900', 'https://product.hstatic.net/1000230642/product/bew000900hog__2__28ba40e840084077a34276a4edac5758_1024x1024.jpg', '261,000', 'Nữ', 'Dép'),
-(17, 'Giày Thể Thao Bé Trai Biti\'s Spiderman BSB004398', 'https://product.hstatic.net/1000230642/product/bsb004398xdg__2__cc74839870d743eda169ffebddbbcedd_1024x1024.jpg', '579,000', 'Bé Trai', 'Giày Thể Thao'),
-(18, 'Sandal Bé Trai Biti\'s BEB002100', 'https://product.hstatic.net/1000230642/product/beb002100cam_e8107d2c85ce48f6a73264ec5fd711bc_1024x1024.jpg', '305,000', 'Bé Trai', 'Sandal'),
-(19, 'Dép Eva Bé Trai Biti\'s DEB010101', 'https://product.hstatic.net/1000230642/product/deb010101trg__2__1d14e5c7ef184088bbeb33003f28d151_1024x1024.jpg', '221,000', 'Bé Trai', 'Dép'),
-(20, 'Giày búp bê bé gái DBB010901', 'https://product.hstatic.net/1000230642/product/ttn_6844_50d2f558d2e74a1f8bd5dcb79a00fd87_1024x1024.jpg', '344,000', 'Bé Gái', 'Giày Búp Bê'),
-(21, 'Giày Thể Thao Bé Gái Biti\'s BSG002600', 'https://product.hstatic.net/1000230642/product/bsg002600hog__2__7f24ad58575340ba87654040a82889bb_1024x1024.jpg', '447,000', 'Bé Gái', 'Giày Thể Thao'),
-(22, 'Sandal Bé Gái Biti\'s BEG002200', 'https://product.hstatic.net/1000230642/product/beg002200vag__4__270e08ca1e654a84b8ccedaae48618b7_1024x1024.jpg', '310,000', 'Bé Gái', 'Sandal'),
-(23, 'Dép Eva Phun Bé Gái Biti\'s E-Cloud BEG001801', 'https://product.hstatic.net/1000230642/product/beg001801vag__2__1f339d6856974ba3ac4df1471d1ddac1_1024x1024.jpg', '128,000', 'Bé Gái', 'Dép'),
-(24, 'Giày Tập Đi Bé Gái DTG003900', 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-u8nfg-color-cam_edbba01013b5474bade2182eb08b24ca_1024x1024.jpg', '172,000', 'Bé Gái', 'Giày Tập Đi');
+(1, 'Giày Thể Thao Nam Bitis Hunter Street Còn Gì Dùng Đó HSM006300', 'https://product.hstatic.net/1000230642/product/hsm006300nau__10__f3fb2850cdd545049a232d62dd50950b_large.jpg', '560000', 'NAM', 'HUNTER'),
+(2, 'Giày Thể Thao Nam Bitis Hunter X Dune Titan HSM005800', 'https://product.hstatic.net/1000230642/product/hsw005800xam__10__e332c39edb2642bba1c83a98477b713f_large.jpg', '600000', 'NAM', 'HUNTER'),
+(3, 'Giày Thể Thao Nam Biti’s Hunter Street đế #BÀO x MARVEL Spiderman - Hunter-verse 2k23 edition HSM001898', 'https://product.hstatic.net/1000230642/product/08b_774a037f29d040d3bd57509f7ecd7e47.png', '800000', 'NAM', 'HUNTER'),
+(4, 'Sandal Nam Bitis BDM001577', 'https://product.hstatic.net/1000230642/product/bdm001577den__2__4ea0417daf614f56a20152f6c442e8f0.jpg', '550000', 'NAM', 'SANDAL'),
+(5, 'Giày Thể Thao Thông Dụng Nam Bitis Basic BSM000600', 'https://product.hstatic.net/1000230642/product/bsm000600trg__2__dc7ce618c3f14f9283a11fbff9e3b56a.jpg', '720000', 'NAM', 'GIAY_THE_THAO'),
+(6, 'Giày Chạy Bộ Nam Bitis Hunter Running DSMH10000', 'https://product.hstatic.net/1000230642/product/hay-bo-nam-biti-s-hunter-running-gray-dsmh10000xam-xam-k8iou-color-xam_c0300a46d8944863b7b99f6702abb6b1.jpg', '890000', 'NAM', 'GIAY_CHAY_BO'),
+(7, 'Giày Đá Bóng Nam Bitis Hunter Football HSM003600', 'https://product.hstatic.net/1000230642/product/hsm003600cam__2__ebba4c44b4b64642ae2694d0de986b86.jpg', '799000', 'NAM', 'GIAY_DA_BANH'),
+(8, 'Giày Da Nam Bitis X DMM371880', 'https://product.hstatic.net/1000230642/product/dmm371880vdb__2__8ff7b0c0fd324878b6322fd045834604.jpg', '1300000', 'NAM', 'GIAY_TAY'),
+(9, 'Dép Nam Bitis BPM000200', 'https://product.hstatic.net/1000230642/product/bpm000200nau_3f3dce10d397426996afb71785826ab8.jpg', '300000', 'NAM', 'DEP'),
+(10, 'Giày Thể Thao Nữ Gosto GFW018100', 'https://product.hstatic.net/1000230642/product/gfw018100hog__2__0379dd9a60484bd5965aa7839565482c_1024x1024.jpg', '1011000', 'NU', 'GIAY_THE_THAO'),
+(11, 'Sandal Nữ Biti\'s Hunter HEW000800', 'https://product.hstatic.net/1000230642/product/hew000800hog_d467a56b559f46c1aaead88baf13e923_1024x1024.jpg', '520000', 'NU', 'SANDAL'),
+(12, 'Giày Búp Bê Nữ Biti\'s BBW001688', 'https://product.hstatic.net/1000230642/product/bbw001688xdg2_b324da45894b4547ab16a5e4173e7825_1024x1024.jpg', '369000', 'NU', 'GIAY_BUP_BE'),
+(13, 'Giày Bít Thời Trang Nữ Biti\'s BFW003588', 'https://product.hstatic.net/1000230642/product/bfw003588kem__2__f7ddeb5aeb3442539d5740193b53e68d_1024x1024.jpg', '432000', 'NU', 'GIAY_THOI_TRANG'),
+(14, 'Giày Chạy Bộ Nữ Biti\'s Hunter Running DSWH08300', 'https://product.hstatic.net/1000230642/product/hay-bo-nu-biti-s-hunter-running-tiger-dswh08300cam-cam-ls3g5-color-cam_a6f2a5322e6742aa83eb8c32b20f1485_1024x1024.jpg', '735750', 'NU', 'GIAY_CHAY_BO'),
+(15, 'Giày Thể Thao Nữ Biti\'s BSW002300', 'https://product.hstatic.net/1000230642/product/bsw002300xam2_0266e9c574c845a2b2c4f61623e26c11_1024x1024.jpg', '555000', 'NU', 'GIAY_THE_THAO'),
+(16, 'Dép Eva Phun Nữ Biti\'s BEW000900', 'https://product.hstatic.net/1000230642/product/bew000900hog__2__28ba40e840084077a34276a4edac5758_1024x1024.jpg', '265000', 'NU', 'DEP'),
+(17, 'Giày Thể Thao Bé Trai Biti\'s Spiderman BSB004398', 'https://product.hstatic.net/1000230642/product/bsb004398xdg__2__cc74839870d743eda169ffebddbbcedd_1024x1024.jpg', '579000', 'BE_TRAI', 'GIAY_THE_THAO'),
+(18, 'Sandal Bé Trai Biti\'s BEB002100', 'https://product.hstatic.net/1000230642/product/beb002100cam_e8107d2c85ce48f6a73264ec5fd711bc_1024x1024.jpg', '305000', 'BE_TRAI', 'SANDAL'),
+(19, 'Dép Eva Bé Trai Biti\'s DEB010101', 'https://product.hstatic.net/1000230642/product/deb010101trg__2__1d14e5c7ef184088bbeb33003f28d151_1024x1024.jpg', '221000', 'BE_TRAI', 'DEP'),
+(20, 'Giày búp bê bé gái DBB010901', 'https://product.hstatic.net/1000230642/product/ttn_6844_50d2f558d2e74a1f8bd5dcb79a00fd87_1024x1024.jpg', '344000', 'BE_TRAI', 'GIAY_BUP_BE'),
+(21, 'Giày Thể Thao Bé Gái Biti\'s BSG002600', 'https://product.hstatic.net/1000230642/product/bsg002600hog__2__7f24ad58575340ba87654040a82889bb_1024x1024.jpg', '447000', 'BE_GAI', 'GIAY_THE_THAO'),
+(22, 'Sandal Bé Gái Biti\'s BEG002200', 'https://product.hstatic.net/1000230642/product/beg002200vag__4__270e08ca1e654a84b8ccedaae48618b7_1024x1024.jpg', '310000', 'BE_GAI', 'SANDAL'),
+(23, 'Dép Eva Phun Bé Gái Biti\'s E-Cloud BEG001801', 'https://product.hstatic.net/1000230642/product/beg001801vag__2__1f339d6856974ba3ac4df1471d1ddac1_1024x1024.jpg', '128000', 'BE_GAI', 'DEP'),
+(24, 'Giày Tập Đi Bé Gái DTG003900', 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-u8nfg-color-cam_edbba01013b5474bade2182eb08b24ca_1024x1024.jpg', '172000', 'BE_GAI', 'GIAY_TAP_DI'),
+(65, 'demo 11:23 4/5/2024', 'anh chinh new', '11111111', 'NAM', 'DEP'),
+(66, 'demo demo demo demo 243:43 23/sdf/we', 'anh 2', '2222222', 'NU', 'SANDAL'),
+(67, 'demoemoemdoea sdif a23 123', 'anh chinh', '999000', 'NAM', 'SANDAL');
 
 -- --------------------------------------------------------
 
@@ -295,15 +346,11 @@ CREATE TABLE `size` (
 --
 
 INSERT INTO `size` (`id`, `productID`, `soluong`, `size`) VALUES
-(1, 1, 23, 39),
-(2, 1, 39, 40),
-(3, 1, 54, 41),
-(4, 1, 87, 42),
-(5, 1, 92, 43),
+(1, 1, 35, 37),
+(2, 1, 47, 40),
+(4, 1, 96, 42),
 (6, 1, 34, 44),
 (7, 1, 16, 45),
-(8, 2, 23, 39),
-(9, 2, 39, 40),
 (10, 2, 54, 41),
 (11, 2, 87, 42),
 (12, 2, 92, 43),
@@ -433,7 +480,18 @@ INSERT INTO `size` (`id`, `productID`, `soluong`, `size`) VALUES
 (136, 24, 11, 20),
 (137, 24, 11, 21),
 (138, 24, 15, 22),
-(139, 24, 14, 23);
+(139, 24, 14, 23),
+(141, 64, 43, 23),
+(142, 64, 13, 34),
+(143, 65, 34, 23),
+(144, 65, 44, 24),
+(145, 65, 78, 25),
+(146, 66, 43, 23),
+(147, 66, 55, 24),
+(148, 66, 88, 25),
+(149, 67, 43, 23),
+(150, 67, 34, 34),
+(151, 67, 43, 28);
 
 -- --------------------------------------------------------
 
@@ -595,7 +653,64 @@ INSERT INTO `subimage` (`id`, `productID`, `img`) VALUES
 (141, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-qfaaj-color-cam_b4dbc5aca30e4bc2a5d618a23466fcdf_large.jpg'),
 (142, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-cz9u6-color-cam_d47f2083e52246e78936c13635394aa3_large.jpg'),
 (143, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-k1fsf-color-cam_00524debd2c8464abe06b84cc2da5651_large.jpg'),
-(144, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-qfaaj-color-cam_b4dbc5aca30e4bc2a5d618a23466fcdf_large.jpg');
+(144, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-qfaaj-color-cam_b4dbc5aca30e4bc2a5d618a23466fcdf_large.jpg'),
+(145, 64, 'sdfgdfgdf'),
+(146, 64, 'sdfgwe4'),
+(147, 64, 'wert43tgr'),
+(148, 65, 'anh 543'),
+(151, 65, 'anh chinh new'),
+(152, 66, 'anh 1'),
+(153, 66, 'anh 2'),
+(154, 66, 'anh 3'),
+(155, 66, 'anh 4'),
+(156, 0, ''),
+(157, 3, 'https://product.hstatic.net/1000230642/product/08b_774a037f29d040d3bd57509f7ecd7e47.png'),
+(158, 0, ''),
+(160, 0, ''),
+(161, 4, 'https://product.hstatic.net/1000230642/product/bdm001577den__2__4ea0417daf614f56a20152f6c442e8f0.jpg'),
+(162, 0, ''),
+(163, 5, 'https://product.hstatic.net/1000230642/product/bsm000600trg__2__dc7ce618c3f14f9283a11fbff9e3b56a.jpg'),
+(164, 0, ''),
+(165, 6, 'https://product.hstatic.net/1000230642/product/hay-bo-nam-biti-s-hunter-running-gray-dsmh10000xam-xam-k8iou-color-xam_c0300a46d8944863b7b99f6702abb6b1.jpg'),
+(166, 0, ''),
+(167, 7, 'https://product.hstatic.net/1000230642/product/hsm003600cam__2__ebba4c44b4b64642ae2694d0de986b86.jpg'),
+(168, 0, ''),
+(169, 8, 'https://product.hstatic.net/1000230642/product/dmm371880vdb__2__8ff7b0c0fd324878b6322fd045834604.jpg'),
+(170, 0, ''),
+(171, 9, 'https://product.hstatic.net/1000230642/product/bpm000200nau_3f3dce10d397426996afb71785826ab8.jpg'),
+(172, 0, ''),
+(173, 10, 'https://product.hstatic.net/1000230642/product/gfw018100hog__2__0379dd9a60484bd5965aa7839565482c_1024x1024.jpg'),
+(174, 0, ''),
+(175, 11, 'https://product.hstatic.net/1000230642/product/hew000800hog_d467a56b559f46c1aaead88baf13e923_1024x1024.jpg'),
+(176, 0, ''),
+(177, 12, 'https://product.hstatic.net/1000230642/product/bbw001688xdg2_b324da45894b4547ab16a5e4173e7825_1024x1024.jpg'),
+(178, 0, ''),
+(179, 13, 'https://product.hstatic.net/1000230642/product/bfw003588kem__2__f7ddeb5aeb3442539d5740193b53e68d_1024x1024.jpg'),
+(180, 0, ''),
+(181, 14, 'https://product.hstatic.net/1000230642/product/hay-bo-nu-biti-s-hunter-running-tiger-dswh08300cam-cam-ls3g5-color-cam_a6f2a5322e6742aa83eb8c32b20f1485_1024x1024.jpg'),
+(182, 0, ''),
+(183, 15, 'https://product.hstatic.net/1000230642/product/bsw002300xam2_0266e9c574c845a2b2c4f61623e26c11_1024x1024.jpg'),
+(184, 0, ''),
+(185, 16, 'https://product.hstatic.net/1000230642/product/bew000900hog__2__28ba40e840084077a34276a4edac5758_1024x1024.jpg'),
+(186, 0, ''),
+(187, 17, 'https://product.hstatic.net/1000230642/product/bsb004398xdg__2__cc74839870d743eda169ffebddbbcedd_1024x1024.jpg'),
+(188, 0, ''),
+(189, 19, 'https://product.hstatic.net/1000230642/product/deb010101trg__2__1d14e5c7ef184088bbeb33003f28d151_1024x1024.jpg'),
+(190, 0, ''),
+(191, 20, 'https://product.hstatic.net/1000230642/product/ttn_6844_50d2f558d2e74a1f8bd5dcb79a00fd87_1024x1024.jpg'),
+(192, 0, ''),
+(193, 21, 'https://product.hstatic.net/1000230642/product/bsg002600hog__2__7f24ad58575340ba87654040a82889bb_1024x1024.jpg'),
+(194, 0, ''),
+(195, 22, 'https://product.hstatic.net/1000230642/product/beg002200vag__4__270e08ca1e654a84b8ccedaae48618b7_1024x1024.jpg'),
+(196, 0, ''),
+(197, 23, 'https://product.hstatic.net/1000230642/product/beg001801vag__2__1f339d6856974ba3ac4df1471d1ddac1_1024x1024.jpg'),
+(198, 0, ''),
+(199, 24, 'https://product.hstatic.net/1000230642/product/giay-tap-di-be-gai-dtg003900cam-cam-u8nfg-color-cam_edbba01013b5474bade2182eb08b24ca_1024x1024.jpg'),
+(200, 67, 'anh 1'),
+(201, 67, 'anh 2'),
+(202, 67, 'anh chinh'),
+(203, 0, ''),
+(204, 67, 'anh 3');
 
 --
 -- Indexes for dumped tables
@@ -680,25 +795,25 @@ ALTER TABLE `subimage`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `description`
 --
 ALTER TABLE `description`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -722,19 +837,19 @@ ALTER TABLE `outstanding`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `subimage`
 --
 ALTER TABLE `subimage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- Constraints for dumped tables
