@@ -23,5 +23,33 @@ class NewProductRepository {
         }
         return $products;
     }   
+
+    function save($productId){
+        global $conn; 
+        $sql = "SELECT * FROM product WHERE id=$productId";
+        if($conn->query($sql)->num_rows > 0){
+            $newsql = "SELECT * FROM new WHERE productID=$productId";
+           if($conn->query($newsql)->num_rows > 0){
+            return false; 
+           }
+           $newsql = "INSERT INTO new (productID) VALUES ($productId)";
+           if($conn->query($newsql)){
+             return true; 
+           }
+           return false;
+        }
+        else{
+            return false; 
+        }
+    }
+
+    function delete($productId){
+        global $conn; 
+        $sql = "DELETE FROM new WHERE productID=$productId";
+        if($conn->query($sql)){
+            return true; 
+        }
+        return false;
+    }
 }
 ?>

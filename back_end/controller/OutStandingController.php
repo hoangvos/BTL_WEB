@@ -8,5 +8,30 @@ class OutStandingController{
       $result = json_encode($outStandingQuantity);
       echo ($result);
   }
+
+  function save(){
+    $outStandingRepository = new OutStandingRepository(); 
+
+    $productId = $_GET['productId'];
+    if($outStandingRepository->save($productId)){
+      echo json_decode("true"); 
+    } 
+    else{
+      echo json_decode("false"); 
+    }
+  }
+
+  function delete(){
+    $outStandingRepository = new OutStandingRepository(); 
+    $productId = $_GET['productId'];
+
+    if($outStandingRepository->delete($productId)){
+      echo json_decode("true"); 
+    } 
+    else{
+      echo json_decode("false"); 
+    }
+  }
+  
 } 
 ?>

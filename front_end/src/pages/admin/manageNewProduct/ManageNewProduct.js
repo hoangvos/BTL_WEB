@@ -2,15 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import style from './ManageProduct.module.css'
 import axios from 'axios';
 import Header from '../component/Header';
-import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachSanPhamAction } from '../../../redux/actions/ManageProductAction';
 import { Link, useNavigate } from 'react-router-dom';
-export default function ManageProduct() {
+export default function ManageNewProduct() {
   const navigate = useNavigate();
   const [arrProduct, setArrProduct] = useState([]);
 
   const fetchAllProducts = async () => {
-    const result = await axios.get(`http://localhost/BE/?c=product&a=list`);
+    const result = await axios.get(`http://localhost/BE/?c=newProduct&a=list&search`);
     // const newProducts = filterProducts(result.data, collectionName);
     setArrProduct(result.data);
   }
@@ -22,9 +20,9 @@ export default function ManageProduct() {
   const handleClickDelete = (product) => {
     if(window.confirm(`Bạn có chắc chắn muốn xóa ${product.ptitle}`) === false) return;
     axios
-      .delete(`http://localhost/BE/?c=product&a=delete&id=${product.id}`)
+      .delete(`http://localhost/BE/?c=newProduct&a=delete&productId=${product.id}`)
       .then((result) => {
-        if (result.data === 'thanh cong') {
+        if (result.data === '1' ) {
           if (window.confirm(`Xóa ${product.ptitle} thành công. \nNhấn đồng ý để reload lại trang`)) {
             window.location.reload();
           }
@@ -38,46 +36,13 @@ export default function ManageProduct() {
       navigate('/account/login');
     }
   }, [])
-  const handleClickAddToNewProduct = async (product) => {
-    await axios
-      .post(`http://localhost/BE/?c=newProduct&a=save&productId=${product.id}`)
-      .then((result) => {
-        if (result.data) {
-          alert(`Thêm ${product.ptitle} vào sản phẩm mới thành công.`)
-        } else {
-          alert(result.data);
-        }
-      })
-  }
-  const handleClickAddToDiscount = async (product) => {
-    await axios
-      .post(`http://localhost/BE/?c=discount&a=save&productId=${product.id}`)
-      .then((result) => {
-        if (result.data) {
-          alert(`Thêm ${product.ptitle} vào sản phẩm giả giá thành công.`)
-        } else {
-          alert(result.data);
-        }
-      })
-    
-  }
-  const handleClickAddToOutStanding = async (product) => {
-    await axios
-      .post(`http://localhost/BE/?c=outStanding&a=save&productId=${product.id}`)
-      .then((result) => {
-        if (result.data) {
-          alert(`Thêm ${product.ptitle} vào sản phẩm nổi bật thành công.`)
-        } else {
-          alert(result.data);
-        }
-      })
-  }
+
   return (
     <div className={style.container}>
-      <Header route={'manageProduct'}/>
+      <Header route={'manageNewProduct'}/>
       <div className={style.middle}>
         <div className={style.title}>
-          <h1>Quản lý sản phẩm</h1>
+          <h1>Quản lý sản phẩm mới</h1>
         </div>
         <div className={style.productContainer}>
           <table className="table table-bordered">
@@ -111,18 +76,7 @@ export default function ManageProduct() {
                   </Link>
                     
                     <button className="btn btn-danger" onClick={() => { handleClickDelete(product) }}>Delete</button><br/>
-                    <button
-                      className="btn btn-success mt-1"
-                      onClick={() => {handleClickAddToNewProduct(product)}}
-                    >New</button>
-                    <button
-                      className="btn btn-success mt-1"
-                      onClick={() => {handleClickAddToDiscount(product)}}
-                    >Discount</button>
-                    <button
-                      className="btn btn-success mt-1"
-                      onClick={() => {handleClickAddToOutStanding(product)}}
-                    >Out Standing</button>
+                    
                   </td>
                 </tr>
               })}

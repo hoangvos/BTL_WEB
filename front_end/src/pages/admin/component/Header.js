@@ -21,6 +21,21 @@ export default function Header({route}) {
             Quản lý sản phẩm
           </Link>
         </li>
+        <li className={route === 'manageDiscountProduct' && style.isActive}>
+          <Link to='/admin/manageDiscountProduct'>
+            Quản lý sản phẩm giảm giá
+          </Link>
+        </li>
+        <li className={route === 'manageNewProduct' && style.isActive}>
+          <Link to='/admin/manageNewProduct'>
+            Quản lý sản phẩm mới
+          </Link>
+        </li>
+        <li className={route === 'manageOutStandingProduct' && style.isActive}>
+          <Link to='/admin/manageOutStandingProduct'>
+            Quản lý sản phẩm nổi bật
+          </Link>
+        </li>
         <li className={route === 'manageUser' && style.isActive}>
           <Link to='/admin/manageUser'>
             Quản lý người dùng
@@ -31,7 +46,6 @@ export default function Header({route}) {
             Quản lý đơn hàng
           </Link>
         </li>
-        
       </ul>
     </div>
   )

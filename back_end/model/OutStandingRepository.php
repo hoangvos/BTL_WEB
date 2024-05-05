@@ -23,5 +23,34 @@ class OutStandingRepository {
         }
         return $products;
     }   
+
+
+    function save($productId){
+        global $conn; 
+        $sql = "SELECT * FROM product WHERE id=$productId";
+        if($conn->query($sql)->num_rows > 0){
+             $newsql = "SELECT * FROM outstanding WHERE productID=$productId";
+           if($conn->query($newsql)->num_rows > 0){
+            return false; 
+           }
+           $newsql = "INSERT INTO outstanding (productID) VALUES ($productId)";
+           if($conn->query($newsql)){
+             return true; 
+           }
+           return false;
+        }
+        else{
+            return false; 
+        }
+    }
+
+    function delete($productId){
+        global $conn; 
+        $sql = "DELETE FROM outstanding WHERE productID=$productId";
+        if($conn->query($sql)){
+            return true; 
+        }
+        return false;
+    }
 }
 ?>
