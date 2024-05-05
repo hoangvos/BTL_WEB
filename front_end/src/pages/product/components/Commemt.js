@@ -21,26 +21,6 @@ export default function Comment({ product }) {
 
   //fetch comment
   useEffect(() => {
-    // axios
-    //   .get(`http://localhost/BE/?c=comment&a=list&search=${product.id}`)
-    //   .then((result) => {
-    //     for (let i = 0; i < result.data.length; i++) {
-    //       const comment = result.data[i];
-    //       fetchUser(comment.a_id)
-    //         .then((data) => {
-    //           // console.log(data.fullname);
-    //           comment['fullname'] = data.fullname;
-    //         })
-    //     }
-    //     // result.data.forEach((comment, index) => {
-    //     //   fetchUser(comment.a_id)
-    //     //     .then((data) => {
-    //     //       // console.log(data.fullname);
-    //     //       comment['fullname'] = data.fullname;
-    //     //     })
-    //     // })      
-    //     setComments(result.data);
-    //   })
     axios
     .get(`http://localhost/BE/?c=comment&a=list&search=${product.id}`)
     .then((result) => {

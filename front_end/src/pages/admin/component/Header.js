@@ -12,7 +12,7 @@ export default function Header({route}) {
           </Link>
         </li>
         <li className={route === 'updateProduct' && style.isActive}>
-          <Link to='/admin/updateProduct'>
+          <Link to='/admin/manageProduct'>
             Cập nhật sản phẩm
           </Link>
         </li>

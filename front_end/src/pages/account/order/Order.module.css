@@ -7,6 +7,10 @@
   margin: 20px auto;
   gap: 20px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 .leftSide{
   background-color: #f6f6f6;
   width: fit-content;
@@ -37,6 +41,14 @@
 .leftSide > ul li{
   list-style: none;
   margin: 3px 0px;
+  
+  cursor: pointer;
+}
+.leftSide > ul li a:hover{
+  color: #1451bc;
+}
+
+.leftSide > ul li a{
   display: flex;
   flex-direction: row;  
   justify-content: flex-start;

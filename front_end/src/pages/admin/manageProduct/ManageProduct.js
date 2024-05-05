@@ -7,12 +7,17 @@ import { layDanhSachSanPhamAction } from '../../../redux/actions/ManageProductAc
 import { Link, useNavigate } from 'react-router-dom';
 export default function ManageProduct() {
   const navigate = useNavigate();
-  const { arrProduct } = useSelector(state => state.QuanLySanPhamReducer);
-  const dispatch = useDispatch();
+  const [arrProduct, setArrProduct] = useState([]);
+
+  const fetchAllProducts = async () => {
+    const result = await axios.get(`http://localhost/BE/?c=product&a=list`);
+    // const newProducts = filterProducts(result.data, collectionName);
+    setArrProduct(result.data);
+  }
+
   useEffect(() => {
-    const action = layDanhSachSanPhamAction();
-    dispatch(action); 
-  }, [dispatch])
+    fetchAllProducts();
+  }, [])
 
   const handleClickDelete = (product) => {
     axios
