@@ -46,7 +46,7 @@ img{
 
 @media only screen and (max-width: 990px){
   .imageContainer{
-    width: 80%;
+    width: 100%;
   }
 
 }
@@ -67,12 +67,7 @@ img{
   .subMainImage{
     display: flex;
   }
-  .imageContainer{
-    width: 90%;
-  }
+  
 }
 @media only screen and (max-width: 500px){
-  .imageContainer{
-    width: 98%;
-  }
 }

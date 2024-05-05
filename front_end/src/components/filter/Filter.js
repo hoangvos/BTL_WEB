@@ -23,32 +23,6 @@ export default function Filter({priceConstraint, setPriceConstraint, indexSortOp
       <div className={style.type}>
         <div className={style.optionContainer}>
           <div className={style.icon}><i className="bi bi-filter"></i></div>
-          {/* <div className={style.sizeContainer}>
-            <span>Kích thước</span>
-            <i
-              className="bi bi-caret-down"
-              onClick={() => setShowSizeOption(!showSizeOption)}
-            ></i>
-            {showSizeOption &&
-              <div className={style.size}>
-                {sizeOptions.map((size, index) =>{
-                  return (
-                    <div
-                      className={sizeConstraint.includes(size) && style.sizeActive}
-                      key={size}
-                      onClick={() => {
-                        if(sizeConstraint.includes(size)){
-                          setSizeConstraint(sizeConstraint.filter((item) => item != size))
-                        } else {
-                          setSizeConstraint([...sizeConstraint, size])
-                        }
-                      }}
-                    >{size}</div> 
-                  )})
-                }
-              </div>
-            }
-          </div> */}
           <div className={style.priceContainer}>
             <span>Giá</span>
             <i

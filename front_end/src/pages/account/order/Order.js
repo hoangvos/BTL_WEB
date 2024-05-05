@@ -37,8 +37,6 @@ export default function Order() {
 
   }, [])
 
-
-  console.log(cartProducts);
   const navigate = useNavigate();
   if (localStorage.getItem('role') !== 'user' && localStorage.getItem('role') !== 'admin') {
     navigate('/account/userInfor');
@@ -84,7 +82,7 @@ export default function Order() {
           <thead>
             <tr>
               <th scope="col">Mã đơn</th>
-              <th scope="col">Tên sản phẩm</th>
+              <th scope="col" className={style.productName}>Tên sản phẩm</th>
               <th scope="col">Size</th>
               <th scope="col">Số lượng</th>
               <th scope="col">Tổng tiền</th>
@@ -95,8 +93,8 @@ export default function Order() {
             {cartProducts.map((cartProduct, index) => {
               return (
                 <tr>
-                  <th scope="row">{cartProduct.id}</th>
-                  <td>{cartProduct.ptitle}</td>
+                  <th scope="row"><Link to={`/products/${cartProduct.p_id}`}> {cartProduct.id}</Link></th>
+                  <td className={style.productName}><Link to={`/products/${cartProduct.p_id}`}> {cartProduct.ptitle}</Link></td>
                   <td>{cartProduct.size}</td>
                   <td>{cartProduct.sl}</td>
                   <td>{formatter.format(cartProduct.sl * cartProduct.pprice)}</td>

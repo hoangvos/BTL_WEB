@@ -9,7 +9,7 @@ export default function GridItems({ products }) {
   const [priceConstraint, setPriceConstraint] = useState([0, 2000000])
   const [indexSortOption, setIndexSortOption] = useState(-1);
   const [displayProducts, setDisplayProducts] = useState([]);
-
+  // console.log(products);
   useEffect(() => {
     setDisplayProducts(products);
   }, [])
@@ -52,7 +52,7 @@ export default function GridItems({ products }) {
   
     return sortedProducts;
   }, [indexSortOption]);
-
+  console.log('displayProducts', displayProducts);
   return (
     <>
       <Filter

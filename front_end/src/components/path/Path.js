@@ -84,8 +84,17 @@ export default function Path({ collectionName }) {
     case "be-gai-tap-di":
       namePath = "Giày tập đi Bé Gái";
       break
+    case 'moi':
+      namePath = "Sản Phẩm Mới";
+      break
+    case 'giam-gia':
+      namePath = "Sản Phẩm Giảm Giá";
+      break
+    case 'noi-bat':
+      namePath = "Sản Phẩm Nổi Bật";
+      break
     default:
-      namePath = "Lỗi";
+      namePath = collectionName;
   }
   const [paths, setPaths] = useState(['Trang Chủ', 'Danh Mục', namePath])
   useEffect(() => {

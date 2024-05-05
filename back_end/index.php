@@ -26,6 +26,12 @@ require "model/Description.php";
 require "model/DescriptionRepository.php";
 require "model/SubImage.php";
 require "model/SubImageRepository.php";
+require "model/Discount.php";
+require "model/DiscountRepository.php";
+require "model/NewProduct.php";
+require "model/NewProductRepository.php";
+require "model/OutStanding.php";
+require "model/OutStandingRepository.php";
 //router
 $c = $_GET["c"] ?? "user";
 $a = $_GET["a"] ?? "list";

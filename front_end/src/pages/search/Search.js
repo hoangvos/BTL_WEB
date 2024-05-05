@@ -3,6 +3,7 @@ import style from './Search.module.css';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Product from '../../components/product/Product';
+import GridItems from '../../components/gridItems/GridItems';
 
 export default function Search() {
   const searchTerm = useParams().searchTerm;
@@ -19,9 +20,9 @@ export default function Search() {
     <>
       <div className={style.titleContainer}>
         <h3>Tìm kiếm</h3>
-        <h4>Có <strong>{arrProduct.length}</strong> sản phẩm cho "{searchTerm}"</h4>
+        <h4>Có <strong>{arrProduct.length} sản phẩm</strong>  cho "{searchTerm}"</h4>
       </div>
-      <div className={`flex-column justify-content-center align-items-center`}>
+      {/* <div className={`flex-column justify-content-center align-items-center`}>
         <div className={`${style.gridContainer} mx-auto`}>
           {arrProduct.map((product) => {
             return (
@@ -31,7 +32,11 @@ export default function Search() {
             );
           })}
         </div>
-      </div >
+      </div > */}
+      <GridItems
+        // collectionName={collectionName}
+        products={arrProduct}
+      />
     </>
   )
 }

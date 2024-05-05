@@ -31,21 +31,21 @@ class CartController {
         $data = json_decode(file_get_contents("php://input"));
         
         $cartRepository = new CartRepository();
-        if ($cartRepository->productExistsInCart($data->p_id, $data->a_id, $data->size)) {
-            // Product exists, update quantity
-            if ($cartRepository->updateProductQuantity($data->a_id, $data->p_id, $data->sl, $data->size)) {
-                echo json_encode("true");
-                $_SESSION["success"] = "Số lượng sản phẩm đã được cập nhật trong giỏ hàng";
-            } else {
-                $_SESSION["error"] = "Không thể cập nhật số lượng sản phẩm";
-            }
+        // if ($cartRepository->productExistsInCart($data->p_id, $data->a_id, $data->size)) {
+        //     // Product exists, update quantity
+        //     if ($cartRepository->updateProductQuantity($data->a_id, $data->p_id, $data->sl, $data->size)) {
+        //         echo json_encode("true");
+        //         $_SESSION["success"] = "Số lượng sản phẩm đã được cập nhật trong giỏ hàng";
+        //     } else {
+        //         $_SESSION["error"] = "Không thể cập nhật số lượng sản phẩm";
+        //     }
+        // } else {
+        // }
+        if ($cartRepository->save($data)) {
+            echo json_encode("true");
+            $_SESSION["success"] = "Đã thêm sản phẩm vào giỏ hàng thành công";
         } else {
-            if ($cartRepository->save($data)) {
-                echo json_encode("true");
-                $_SESSION["success"] = "Đã thêm sản phẩm vào giỏ hàng thành công";
-            } else {
-                $_SESSION["error"] = $cartRepository->error;
-            }
+            $_SESSION["error"] = $cartRepository->error;
         }
     }   
 

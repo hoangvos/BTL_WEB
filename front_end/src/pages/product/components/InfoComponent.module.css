@@ -198,19 +198,16 @@
 
 @media only screen and (max-width: 990px){
   .infoContainer{
-    width: 80%;
+    width: 100%;
     padding-left: 0px;
   }
 }
 @media only screen and (max-width: 760px){
-  .infoContainer{
-    width: 90%;
-    padding-left: 0px;
-  }
+  
 }
 @media only screen and (max-width: 500px){
-  .infoContainer{
-    width: 98%;
-    padding-left: 0px;
+  .datMuaContainer{
+    flex-direction: column;
+    gap: 10px;
   }
 }

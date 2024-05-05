@@ -23,25 +23,42 @@ export default function Collection() {
   
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
-  const fetchAllProducts = async () => {
-    const result = await axios.get(`http://localhost/BE/?c=product&a=list`);
+  const fetchAllProducts = async (url) => {
+    const result = await axios.get(url);
     // const newProducts = filterProducts(result.data, collectionName);
-    
     setAllProducts(result.data);
   }
+  // console.log(collectionName);
   // console.log('allProducts', allProducts);
   // console.log('products', products);
   useEffect(() => {
-    fetchAllProducts();
+    if (collectionName === 'giam-gia') {
+      console.log('giam-gia');
+      fetchAllProducts(`http://localhost/BE/?c=discount&a=list&search`);
+    } else if (collectionName === 'moi') {
+      fetchAllProducts(`http://localhost/BE/?c=newProduct&a=list&search`);
+    } else if (collectionName === 'noi-bat') {
+      fetchAllProducts(`http://localhost/BE/?c=outStanding&a=list&search`);
+    } else {
+      fetchAllProducts(`http://localhost/BE/?c=product&a=list`);
+    }
   }, [])
 
   useEffect(() => {
+    if (collectionName === 'giam-gia' || collectionName === 'moi' || collectionName === 'noi-bat') {
+      setProducts(allProducts);
+      return;
+    }
     const newProducts = filterProducts(allProducts, collectionName);
     // console.log(newProducts);
     setProducts(newProducts);
   }, [allProducts])
 
   useEffect(() => {
+    if (collectionName === 'giam-gia' || collectionName === 'moi' || collectionName === 'noi-bat') {
+      setProducts(allProducts);
+      return;
+    }
     const newProducts = filterProducts(allProducts, collectionName);
     // console.log(newProducts);
     setProducts(newProducts);
@@ -54,9 +71,7 @@ export default function Collection() {
       <CategoryComponent name={collectionName} />
       
       <GridItems
-        // collectionName={collectionName}
         products={products}
-        setProducts={setProducts}
       />
 
     </>

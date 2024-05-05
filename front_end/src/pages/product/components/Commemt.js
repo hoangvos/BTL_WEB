@@ -80,9 +80,7 @@ export default function Comment({ product }) {
   
   return (
     { product } ?
-      <div className={`${style.comment_container} container`}>
-
-        <div className="row">
+      <div className={`${style.comment_container}`}>
           <div className={`${style.comment_form} col-4 pt-3 border-right `}>
             <h5>Đánh giá của bạn về sản phẩm này</h5>
 
@@ -107,7 +105,6 @@ export default function Comment({ product }) {
               </div>
             ))}
           </div>
-        </div>
       </div>
       :
       <h1>Product is empty</h1>

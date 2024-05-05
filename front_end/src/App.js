@@ -14,16 +14,8 @@ import Search from './pages/search/Search';
 import UserInfor from './pages/account/user/UserInfor';
 import Order from './pages/account/order/Order';
 import ManageUser from './pages/admin/manageUser/ManageUser';
-import { useDispatch, useSelector } from 'react-redux';
-import { layDanhSachSanPhamAction } from './redux/actions/ManageProductAction';
-import { useEffect } from 'react';
-
-
-
+import ManageOrder from './pages/admin/manageOrder/ManageOrder';
 function App() {
-
-  
-
   return (
     <>
       <CartProvider>
@@ -35,6 +27,7 @@ function App() {
             <Route path="manageProduct" element={<ManageProduct />} />
             <Route path="updateProduct/:productID" element={<UpdateProduct />} />
             <Route path="manageUser" element={<ManageUser />} />
+            <Route path='manageOrder' element={<ManageOrder />} />
           </Route>
 
           <Route path='/' element={<Layout />} >

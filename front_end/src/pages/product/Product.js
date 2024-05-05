@@ -9,7 +9,6 @@ import Comment from './components/Commemt';
 export default function Product() {
   const { productID } = useParams();
   const [product, setProduct] = useState(undefined);
-  const paths = ['Trang Chủ', 'Tất cả sản phẩm', product ? product.ptitle : 'Product'];
   const fetchData = async () => {
     try {
       const res = await fetch(`http://localhost/BE/?c=product&a=list&search=${productID}`, {
@@ -29,7 +28,7 @@ export default function Product() {
   }, []);
   return (
     <>
-      <Path paths={paths}/>
+      <Path collectionName={product ? product.ptitle : 'Product'}/>
       {product ? 
         <>
           <div className={style.container}>

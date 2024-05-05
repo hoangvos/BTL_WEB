@@ -6,7 +6,10 @@ import { CartContext } from '../../../context/CartContext';
 export default function InfoComponent({ product }) {
   const { updateCartProducts } = useContext(CartContext);
   const [sizes, setSizes] = useState(undefined);
-
+  let formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND'
+  });
   const fetchData = async () => {
     try {
       const res = await fetch(`http://localhost/BE/?c=size&a=list&search=${product.id}`, {
@@ -59,7 +62,7 @@ export default function InfoComponent({ product }) {
         {product.ptitle}
       </div>
       <div className={style.price}>
-        {product.pprice} ₫
+        {formatter.format(product.pprice)}
       </div>
       <div className={style.status}>
         Tình trạng: 
@@ -93,10 +96,10 @@ export default function InfoComponent({ product }) {
         <button onClick={handleClickIncreaseSoLuong}>+</button>
       </div>
       <div className={style.datMuaContainer}>
-          <div className={style.datMua}>
-            <div className={style.colorHover}></div>
-            <button onClick={handleClickDatMua}>ĐẶT MUA ONLINE</button>
-          </div>
+        <div className={style.datMua}>
+          <div className={style.colorHover}></div>
+          <button onClick={handleClickDatMua}>ĐẶT MUA ONLINE</button>
+        </div>
         <div className={style.tuVan}>
           <button disabled>TƯ VẤN: <span>0366592599</span></button>
         </div>
