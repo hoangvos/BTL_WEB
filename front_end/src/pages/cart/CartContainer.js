@@ -3,31 +3,57 @@ import style from './Cart.module.css';
 import CartProduct from './CartProduct';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import Cookies from 'js-cookie';
 
 export default function CartContainer({ cartProducts, updateCartProducts, totalPrice, nItem }) {
-  const navigate = useNavigate();
-  const handleClickSubmitBuy = () => {
-    if (localStorage.getItem('role') === 'user') {
-      cartProducts.forEach((cartProduct) => {
-        const product = cartProduct.product;
-        const formData = {
-          sl : product.soLuong,
-          a_id : localStorage.getItem('id'),
-          p_id: product.product.id,
-          size: product.size
+  const updateSoLuongSize = async (sizeID, soluong) => {
+    await axios
+      .get(`http://localhost/BE/?c=size&a=minus&id=${sizeID}&sl=${soluong}`)
+      .then((result) => { 
+        if (result.data === 'true') {
+          Cookies.remove(`cart${sizeID}`);
+          return true;
+        } else {
+          return false;
         }
-        console.log(formData);
-        axios
-          .post(`http://localhost/BE/?c=cart&a=save`, formData)
-          .then((result) => {
-            if (result.data === 'true') {
-              alert('Mua hàng thành công');
-            } else {
-              alert('Mua hàng thất bại');
-            }
-          })
-      });
+      })
+  }
+
+  const postCart = async (cartProduct) => {
+    const sizeID = cartProduct.sizeID
+    const product = cartProduct.product;
+    const soluong = product.soLuong;
+    const formData = {
+      sl: product.soLuong,
+      a_id: localStorage.getItem('id'),
+      p_id: product.product.id,
+      size: product.size
+    }
+    await axios
+      .post(`http://localhost/BE/?c=cart&a=save`, formData)
+      .then(async (result) => {
+        if (result.data === 'true') {
+          // call api decrease size      
+          await updateSoLuongSize(sizeID, soluong);
+          Cookies.remove(`cart${sizeID}`);
+          return true;
+        } else {
+          return false;
+        }
+      })
+  }
+
+  
+  const navigate = useNavigate();
+  const handleClickSubmitBuy = async() => {
+    if(window.confirm('Xác nhận mua hàng') === false) return;
+    if (localStorage.getItem('role') === 'user') {
+      for (let i = 0; i < cartProducts.length; i++) {
+        const cartProduct = cartProducts[i];
+        await postCart(cartProduct);
+      }
+      updateCartProducts([]);
+      window.location.reload();
     } else {
       navigate('/account/login')
     }

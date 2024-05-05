@@ -14,10 +14,16 @@ import Search from './pages/search/Search';
 import UserInfor from './pages/account/user/UserInfor';
 import Order from './pages/account/order/Order';
 import ManageUser from './pages/admin/manageUser/ManageUser';
+import { useDispatch, useSelector } from 'react-redux';
+import { layDanhSachSanPhamAction } from './redux/actions/ManageProductAction';
+import { useEffect } from 'react';
 
 
 
 function App() {
+
+  
+
   return (
     <>
       <CartProvider>

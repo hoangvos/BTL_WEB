@@ -100,13 +100,13 @@ export default function CategoryComponent({ name }) {
     "BÉ TRAI",
     [
       new CategoryChildren(
-        "Giày Thể Thao",
-        "https://theme.hstatic.net/1000230642/1001205219/14/giay-the-thao-be-trai.svg?v=612",
-        "/collections/be-trai-the-thao"),
-      new CategoryChildren(
         "Sandal",
         "https://theme.hstatic.net/1000230642/1001205219/14/sandal-be-trai.svg?v=612",
         "/collections/be-trai-sandal"),
+      new CategoryChildren(
+        "Giày Thể Thao",
+        "https://theme.hstatic.net/1000230642/1001205219/14/giay-the-thao-be-trai.svg?v=612",
+        "/collections/be-trai-the-thao"),
       new CategoryChildren(
         "Dép",
         "https://theme.hstatic.net/1000230642/1001205219/14/dep-be-trai.svg?v=612",
@@ -206,20 +206,24 @@ export default function CategoryComponent({ name }) {
         setIndexActive([0, 1]);
         setCategories([womenCategory]);
         break;
-      case 'nu-thoi-trang':
+      case 'nu-bup-be':
         setIndexActive([0, 2]);
         setCategories([womenCategory]);
         break;
-      case 'nu-chay-bo':	
+      case 'nu-thoi-trang':
         setIndexActive([0, 3]);
         setCategories([womenCategory]);
         break;
-      case 'nu-the-thao':
+      case 'nu-chay-bo':	
         setIndexActive([0, 4]);
         setCategories([womenCategory]);
         break;
-      case 'nu-dep':
+      case 'nu-the-thao':
         setIndexActive([0, 5]);
+        setCategories([womenCategory]);
+        break;
+      case 'nu-dep':
+        setIndexActive([0, 6]);
         setCategories([womenCategory]);
         break;
       

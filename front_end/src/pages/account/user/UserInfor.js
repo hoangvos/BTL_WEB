@@ -22,7 +22,12 @@ export default function UserInfor() {
         <i className="bi bi-person-circle"></i>
         <div>Xin Chào <span>{localStorage.getItem('fullname')}</span></div>
         <ul>
-          <li><i className="bi bi-person-circle"></i>Thông tin tài khoản</li>
+          <li>
+            <Link to='/account/order'>
+
+              <i className="bi bi-person-circle"></i>Thông tin tài khoản
+            </Link>
+          </li>
           <li>
             <Link to='/account/order'>
               <i className="bi bi-kanban"></i>Quản lý đơn hàng
@@ -30,7 +35,11 @@ export default function UserInfor() {
           </li>
           <li
             onClick={() =>{handleClickLogout()}}
-          ><i className="bi bi-box-arrow-right"></i>Đăng xuất</li>
+          >
+            <Link to='/account/order'>
+              <i className="bi bi-box-arrow-right"></i>Đăng xuất
+            </Link>
+          </li>
         </ul>
       </div>
       <div className={style.rightSide}>

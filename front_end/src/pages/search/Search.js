@@ -14,7 +14,7 @@ export default function Search() {
         setArrProduct(res.data);
       })
   }, [])
-  console.log(arrProduct);
+  // console.log(arrProduct);
   return (
     <>
       <div className={style.titleContainer}>
