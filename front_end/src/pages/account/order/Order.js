@@ -83,7 +83,7 @@ export default function Order() {
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">Mã đơn</th>
               <th scope="col">Tên sản phẩm</th>
               <th scope="col">Size</th>
               <th scope="col">Số lượng</th>
@@ -95,7 +95,7 @@ export default function Order() {
             {cartProducts.map((cartProduct, index) => {
               return (
                 <tr>
-                  <th scope="row">{index+1}</th>
+                  <th scope="row">{cartProduct.id}</th>
                   <td>{cartProduct.ptitle}</td>
                   <td>{cartProduct.size}</td>
                   <td>{cartProduct.sl}</td>
